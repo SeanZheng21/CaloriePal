@@ -1,0 +1,22 @@
+[
+    {
+        "id":1,
+        "caloriePerUnit":100,
+        "name":"Chicken Noodle",
+        "nutrient":{
+            "sodium":473.9,
+            "sugars":1.4,
+            "satFat":1,
+            "carbs":12.6,
+            "fat":1.5,
+            "protein":9,
+            "cholesterol":12.2,
+            "fiber":1.9
+        },
+        "amount": {
+            "amount":1,
+            "multiplier":1,
+            "unit":"cup"
+        }
+    }
+]

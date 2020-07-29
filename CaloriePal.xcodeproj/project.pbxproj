@@ -7,14 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF7B26DC24D0FC6D007167C5 /* foodData.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7B26DB24D0FC6D007167C5 /* foodData.json */; };
+		FF7B26DE24D0FD3A007167C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B26DD24D0FD3A007167C5 /* Data.swift */; };
+		FF7B26E124D0FEBF007167C5 /* FoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B26E024D0FEBF007167C5 /* FoodTests.swift */; };
+		FF7B26E424D10889007167C5 /* Chicken Noodle.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7B26E324D10889007167C5 /* Chicken Noodle.png */; };
 		FF85CE9524D0131A00E21F0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CE9424D0131A00E21F0C /* AppDelegate.swift */; };
 		FF85CE9724D0131A00E21F0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CE9624D0131A00E21F0C /* SceneDelegate.swift */; };
 		FF85CE9A24D0131A00E21F0C /* CaloriePal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF85CE9824D0131A00E21F0C /* CaloriePal.xcdatamodeld */; };
-		FF85CE9C24D0131A00E21F0C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CE9B24D0131A00E21F0C /* ContentView.swift */; };
+		FF85CE9C24D0131A00E21F0C /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CE9B24D0131A00E21F0C /* FoodView.swift */; };
 		FF85CE9E24D0131B00E21F0C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF85CE9D24D0131B00E21F0C /* Assets.xcassets */; };
 		FF85CEA124D0131B00E21F0C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF85CEA024D0131B00E21F0C /* Preview Assets.xcassets */; };
 		FF85CEA424D0131B00E21F0C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF85CEA224D0131B00E21F0C /* LaunchScreen.storyboard */; };
 		FF85CEAF24D0131B00E21F0C /* CaloriePalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CEAE24D0131B00E21F0C /* CaloriePalTests.swift */; };
+		FF85CEBC24D01B9200E21F0C /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CEBB24D01B9200E21F0C /* Food.swift */; };
+		FF85CEBE24D01D0C00E21F0C /* Nutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CEBD24D01D0C00E21F0C /* Nutrient.swift */; };
+		FF85CEC024D0211000E21F0C /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CEBF24D0211000E21F0C /* FoodType.swift */; };
+		FF85CEC224D021E600E21F0C /* FoodAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CEC124D021E600E21F0C /* FoodAmount.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,11 +36,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF7B26DB24D0FC6D007167C5 /* foodData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = foodData.json; sourceTree = "<group>"; };
+		FF7B26DD24D0FD3A007167C5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		FF7B26E024D0FEBF007167C5 /* FoodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTests.swift; sourceTree = "<group>"; };
+		FF7B26E324D10889007167C5 /* Chicken Noodle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chicken Noodle.png"; sourceTree = "<group>"; };
 		FF85CE9124D0131A00E21F0C /* CaloriePal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaloriePal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF85CE9424D0131A00E21F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF85CE9624D0131A00E21F0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FF85CE9924D0131A00E21F0C /* CaloriePal.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CaloriePal.xcdatamodel; sourceTree = "<group>"; };
-		FF85CE9B24D0131A00E21F0C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		FF85CE9B24D0131A00E21F0C /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 		FF85CE9D24D0131B00E21F0C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FF85CEA024D0131B00E21F0C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		FF85CEA324D0131B00E21F0C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -40,6 +52,10 @@
 		FF85CEAA24D0131B00E21F0C /* CaloriePalTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CaloriePalTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF85CEAE24D0131B00E21F0C /* CaloriePalTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaloriePalTests.swift; sourceTree = "<group>"; };
 		FF85CEB024D0131B00E21F0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF85CEBB24D01B9200E21F0C /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		FF85CEBD24D01D0C00E21F0C /* Nutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrient.swift; sourceTree = "<group>"; };
+		FF85CEBF24D0211000E21F0C /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
+		FF85CEC124D021E600E21F0C /* FoodAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAmount.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +76,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FF7B26DA24D0FC29007167C5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FF7B26E224D10876007167C5 /* Food Icons */,
+				FF7B26DB24D0FC6D007167C5 /* foodData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FF7B26DF24D0FEA0007167C5 /* ModelsTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF7B26E024D0FEBF007167C5 /* FoodTests.swift */,
+			);
+			path = ModelsTests;
+			sourceTree = "<group>";
+		};
+		FF7B26E224D10876007167C5 /* Food Icons */ = {
+			isa = PBXGroup;
+			children = (
+				FF7B26E324D10889007167C5 /* Chicken Noodle.png */,
+			);
+			path = "Food Icons";
+			sourceTree = "<group>";
+		};
 		FF85CE8824D0131A00E21F0C = {
 			isa = PBXGroup;
 			children = (
@@ -81,9 +122,11 @@
 		FF85CE9324D0131A00E21F0C /* CaloriePal */ = {
 			isa = PBXGroup;
 			children = (
+				FF7B26DA24D0FC29007167C5 /* Resources */,
+				FF85CEB924D01B5A00E21F0C /* Models */,
 				FF85CE9424D0131A00E21F0C /* AppDelegate.swift */,
 				FF85CE9624D0131A00E21F0C /* SceneDelegate.swift */,
-				FF85CE9B24D0131A00E21F0C /* ContentView.swift */,
+				FF85CE9B24D0131A00E21F0C /* FoodView.swift */,
 				FF85CE9D24D0131B00E21F0C /* Assets.xcassets */,
 				FF85CEA224D0131B00E21F0C /* LaunchScreen.storyboard */,
 				FF85CEA524D0131B00E21F0C /* Info.plist */,
@@ -104,10 +147,23 @@
 		FF85CEAD24D0131B00E21F0C /* CaloriePalTests */ = {
 			isa = PBXGroup;
 			children = (
+				FF7B26DF24D0FEA0007167C5 /* ModelsTests */,
 				FF85CEAE24D0131B00E21F0C /* CaloriePalTests.swift */,
 				FF85CEB024D0131B00E21F0C /* Info.plist */,
 			);
 			path = CaloriePalTests;
+			sourceTree = "<group>";
+		};
+		FF85CEB924D01B5A00E21F0C /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF85CEBB24D01B9200E21F0C /* Food.swift */,
+				FF85CEBD24D01D0C00E21F0C /* Nutrient.swift */,
+				FF85CEBF24D0211000E21F0C /* FoodType.swift */,
+				FF85CEC124D021E600E21F0C /* FoodAmount.swift */,
+				FF7B26DD24D0FD3A007167C5 /* Data.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,9 +247,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF7B26E424D10889007167C5 /* Chicken Noodle.png in Resources */,
 				FF85CEA424D0131B00E21F0C /* LaunchScreen.storyboard in Resources */,
 				FF85CEA124D0131B00E21F0C /* Preview Assets.xcassets in Resources */,
 				FF85CE9E24D0131B00E21F0C /* Assets.xcassets in Resources */,
+				FF7B26DC24D0FC6D007167C5 /* foodData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -213,8 +271,13 @@
 			files = (
 				FF85CE9524D0131A00E21F0C /* AppDelegate.swift in Sources */,
 				FF85CE9A24D0131A00E21F0C /* CaloriePal.xcdatamodeld in Sources */,
-				FF85CE9C24D0131A00E21F0C /* ContentView.swift in Sources */,
+				FF85CEBE24D01D0C00E21F0C /* Nutrient.swift in Sources */,
+				FF85CEBC24D01B9200E21F0C /* Food.swift in Sources */,
+				FF85CE9C24D0131A00E21F0C /* FoodView.swift in Sources */,
+				FF85CEC024D0211000E21F0C /* FoodType.swift in Sources */,
 				FF85CE9724D0131A00E21F0C /* SceneDelegate.swift in Sources */,
+				FF7B26DE24D0FD3A007167C5 /* Data.swift in Sources */,
+				FF85CEC224D021E600E21F0C /* FoodAmount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +286,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF85CEAF24D0131B00E21F0C /* CaloriePalTests.swift in Sources */,
+				FF7B26E124D0FEBF007167C5 /* FoodTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
