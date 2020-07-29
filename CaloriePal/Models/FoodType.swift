@@ -8,8 +8,8 @@
 
 import Foundation
 
-enum FoodType {
-    case each
-    case drink
-    case serving
+enum FoodType: String, CaseIterable, Codable, Hashable {
+    case each = "each"
+    case drink = "drink"
+    case weight = "weight"
 }

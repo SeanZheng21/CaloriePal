@@ -3,6 +3,7 @@
         "id":1,
         "caloriePerUnit":100,
         "name":"Chicken Noodle",
+        "type": "drink",
         "nutrient":{
             "sodium":473.9,
             "sugars":1.4,

@@ -14,6 +14,7 @@ struct Food: Hashable, Codable, Identifiable {
     private(set) var nutrient: Nutrient
     private(set) var caloriePerUnit: Int
     private(set) var amount: FoodAmount
+    private(set) var type: FoodType
     
     static func == (lhs: Food, rhs: Food) -> Bool {
         lhs.id == rhs.id
