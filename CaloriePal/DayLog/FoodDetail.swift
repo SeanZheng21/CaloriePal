@@ -10,7 +10,7 @@ import Foundation
 import SwiftUI
 
 class FoodDetail: ObservableObject {
-    @Published private var food: Food
+    @Published var food: Food
     private var unitOptions: [FoodUnit] = [.each, .ounce, .pound]
     private static var decimalOptions: [Float] = [0, 0.125, 0.25, 0.33, 0.5,
                                                   0.66, 0.75, 0.875]
@@ -18,6 +18,10 @@ class FoodDetail: ObservableObject {
     init(food: Food) {
         self.food = food
         self.unitOptions = food.type.foodUnits()
+    }
+    
+    func notifySaveFood() -> Void {
+        objectWillChange.send()
     }
     
     var foodName: String {

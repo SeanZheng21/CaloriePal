@@ -42,6 +42,9 @@
 		FF85CEBE24D01D0C00E21F0C /* Nutrient.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CEBD24D01D0C00E21F0C /* Nutrient.swift */; };
 		FF85CEC024D0211000E21F0C /* FoodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CEBF24D0211000E21F0C /* FoodType.swift */; };
 		FF85CEC224D021E600E21F0C /* FoodAmount.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CEC124D021E600E21F0C /* FoodAmount.swift */; };
+		FF965F3E24D2709F006A1AF6 /* Meal.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF965F3D24D2709F006A1AF6 /* Meal.swift */; };
+		FF965F4024D27248006A1AF6 /* MealList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF965F3F24D27248006A1AF6 /* MealList.swift */; };
+		FF965F4224D27441006A1AF6 /* MealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF965F4124D27441006A1AF6 /* MealTests.swift */; };
 		FFABAF6924D161CB0071EBA2 /* FoodConvertionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABAF6824D161CB0071EBA2 /* FoodConvertionTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +98,9 @@
 		FF85CEBD24D01D0C00E21F0C /* Nutrient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nutrient.swift; sourceTree = "<group>"; };
 		FF85CEBF24D0211000E21F0C /* FoodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodType.swift; sourceTree = "<group>"; };
 		FF85CEC124D021E600E21F0C /* FoodAmount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAmount.swift; sourceTree = "<group>"; };
+		FF965F3D24D2709F006A1AF6 /* Meal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Meal.swift; sourceTree = "<group>"; };
+		FF965F3F24D27248006A1AF6 /* MealList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealList.swift; sourceTree = "<group>"; };
+		FF965F4124D27441006A1AF6 /* MealTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTests.swift; sourceTree = "<group>"; };
 		FFABAF6824D161CB0071EBA2 /* FoodConvertionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodConvertionTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -119,6 +125,7 @@
 		FF01FB9A24D2628900EDA410 /* DayLog */ = {
 			isa = PBXGroup;
 			children = (
+				FF965F3F24D27248006A1AF6 /* MealList.swift */,
 				FF07779124D25881002D68A7 /* MealListView.swift */,
 				FF4F74BD24D148AF0021C10A /* FoodDetail.swift */,
 				FF85CE9B24D0131A00E21F0C /* FoodDetailView.swift */,
@@ -168,6 +175,7 @@
 			children = (
 				FF7B26E024D0FEBF007167C5 /* FoodTests.swift */,
 				FFABAF6824D161CB0071EBA2 /* FoodConvertionTests.swift */,
+				FF965F4124D27441006A1AF6 /* MealTests.swift */,
 			);
 			path = ModelsTests;
 			sourceTree = "<group>";
@@ -204,8 +212,8 @@
 		FF85CE9324D0131A00E21F0C /* CaloriePal */ = {
 			isa = PBXGroup;
 			children = (
-				FF01FB9B24D262A600EDA410 /* Supporting Views */,
 				FF7B26DA24D0FC29007167C5 /* Resources */,
+				FF01FB9B24D262A600EDA410 /* Supporting Views */,
 				FF85CEB924D01B5A00E21F0C /* Models */,
 				FF01FB9A24D2628900EDA410 /* DayLog */,
 				FF85CE9D24D0131B00E21F0C /* Assets.xcassets */,
@@ -246,6 +254,7 @@
 				FF85CEC124D021E600E21F0C /* FoodAmount.swift */,
 				FF7B26DD24D0FD3A007167C5 /* Data.swift */,
 				FF07778F24D257C9002D68A7 /* MealType.swift */,
+				FF965F3D24D2709F006A1AF6 /* Meal.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -368,10 +377,12 @@
 				FF4F74BE24D148AF0021C10A /* FoodDetail.swift in Sources */,
 				FF01FB9F24D2638900EDA410 /* PageViewController.swift in Sources */,
 				FF85CE9524D0131A00E21F0C /* AppDelegate.swift in Sources */,
+				FF965F3E24D2709F006A1AF6 /* Meal.swift in Sources */,
 				FF85CE9A24D0131A00E21F0C /* CaloriePal.xcdatamodeld in Sources */,
 				FF01FBA324D2687900EDA410 /* ServingSizeView.swift in Sources */,
 				FF85CEBE24D01D0C00E21F0C /* Nutrient.swift in Sources */,
 				FF01FB9D24D2637A00EDA410 /* PageView.swift in Sources */,
+				FF965F4024D27248006A1AF6 /* MealList.swift in Sources */,
 				FF07779024D257C9002D68A7 /* MealType.swift in Sources */,
 				FF85CEBC24D01B9200E21F0C /* Food.swift in Sources */,
 				FF85CE9C24D0131A00E21F0C /* FoodDetailView.swift in Sources */,
@@ -388,6 +399,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF965F4224D27441006A1AF6 /* MealTests.swift in Sources */,
 				FFABAF6924D161CB0071EBA2 /* FoodConvertionTests.swift in Sources */,
 				FF85CEAF24D0131B00E21F0C /* CaloriePalTests.swift in Sources */,
 				FF7B26E124D0FEBF007167C5 /* FoodTests.swift in Sources */,

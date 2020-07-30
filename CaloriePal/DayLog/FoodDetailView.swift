@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct FoodDetailView: View {
+    @Environment(\.presentationMode) var presentation
+    @EnvironmentObject var mealList: MealList
     @ObservedObject var foodDetail: FoodDetail
     
     var unitOptions: [String]
@@ -159,8 +161,18 @@ struct FoodDetailView: View {
                 }
                 Spacer()
             }
-                .padding(.top)
+            .padding(.top)
+            .navigationBarTitle("Edit Food")
+            .navigationBarItems(trailing: Button("Done"){
+                self.saveFood()
+                self.presentation.wrappedValue.dismiss()
+            })
         }
+    }
+    
+    private func saveFood() -> Void {
+        mealList.setFood(food: self.foodDetail.food)
+        self.foodDetail.notifySaveFood()
     }
     
     var transition: AnyTransition {
