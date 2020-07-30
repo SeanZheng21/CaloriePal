@@ -22,53 +22,34 @@ struct MealListView: View {
                     Image(systemName: "chevron.right")
                         .imageScale(.large)
                 }
-                Button(action: {
-                    print(self.mealList.foods[0])
-                    print(self.mealList.foods[1])
-                }) {
-                    Text("Print")
-                }
-
                 List {
-                    ForEach(mealList.foods, id: \.self.id) { food in
+                    ForEach(mealList.foods(), id: \.self.id) { food in
                         NavigationLink(destination:
                             FoodDetailView(foodDetail: FoodDetail(food: food))
                                 .environmentObject(self.mealList)
                         ) {
-                            FoodRowItem(foodItem: food)
-                                .environmentObject(self.mealList)
+                            HStack {
+                                Image(ImageStore.loadImage(name: food.name, imageExtension: "png"),
+                                      scale: MealListView.imageIconScale, label: Text(food.name))
+                                    .padding(.trailing)
+                                VStack(alignment: .leading) {
+                                    Text(food.name.capitalized + " ")
+                                        .fontWeight(.semibold)
+                                    Text(food.amount.description)
+                                        .font(.callout)
+                                        .foregroundColor(Color.gray)
+                                }
+                                Spacer()
+                                Text("\(food.calorie)")
+                            }
                         }
-                    }
+                    }.onDelete(perform: self.mealList.deleteFood)
                 }
                 .onAppear {
                     UITableView.appearance().separatorStyle = .none
                 }
                 .navigationBarTitle("Date comes here", displayMode: .inline)
             }
-        }
-    }
-}
-
-struct FoodRowItem: View {
-    @EnvironmentObject var mealList: MealList
-    var foodItem: Food
-    var food: Food {
-        mealList.getFood(of: foodItem.id)!
-    }
-    var body: some View {
-        HStack {
-            Image(ImageStore.loadImage(name: food.name, imageExtension: "png"),
-                  scale: FoodRowItem.imageIconScale, label: Text(food.name))
-                .padding(.trailing)
-            VStack(alignment: .leading) {
-                Text(food.name.capitalized + " ")
-                    .fontWeight(.semibold)
-                Text(food.amount.description)
-                    .font(.callout)
-                    .foregroundColor(Color.gray)
-            }
-            Spacer()
-            Text("\(food.calorie)")
         }
     }
     

@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "7C7243A1-256B-4127-AD27-D88D8E062AAB"
-            shouldBeEnabled = "Yes"
+            uuid = "FB9E00E8-4B87-4081-892B-BD23DFC7331E"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CaloriePal/Models/Meal.swift"
+            filePath = "CaloriePal/DayLog/MealList.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "setFood(food:)"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
+            landmarkName = "deleteFood(at:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

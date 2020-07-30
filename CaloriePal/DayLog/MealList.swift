@@ -19,7 +19,7 @@ class MealList: ObservableObject {
         meal.totalCalories()
     }
     
-    var foods: [Food] {
+    func foods() -> [Food] {
         meal.foods
     }
     
@@ -40,6 +40,12 @@ class MealList: ObservableObject {
     }
     
     func getFood(of id: Int) -> Food? {
-        return foods.first(where: {$0.id == id})
+        return meal.foods.first(where: {$0.id == id})
+    }
+    
+    func deleteFood(at indexSet: IndexSet) {
+        let foodToDelete = meal.foods[indexSet.first!]
+        self.removeFood(food: foodToDelete)
+        objectWillChange.send()
     }
 }
