@@ -9,12 +9,19 @@
 import Foundation
 
 struct FoodAmount: Hashable, Codable, CustomStringConvertible {
-    var unit: String
+    var unit: FoodUnit
     var amount: Float
-    var multiplier: Float
     
     var description: String {
-        "\(Nutrient.formatNutrient(amount)) \(unit.pluralize(by: amount))"
+        "\(Nutrient.formatNutrient(amount)) \(unit.rawValue.pluralize(by: amount))"
+    }
+    
+    static func units(of foodType: FoodType) -> [FoodUnit] {
+        foodType.foodUnits()
+    }
+    
+    func convert(to dstUnit: FoodUnit) -> Float {
+        self.unit.convert(of: amount, to: dstUnit)
     }
 }
 

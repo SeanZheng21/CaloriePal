@@ -21,7 +21,16 @@ struct Food: Hashable, Codable, Identifiable {
     }
     
     var calorie: Int {
-        Int(amount.multiplier * Float(caloriePerUnit))
+        Int(amount.amount * Float(caloriePerUnit))
+    }
+    
+    mutating func setAmount(to amount: Float) -> Void {
+        self.amount = FoodAmount(unit: self.amount.unit, amount: amount)
+    }
+    
+    mutating func setUnit(to unit: FoodUnit) -> Void {
+        let newAmountValue = amount.convert(to: unit)
+        self.amount = FoodAmount(unit: unit, amount: newAmountValue)
     }
     
     func toJsonString() -> String {

@@ -15,9 +15,8 @@
             "fiber":1.9
         },
         "amount": {
-            "amount":1,
-            "multiplier":1,
-            "unit":"cup"
+            "amount":3.5,
+            "unit":"liter"
         }
     }
 ]

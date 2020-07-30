@@ -9,22 +9,32 @@
 import SwiftUI
 
 struct FoodDetailView: View {
-    var food: Food
-    var unitOptions = ["Each", "Ounce", "Pound"]
-    @State private var selectedUnit: Int = 0
+    @ObservedObject var foodDetail: FoodDetail
+    
+    var unitOptions: [String]
+    @State private var selectedUnit: Int
     var integerOptions = [Int](0..<500).map({ String($0) })
-    @State private var selectedInteger: Int = 1
+    @State private var selectedInteger: Int
     var decimalOptions = ["-", "1/8", "1/4", "1/3", "1/2",
                             "2/3", "3/4", "7/8"]
-    @State private var selectedDecimal: Int = 0
+    @State private var selectedDecimal: Int
+    
+    init(foodDetail: FoodDetail) {
+        self.foodDetail = foodDetail
+        self.unitOptions = foodDetail.foodType.foodUnits().map { String($0.rawValue)}
+        let (int, dec) = FoodDetail.getIntegerDecimalLevels(floatNumber: foodDetail.foodAnount.amount)
+        _selectedDecimal = State(initialValue: dec)
+        _selectedInteger = State(initialValue: int)
+        _selectedUnit = State(initialValue: unitOptions.firstIndex(of: foodDetail.foodAnount.unit.rawValue) ?? 0)
+    }
     
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
                 HStack {
-                    Image(ImageStore.loadImage(name: self.food.name, imageExtension: "png"),
-                          scale: self.imageIconScale, label: Text(self.food.name))
-                    Text(self.food.name)
+                    Image(ImageStore.loadImage(name: self.foodDetail.foodName, imageExtension: "png"),
+                          scale: self.imageIconScale, label: Text(self.foodDetail.foodName))
+                    Text(self.foodDetail.foodName)
                         .font(.title)
                         .fontWeight(.heavy)
                     Spacer()
@@ -32,7 +42,7 @@ struct FoodDetailView: View {
                 HStack {
                     HStack {
                         VStack {
-                            Text("\(self.food.calorie)")
+                            Text("\(self.foodDetail.foodCalorie)")
                                 .font(.system(size: self.calorieFont, weight: .semibold))
                             Text("Calories").fontWeight(.light)
                         }
@@ -56,18 +66,18 @@ struct FoodDetailView: View {
                         }
                         Spacer()
                         VStack(alignment: .trailing, spacing: 4) {
-                            Text(self.food.amount.description)
-                            Text(Nutrient.formatNutrient(self.food.nutrient.fat) + "g")
-                            Text(Nutrient.formatNutrient(self.food.nutrient.satFat) + "g")
+                            Text(self.foodDetail.foodAnount.description)
+                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.fat) + "g")
+                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.satFat) + "g")
                                 .foregroundColor(Color.gray)
-                            Text(Nutrient.formatNutrient(self.food.nutrient.cholesterol) + "mg")
-                            Text(Nutrient.formatNutrient(self.food.nutrient.sodium) + "mg")
-                            Text(Nutrient.formatNutrient(self.food.nutrient.carbs) + "g")
-                            Text(Nutrient.formatNutrient(self.food.nutrient.fiber) + "g")
+                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.cholesterol) + "mg")
+                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.sodium) + "mg")
+                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.carbs) + "g")
+                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.fiber) + "g")
                                 .foregroundColor(Color.gray)
-                            Text(Nutrient.formatNutrient(self.food.nutrient.sugars) + "g")
+                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.sugars) + "g")
                                 .foregroundColor(Color.gray)
-                            Text(Nutrient.formatNutrient(self.food.nutrient.protein) + "g")
+                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.protein) + "g")
                         }
                     }
                     .font(.system(size: 15))
@@ -84,7 +94,10 @@ struct FoodDetailView: View {
                         }
                     }
                         .onReceive([self.selectedInteger].publisher.first(), perform: { value in
-                            print("Selected int: \(value)")
+                            let (int, _) = FoodDetail.getIntegerDecimalLevels(floatNumber: self.foodDetail.foodAnount.amount)
+                            if value != int {
+                                self.foodDetail.setAmount(intVal: value, decimalVal: self.selectedDecimal)
+                            }
                         })
                         .labelsHidden()
                         .frame(width: geometry.size.width/3, height: 100, alignment: .center)
@@ -95,7 +108,10 @@ struct FoodDetailView: View {
                         }
                     }
                         .onReceive([self.selectedDecimal].publisher.first(), perform: { value in
-                            print("Selected decimal: \(self.decimalOptions[value])")
+                            let (_, dec) = FoodDetail.getIntegerDecimalLevels(floatNumber: self.foodDetail.foodAnount.amount)
+                            if value != dec {
+                                self.foodDetail.setAmount(intVal: self.selectedInteger, decimalVal: value)
+                            }
                         })
                         .labelsHidden()
                         .frame(width: geometry.size.width/3, height: 100, alignment: .center)
@@ -106,7 +122,11 @@ struct FoodDetailView: View {
                         }
                     }
                         .onReceive([self.selectedUnit].publisher.first(), perform: { value in
-                            print("Selected unit: \(self.unitOptions[value])")
+                            if self.unitOptions[value].lowercased() != self.foodDetail.foodAnount.unit.rawValue {
+                                let (intInd, decIdx) = self.foodDetail.setUnit(unitVal: value)
+                                self.selectedInteger = intInd
+                                self.selectedDecimal = decIdx
+                            }
                         })
                         .labelsHidden()
                         .frame(width: geometry.size.width/3, height: 100, alignment: .center)
@@ -125,6 +145,6 @@ struct FoodDetailView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView(food: foodData[0])
+        FoodDetailView(foodDetail: FoodDetail(food: foodData[0]))
     }
 }
