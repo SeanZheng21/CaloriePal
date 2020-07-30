@@ -20,7 +20,7 @@ struct Nutrient: Hashable, Codable {
     
     static func formatNutrient(_ amount: Float) -> String {
         var str = String(format: "%.2f", amount)
-        while str.hasSuffix("0") || str.hasSuffix(".") {
+        while (str.hasSuffix("0") || str.hasSuffix(".")) && str.count > 1 {
             str.removeLast(1)
         }
         return str

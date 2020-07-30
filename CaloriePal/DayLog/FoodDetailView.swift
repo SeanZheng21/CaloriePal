@@ -18,6 +18,7 @@ struct FoodDetailView: View {
     var decimalOptions = ["-", "1/8", "1/4", "1/3", "1/2",
                             "2/3", "3/4", "7/8"]
     @State private var selectedDecimal: Int
+    @State private var showServingSize = false
     
     init(foodDetail: FoodDetail) {
         self.foodDetail = foodDetail
@@ -100,7 +101,7 @@ struct FoodDetailView: View {
                             }
                         })
                         .labelsHidden()
-                        .frame(width: geometry.size.width/3, height: 100, alignment: .center)
+                        .frame(width: geometry.size.width/3, height: self.pickerHeight, alignment: .center)
                     
                     Picker(selection: self.$selectedDecimal, label: Text("")) {
                         ForEach(0 ..< self.decimalOptions.count) { index in
@@ -114,7 +115,7 @@ struct FoodDetailView: View {
                             }
                         })
                         .labelsHidden()
-                        .frame(width: geometry.size.width/3, height: 100, alignment: .center)
+                        .frame(width: geometry.size.width/3, height: self.pickerHeight, alignment: .center)
                     
                     Picker(selection: self.$selectedUnit, label: Text("")) {
                         ForEach(0 ..< self.unitOptions.count) { index in
@@ -129,7 +130,32 @@ struct FoodDetailView: View {
                             }
                         })
                         .labelsHidden()
-                        .frame(width: geometry.size.width/3, height: 100, alignment: .center)
+                        .frame(width: geometry.size.width/3, height: self.pickerHeight, alignment: .center)
+                }
+                Spacer()
+                    .frame(height: 60.0)
+                HStack {
+                    Text("Serving Size Guide")
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .padding(.leading)
+                    Spacer()
+                    Button(action: {
+                        withAnimation {
+                            self.showServingSize.toggle()
+                        }
+                    }) {
+                        Image(systemName: "chevron.right.circle")
+                            .imageScale(.large)
+                            .rotationEffect(.degrees(self.showServingSize ? 90 : 0))
+                            .scaleEffect(self.showServingSize ? 1.5 : 1)
+                            .padding()
+                    }
+                }
+                if self.showServingSize {
+                    ServingSizeView()
+                        .frame(width: geometry.size.width, height: geometry.size.width, alignment: .center)
+                        .transition(self.transition)
                 }
                 Spacer()
             }
@@ -137,14 +163,23 @@ struct FoodDetailView: View {
         }
     }
     
+    var transition: AnyTransition {
+        let insertion = AnyTransition.move(edge: .trailing)
+            .combined(with: .opacity)
+        let removal = AnyTransition.scale
+            .combined(with: .opacity)
+        return .asymmetric(insertion: insertion, removal: removal)
+    }
+    
     // MARK: - Drawing Constants
     let imageIconScale: CGFloat = 1.5
     let calorieFont: CGFloat = 50
     let caloriePadding: CGFloat = 30
+    let pickerHeight: CGFloat = 100.0
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView(foodDetail: FoodDetail(food: foodData[0]))
+        FoodDetailView(foodDetail: FoodDetail(food: foodData[2]))
     }
 }
