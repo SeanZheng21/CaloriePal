@@ -36,6 +36,8 @@ struct Meal: Hashable, Codable, Identifiable  {
         if let existingIndex = foodIndex(of: food) {
             foods.remove(at: existingIndex)
             foods.insert(food, at: existingIndex)
+        } else {
+            addFood(newFood: food)
         }
     }
     

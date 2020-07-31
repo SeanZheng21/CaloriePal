@@ -22,6 +22,15 @@ struct MealListView: View {
                         .padding(.leading)
                     Image(systemName: "chevron.right")
                         .imageScale(.large)
+                    Spacer()
+                    EditButton()
+                    NavigationLink(destination:
+                        FoodSelectorView().environmentObject(self.mealList)
+                    ) {
+                        Image(systemName: "plus.circle")
+                            .padding(.trailing)
+                            .imageScale(.medium)
+                    }
                 }
                 .onTapGesture {
                     self.showMealDetail = true
