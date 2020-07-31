@@ -34,6 +34,9 @@
 		FF1E161824D3AADA0043E244 /* MealSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E161724D3AADA0043E244 /* MealSummary.swift */; };
 		FF3AADF724D3E084001E0D92 /* FoodSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AADF624D3E084001E0D92 /* FoodSelectorView.swift */; };
 		FF3AADFB24D3E16C001E0D92 /* SearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AADFA24D3E16C001E0D92 /* SearchBar.swift */; };
+		FF3AADFD24D3F880001E0D92 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AADFC24D3F880001E0D92 /* Day.swift */; };
+		FF3AADFF24D3FAFA001E0D92 /* DayLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AADFE24D3FAFA001E0D92 /* DayLogView.swift */; };
+		FF3AAE0124D3FB11001E0D92 /* DayLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AAE0024D3FB11001E0D92 /* DayLog.swift */; };
 		FF4F74BE24D148AF0021C10A /* FoodDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F74BD24D148AF0021C10A /* FoodDetail.swift */; };
 		FF7B26DC24D0FC6D007167C5 /* foodData.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7B26DB24D0FC6D007167C5 /* foodData.json */; };
 		FF7B26DE24D0FD3A007167C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B26DD24D0FD3A007167C5 /* Data.swift */; };
@@ -95,6 +98,9 @@
 		FF1E161724D3AADA0043E244 /* MealSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummary.swift; sourceTree = "<group>"; };
 		FF3AADF624D3E084001E0D92 /* FoodSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSelectorView.swift; sourceTree = "<group>"; };
 		FF3AADFA24D3E16C001E0D92 /* SearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBar.swift; sourceTree = "<group>"; };
+		FF3AADFC24D3F880001E0D92 /* Day.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
+		FF3AADFE24D3FAFA001E0D92 /* DayLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogView.swift; sourceTree = "<group>"; };
+		FF3AAE0024D3FB11001E0D92 /* DayLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLog.swift; sourceTree = "<group>"; };
 		FF4F74BD24D148AF0021C10A /* FoodDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetail.swift; sourceTree = "<group>"; };
 		FF7B26DB24D0FC6D007167C5 /* foodData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = foodData.json; sourceTree = "<group>"; };
 		FF7B26DD24D0FD3A007167C5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -143,6 +149,8 @@
 		FF01FB9A24D2628900EDA410 /* DayLog */ = {
 			isa = PBXGroup;
 			children = (
+				FF3AAE0024D3FB11001E0D92 /* DayLog.swift */,
+				FF3AADFE24D3FAFA001E0D92 /* DayLogView.swift */,
 				FF965F3F24D27248006A1AF6 /* MealList.swift */,
 				FF07779124D25881002D68A7 /* MealListView.swift */,
 				FF1E161724D3AADA0043E244 /* MealSummary.swift */,
@@ -282,6 +290,7 @@
 				FF7B26DD24D0FD3A007167C5 /* Data.swift */,
 				FF07778F24D257C9002D68A7 /* MealType.swift */,
 				FF965F3D24D2709F006A1AF6 /* Meal.swift */,
+				FF3AADFC24D3F880001E0D92 /* Day.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -406,6 +415,7 @@
 				FF01FB9F24D2638900EDA410 /* PageViewController.swift in Sources */,
 				FF85CE9524D0131A00E21F0C /* AppDelegate.swift in Sources */,
 				FF1E161424D3A8FA0043E244 /* PieChartDataItem.swift in Sources */,
+				FF3AAE0124D3FB11001E0D92 /* DayLog.swift in Sources */,
 				FF1E161224D3A8CD0043E244 /* PieChartSlideData.swift in Sources */,
 				FF965F3E24D2709F006A1AF6 /* Meal.swift in Sources */,
 				FF85CE9A24D0131A00E21F0C /* CaloriePal.xcdatamodeld in Sources */,
@@ -415,6 +425,7 @@
 				FF1E161824D3AADA0043E244 /* MealSummary.swift in Sources */,
 				FF965F4024D27248006A1AF6 /* MealList.swift in Sources */,
 				FF3AADF724D3E084001E0D92 /* FoodSelectorView.swift in Sources */,
+				FF3AADFD24D3F880001E0D92 /* Day.swift in Sources */,
 				FF07779024D257C9002D68A7 /* MealType.swift in Sources */,
 				FF1E160E24D3A8370043E244 /* PieChartSlideView.swift in Sources */,
 				FF85CEBC24D01B9200E21F0C /* Food.swift in Sources */,
@@ -424,6 +435,7 @@
 				FF3AADFB24D3E16C001E0D92 /* SearchBar.swift in Sources */,
 				FF85CEC024D0211000E21F0C /* FoodType.swift in Sources */,
 				FF85CE9724D0131A00E21F0C /* SceneDelegate.swift in Sources */,
+				FF3AADFF24D3FAFA001E0D92 /* DayLogView.swift in Sources */,
 				FF7B26DE24D0FD3A007167C5 /* Data.swift in Sources */,
 				FF85CEC224D021E600E21F0C /* FoodAmount.swift in Sources */,
 				FF1E161024D3A8AA0043E244 /* PieChartData.swift in Sources */,

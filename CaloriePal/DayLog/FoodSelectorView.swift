@@ -39,10 +39,6 @@ struct FoodSelectorView: View {
                         }
                         Spacer()
                     }
-//                    .onTapGesture {
-//                        self.presentationMode.wrappedValue.dismiss()
-//                        self.mealList.addFood(newFood: food)
-//                    }
                 }
             }
         }.navigationBarTitle("Add To \(self.mealList.mealName)")

@@ -12,5 +12,5 @@ enum MealType: String, CaseIterable, Codable, Hashable {
     case breakfast = "breakfast"
     case lunch = "lunch"
     case dinner = "dinner"
-    case snack = "snack"
+    case snacks = "snacks"
 }

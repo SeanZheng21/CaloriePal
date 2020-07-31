@@ -9,46 +9,50 @@
 import Foundation
 
 class MealList: ObservableObject {
-    @Published private var meal: Meal
+    @Published private var meal: Meal?
     
-    init(meal: Meal) {
+    init(meal: Meal?) {
         self.meal = meal
     }
     
+    func hasMeal() -> Bool {
+        meal == nil
+    }
+    
     var totalCalories: Int {
-        meal.totalCalories()
+        meal!.totalCalories()
     }
     
     func foods() -> [Food] {
-        meal.foods
+        meal!.foods
     }
     
     var mealName: String {
-        meal.name
+        meal!.name
     }
     
     func getMeal() -> Meal {
-        return meal
+        return meal!
     }
     
     func setFood(food: Food) -> Void {
-        meal.setFood(food: food)
+        meal!.setFood(food: food)
     }
     
     func addFood(newFood: Food) -> Void {
-        meal.addFood(newFood: newFood)
+        meal!.addFood(newFood: newFood)
     }
     
     func removeFood(food: Food) -> Void {
-        meal.removeFood(food: food)
+        meal!.removeFood(food: food)
     }
     
     func getFood(of id: Int) -> Food? {
-        return meal.foods.first(where: {$0.id == id})
+        return meal!.foods.first(where: {$0.id == id})
     }
     
     func deleteFood(at indexSet: IndexSet) {
-        let foodToDelete = meal.foods[indexSet.first!]
+        let foodToDelete = meal!.foods[indexSet.first!]
         self.removeFood(food: foodToDelete)
         objectWillChange.send()
     }

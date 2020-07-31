@@ -24,8 +24,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Create the SwiftUI view and set the context as the value for the managedObjectContext environment keyPath.
         // Add `@Environment(\.managedObjectContext)` in the views that will need the context.
-        let contentView = MealListView(mealList: MealList(meal:
-                Meal(id: 1, type: .breakfast, foods: [foodData[0], foodData[1]])))
+        
+        let breakfast = Meal(id: 1, type: .breakfast, foods: [foodData[0], foodData[1]])
+        let lunch = Meal(id: 1, type: .lunch, foods: [foodData[1], foodData[2]])
+        let dinner = Meal(id: 1, type: .dinner, foods: [foodData[2], foodData[3]])
+        let snacks = Meal(id: 1, type: .snacks, foods: [foodData[2]])
+        let dayLog = DayLog(day: Day(breakfast: breakfast, lunch: lunch, dinner: dinner, snacks: snacks))
+        
+        let contentView = DayLogView(dayLog: dayLog)
             .environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.

@@ -13,64 +13,65 @@ struct MealListView: View {
     @State var showMealDetail = false
     
     var body: some View {
-        NavigationView {
-            VStack(alignment: .leading) {
-                HStack {
-                    Text("\(mealList.mealName.capitalized): \(mealList.totalCalories)")
-                        .font(.title)
-                        .fontWeight(.bold)
-                        .padding(.leading)
-                    Image(systemName: "chevron.right")
-                        .imageScale(.large)
-                    Spacer()
-                    EditButton()
+        VStack(alignment: .leading) {
+            HStack {
+                Text("\(mealList.mealName.capitalized): \(mealList.totalCalories)")
+                    .font(.system(size: MealListView.titleFont))
+                    .fontWeight(.bold)
+                    .padding(.leading)
+                Image(systemName: "chevron.right")
+                    .imageScale(.large)
+                Spacer()
+                EditButton()
+                NavigationLink(destination:
+                    FoodSelectorView().environmentObject(self.mealList)
+                ) {
+                    Image(systemName: "plus.circle")
+                        .padding(.trailing)
+                        .imageScale(.medium)
+                }
+            }
+            .onTapGesture {
+                self.showMealDetail = true
+            }
+            .sheet(isPresented: $showMealDetail) {
+                MealSummaryView(mealSummary: MealSummary(meal: self.mealList.getMeal()), isPresented: self.$showMealDetail)
+            }
+            List {
+                ForEach(mealList.foods(), id: \.self.id) { food in
                     NavigationLink(destination:
-                        FoodSelectorView().environmentObject(self.mealList)
+                        FoodDetailView(foodDetail: FoodDetail(food: food))
+                            .environmentObject(self.mealList)
                     ) {
-                        Image(systemName: "plus.circle")
-                            .padding(.trailing)
-                            .imageScale(.medium)
-                    }
-                }
-                .onTapGesture {
-                    self.showMealDetail = true
-                }
-                .sheet(isPresented: $showMealDetail) {
-                    MealSummaryView(mealSummary: MealSummary(meal: self.mealList.getMeal()), isPresented: self.$showMealDetail)
-                }
-                List {
-                    ForEach(mealList.foods(), id: \.self.id) { food in
-                        NavigationLink(destination:
-                            FoodDetailView(foodDetail: FoodDetail(food: food))
-                                .environmentObject(self.mealList)
-                        ) {
-                            HStack {
-                                Image(ImageStore.loadImage(name: food.name, imageExtension: "png"),
-                                      scale: MealListView.imageIconScale, label: Text(food.name))
-                                    .padding(.trailing)
-                                VStack(alignment: .leading) {
-                                    Text(food.name.capitalized + " ")
-                                        .fontWeight(.semibold)
-                                    Text(food.amount.description)
-                                        .font(.callout)
-                                        .foregroundColor(Color.gray)
-                                }
-                                Spacer()
-                                Text("\(food.calorie)")
+                        HStack {
+                            Image(ImageStore.loadImage(name: food.name, imageExtension: "png"),
+                                  scale: MealListView.imageIconScale, label: Text(food.name))
+                                .padding(.trailing)
+                            VStack(alignment: .leading) {
+                                Text(food.name.capitalized + " ")
+                                    .fontWeight(.semibold)
+                                Text(food.amount.description)
+                                    .font(.callout)
+                                    .foregroundColor(Color.gray)
                             }
+                            Spacer()
+                            Text("\(food.calorie)")
                         }
-                    }.onDelete(perform: self.mealList.deleteFood)
-                }
-                .onAppear {
-                    UITableView.appearance().separatorStyle = .none
-                }
-                .navigationBarTitle("Date comes here", displayMode: .inline)
+                    }
+                }.onDelete(perform: self.mealList.deleteFood)
+            }
+            .onAppear {
+                UITableView.appearance().separatorStyle = .none
             }
         }
+        .frame(height: CGFloat(MealListView.titleHeight + CGFloat(self.mealList.foods().count) * MealListView.itemHeight))
     }
     
     // MARK: - Drawing Constants
     private static let imageIconScale: CGFloat = 2.0
+    private static let titleFont: CGFloat = 25
+    private static let titleHeight: CGFloat = 40
+    private static let itemHeight: CGFloat = 55
 }
 
 struct MealView_Previews: PreviewProvider {
