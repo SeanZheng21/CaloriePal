@@ -21,6 +21,7 @@ struct DayLogView: View {
                 Spacer()
             }
             .navigationBarTitle("\(dayLog.dateString)", displayMode: .inline)
+            .navigationBarItems(trailing: EditButton())
         }
     }
 }

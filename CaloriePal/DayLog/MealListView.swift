@@ -22,7 +22,6 @@ struct MealListView: View {
                 Image(systemName: "chevron.right")
                     .imageScale(.large)
                 Spacer()
-                EditButton()
                 NavigationLink(destination:
                     FoodSelectorView().environmentObject(self.mealList)
                 ) {
