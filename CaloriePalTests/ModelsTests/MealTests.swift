@@ -54,4 +54,17 @@ class MealTests: XCTestCase {
         XCTAssertEqual(foodData[0].calorie + foodData[1].calorie,
                        meal.totalCalories())
     }
+    
+    func testAddNutrients() {
+        let nutrientOne = foodData[0].nutrient
+        let nutrientTwo = foodData[2].nutrient
+        let proteinSum = nutrientOne.protein + nutrientTwo.protein
+        let nutrientSum = nutrientOne.addNutrient(otherNutrient: nutrientTwo)
+        XCTAssertEqual(nutrientSum.protein, proteinSum)
+    }
+    
+    func testTotalNutrients() {
+        let nutrientSum = foodData[0].nutrient.addNutrient(otherNutrient: foodData[1].nutrient)
+        XCTAssertEqual(nutrientSum, meal.totalNutrient())
+    }
 }

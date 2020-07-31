@@ -25,6 +25,13 @@
 		FF0777A924D25F97002D68A7 /* Serving Size 7.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0777A024D25F97002D68A7 /* Serving Size 7.png */; };
 		FF0777AA24D25F97002D68A7 /* Serving Size 0.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0777A124D25F97002D68A7 /* Serving Size 0.png */; };
 		FF0777AB24D25F97002D68A7 /* Serving Size 5.png in Resources */ = {isa = PBXBuildFile; fileRef = FF0777A224D25F97002D68A7 /* Serving Size 5.png */; };
+		FF1E160C24D3A80C0043E244 /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E160B24D3A80C0043E244 /* PieChartView.swift */; };
+		FF1E160E24D3A8370043E244 /* PieChartSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E160D24D3A8370043E244 /* PieChartSlideView.swift */; };
+		FF1E161024D3A8AA0043E244 /* PieChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E160F24D3A8AA0043E244 /* PieChartData.swift */; };
+		FF1E161224D3A8CD0043E244 /* PieChartSlideData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E161124D3A8CD0043E244 /* PieChartSlideData.swift */; };
+		FF1E161424D3A8FA0043E244 /* PieChartDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E161324D3A8FA0043E244 /* PieChartDataItem.swift */; };
+		FF1E161624D3AA6E0043E244 /* MealSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E161524D3AA6E0043E244 /* MealSummaryView.swift */; };
+		FF1E161824D3AADA0043E244 /* MealSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E161724D3AADA0043E244 /* MealSummary.swift */; };
 		FF4F74BE24D148AF0021C10A /* FoodDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F74BD24D148AF0021C10A /* FoodDetail.swift */; };
 		FF7B26DC24D0FC6D007167C5 /* foodData.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7B26DB24D0FC6D007167C5 /* foodData.json */; };
 		FF7B26DE24D0FD3A007167C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B26DD24D0FD3A007167C5 /* Data.swift */; };
@@ -77,6 +84,13 @@
 		FF0777A024D25F97002D68A7 /* Serving Size 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Serving Size 7.png"; sourceTree = "<group>"; };
 		FF0777A124D25F97002D68A7 /* Serving Size 0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Serving Size 0.png"; sourceTree = "<group>"; };
 		FF0777A224D25F97002D68A7 /* Serving Size 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Serving Size 5.png"; sourceTree = "<group>"; };
+		FF1E160B24D3A80C0043E244 /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		FF1E160D24D3A8370043E244 /* PieChartSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartSlideView.swift; sourceTree = "<group>"; };
+		FF1E160F24D3A8AA0043E244 /* PieChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartData.swift; sourceTree = "<group>"; };
+		FF1E161124D3A8CD0043E244 /* PieChartSlideData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartSlideData.swift; sourceTree = "<group>"; };
+		FF1E161324D3A8FA0043E244 /* PieChartDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartDataItem.swift; sourceTree = "<group>"; };
+		FF1E161524D3AA6E0043E244 /* MealSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummaryView.swift; sourceTree = "<group>"; };
+		FF1E161724D3AADA0043E244 /* MealSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummary.swift; sourceTree = "<group>"; };
 		FF4F74BD24D148AF0021C10A /* FoodDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetail.swift; sourceTree = "<group>"; };
 		FF7B26DB24D0FC6D007167C5 /* foodData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = foodData.json; sourceTree = "<group>"; };
 		FF7B26DD24D0FD3A007167C5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -127,6 +141,8 @@
 			children = (
 				FF965F3F24D27248006A1AF6 /* MealList.swift */,
 				FF07779124D25881002D68A7 /* MealListView.swift */,
+				FF1E161724D3AADA0043E244 /* MealSummary.swift */,
+				FF1E161524D3AA6E0043E244 /* MealSummaryView.swift */,
 				FF4F74BD24D148AF0021C10A /* FoodDetail.swift */,
 				FF85CE9B24D0131A00E21F0C /* FoodDetailView.swift */,
 				FF01FBA024D2645300EDA410 /* ServingSizeCard.swift */,
@@ -140,6 +156,11 @@
 			children = (
 				FF01FB9C24D2637A00EDA410 /* PageView.swift */,
 				FF01FB9E24D2638900EDA410 /* PageViewController.swift */,
+				FF1E160B24D3A80C0043E244 /* PieChartView.swift */,
+				FF1E160D24D3A8370043E244 /* PieChartSlideView.swift */,
+				FF1E160F24D3A8AA0043E244 /* PieChartData.swift */,
+				FF1E161124D3A8CD0043E244 /* PieChartSlideData.swift */,
+				FF1E161324D3A8FA0043E244 /* PieChartDataItem.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -374,23 +395,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF1E161624D3AA6E0043E244 /* MealSummaryView.swift in Sources */,
 				FF4F74BE24D148AF0021C10A /* FoodDetail.swift in Sources */,
 				FF01FB9F24D2638900EDA410 /* PageViewController.swift in Sources */,
 				FF85CE9524D0131A00E21F0C /* AppDelegate.swift in Sources */,
+				FF1E161424D3A8FA0043E244 /* PieChartDataItem.swift in Sources */,
+				FF1E161224D3A8CD0043E244 /* PieChartSlideData.swift in Sources */,
 				FF965F3E24D2709F006A1AF6 /* Meal.swift in Sources */,
 				FF85CE9A24D0131A00E21F0C /* CaloriePal.xcdatamodeld in Sources */,
 				FF01FBA324D2687900EDA410 /* ServingSizeView.swift in Sources */,
 				FF85CEBE24D01D0C00E21F0C /* Nutrient.swift in Sources */,
 				FF01FB9D24D2637A00EDA410 /* PageView.swift in Sources */,
+				FF1E161824D3AADA0043E244 /* MealSummary.swift in Sources */,
 				FF965F4024D27248006A1AF6 /* MealList.swift in Sources */,
 				FF07779024D257C9002D68A7 /* MealType.swift in Sources */,
+				FF1E160E24D3A8370043E244 /* PieChartSlideView.swift in Sources */,
 				FF85CEBC24D01B9200E21F0C /* Food.swift in Sources */,
+				FF1E160C24D3A80C0043E244 /* PieChartView.swift in Sources */,
 				FF85CE9C24D0131A00E21F0C /* FoodDetailView.swift in Sources */,
 				FF01FBA124D2645300EDA410 /* ServingSizeCard.swift in Sources */,
 				FF85CEC024D0211000E21F0C /* FoodType.swift in Sources */,
 				FF85CE9724D0131A00E21F0C /* SceneDelegate.swift in Sources */,
 				FF7B26DE24D0FD3A007167C5 /* Data.swift in Sources */,
 				FF85CEC224D021E600E21F0C /* FoodAmount.swift in Sources */,
+				FF1E161024D3A8AA0043E244 /* PieChartData.swift in Sources */,
 				FF07779224D25881002D68A7 /* MealListView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

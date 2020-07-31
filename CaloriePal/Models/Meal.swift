@@ -62,4 +62,10 @@ struct Meal: Hashable, Codable, Identifiable  {
         }
         return sum
     }
+    
+    func totalNutrient() -> Nutrient {
+        var sumNutrient = Nutrient(fat: 0, satFat: 0, cholesterol: 0, sodium: 0, carbs: 0, fiber: 0, sugars: 0, protein: 0)    
+        foods.forEach { sumNutrient = sumNutrient.addNutrient(otherNutrient: $0.nutrient) }
+        return sumNutrient
+    }
 }

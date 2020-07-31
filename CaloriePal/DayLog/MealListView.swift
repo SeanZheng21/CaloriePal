@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MealListView: View {
     @ObservedObject var mealList: MealList
+    @State var showMealDetail = false
     
     var body: some View {
         NavigationView {
@@ -21,6 +22,12 @@ struct MealListView: View {
                         .padding(.leading)
                     Image(systemName: "chevron.right")
                         .imageScale(.large)
+                }
+                .onTapGesture {
+                    self.showMealDetail = true
+                }
+                .sheet(isPresented: $showMealDetail) {
+                    MealSummaryView(mealSummary: MealSummary(meal: self.mealList.getMeal()), isPresented: self.$showMealDetail)
                 }
                 List {
                     ForEach(mealList.foods(), id: \.self.id) { food in

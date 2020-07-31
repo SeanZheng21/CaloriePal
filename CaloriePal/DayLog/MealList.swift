@@ -27,6 +27,10 @@ class MealList: ObservableObject {
         meal.name
     }
     
+    func getMeal() -> Meal {
+        return meal
+    }
+    
     func setFood(food: Food) -> Void {
         meal.setFood(food: food)
     }
