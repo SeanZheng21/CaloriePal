@@ -15,10 +15,12 @@ struct ExerciseListView: View {
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
+                Image(ImageStore.loadImage(name: "Workout", imageExtension: "png"),
+                      scale: ExerciseListView.imageIconScale, label: Text("Workout"))
+                    .padding(.leading)
                 Text("Exercise: \(exerciseList.totalCalories)")
                     .font(.system(size: ExerciseListView.titleFont))
                     .fontWeight(.bold)
-                    .padding(.leading)
                 Spacer()
                 NavigationLink(destination:
                     WorkoutSelectorView().environmentObject(self.exerciseList)
@@ -28,42 +30,64 @@ struct ExerciseListView: View {
                         .imageScale(.medium)
                 }
             }
-            List {
-                ForEach(exerciseList.workouts(), id: \.self.id) { workout in
-                    NavigationLink(destination:
-                        WorkoutDetailView(workoutDetail: WorkoutDetail(workout: workout))
-                            .environmentObject(self.exerciseList)
-                    ) {
-                        HStack {
-                            Image(ImageStore.loadImage(name: workout.name, imageExtension: "png"),
-                                  scale: ExerciseListView.imageIconScale, label: Text(workout.name))
-                                .padding(.trailing)
-                            VStack(alignment: .leading) {
-                                Text(workout.name.capitalized + " ")
-                                    .fontWeight(.semibold)
-                                Text("\(workout.durationDescription())")
-                                    .font(.callout)
-                                    .foregroundColor(Color.gray)
+            .padding(.top)
+            if !exerciseList.workouts().isEmpty {
+                List {
+                    ForEach(exerciseList.workouts(), id: \.self.id) { workout in
+                        NavigationLink(destination:
+                            WorkoutDetailView(workoutDetail: WorkoutDetail(workout: workout))
+                                .environmentObject(self.exerciseList)
+                        ) {
+                            HStack {
+                                Image(ImageStore.loadImage(name: workout.name, imageExtension: "png"),
+                                      scale: ExerciseListView.imageIconScale, label: Text(workout.name))
+                                    .padding(.trailing)
+                                VStack(alignment: .leading) {
+                                    Text(workout.name.capitalized + " ")
+                                        .fontWeight(.semibold)
+                                    Text("\(workout.durationDescription())")
+                                        .font(.callout)
+                                        .foregroundColor(Color.gray)
+                                }
+                                Spacer()
+                                Text("\(workout.calories)")
                             }
-                            Spacer()
-                            Text("\(workout.calories)")
                         }
+                    }.onDelete(perform: self.exerciseList.deleteWorkout)
+                }
+                .onAppear {
+                    UITableView.appearance().separatorStyle = .none
+                }
+            } else {
+                NavigationLink(destination:
+                    WorkoutSelectorView().environmentObject(self.exerciseList)
+                ) {
+                    HStack {
+                        Image(systemName: "plus.circle")
+                            .padding(.horizontal)
+                            .imageScale(.medium)
+                        VStack(alignment: .leading) {
+                            Text("Add Some Workouts Here!")
+                                .fontWeight(.semibold)
+                                .foregroundColor(Color.black)
+                            Text("Exercise will help you burn some calories")
+                                .font(.callout)
+                                .foregroundColor(Color.gray)
+                        }
+                        Spacer()
                     }
-                }.onDelete(perform: self.exerciseList.deleteWorkout)
-            }
-            .onAppear {
-                UITableView.appearance().separatorStyle = .none
+                }
             }
         }
         .frame(height: CGFloat(ExerciseListView.titleHeight +
-            CGFloat(self.exerciseList.workouts().count) * ExerciseListView.itemHeight))
+            CGFloat(max(1, self.exerciseList.workouts().count)) * ExerciseListView.itemHeight))
     }
     
     // MARK: - Drawing Constants
     private static let imageIconScale: CGFloat = 2.0
     private static let titleFont: CGFloat = 25
-    private static let titleHeight: CGFloat = 40
-    private static let itemHeight: CGFloat = 55
+    private static let titleHeight: CGFloat = 60
+    static let itemHeight: CGFloat = 55
 }
 
 struct ExerciseListView_Previews: PreviewProvider {

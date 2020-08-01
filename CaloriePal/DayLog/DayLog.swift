@@ -19,23 +19,23 @@ class DayLog: ObservableObject {
         day.dateString()
     }
     
-    var breakfast: Meal? {
+    var breakfast: Meal {
         day.breakfast
     }
     
-    var lunch: Meal? {
+    var lunch: Meal {
         day.lunch
     }
     
-    var dinner: Meal? {
+    var dinner: Meal {
         day.dinner
     }
     
-    var snacks: Meal? {
+    var snacks: Meal {
         day.snacks
     }
     
-    var exercise: Exercise? {
+    var exercise: Exercise {
         day.exercise
     }
 }

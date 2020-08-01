@@ -22,7 +22,7 @@ struct DayLogView: View {
                 Divider()
                 MealListView(mealList: MealList(meal: dayLog.snacks))
                 Divider()
-                ExerciseListView(exerciseList: ExerciseList(exercise: dayLog.exercise!))
+                ExerciseListView(exerciseList: ExerciseList(exercise: dayLog.exercise))
                 Spacer()
             }
             .navigationBarTitle("\(dayLog.dateString)", displayMode: .inline)

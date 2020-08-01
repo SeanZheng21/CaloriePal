@@ -70,6 +70,8 @@
 		FF965F4024D27248006A1AF6 /* MealList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF965F3F24D27248006A1AF6 /* MealList.swift */; };
 		FF965F4224D27441006A1AF6 /* MealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF965F4124D27441006A1AF6 /* MealTests.swift */; };
 		FFABAF6924D161CB0071EBA2 /* FoodConvertionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABAF6824D161CB0071EBA2 /* FoodConvertionTests.swift */; };
+		FFD29A6024D55F28007B586D /* Workout.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A5F24D55F28007B586D /* Workout.png */; };
+		FFD29A6224D56308007B586D /* Meal.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A6124D56308007B586D /* Meal.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,6 +152,8 @@
 		FF965F3F24D27248006A1AF6 /* MealList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealList.swift; sourceTree = "<group>"; };
 		FF965F4124D27441006A1AF6 /* MealTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTests.swift; sourceTree = "<group>"; };
 		FFABAF6824D161CB0071EBA2 /* FoodConvertionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodConvertionTests.swift; sourceTree = "<group>"; };
+		FFD29A5F24D55F28007B586D /* Workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Workout.png; sourceTree = "<group>"; };
+		FFD29A6124D56308007B586D /* Meal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,6 +231,7 @@
 		FF379B1F24D504E900B441E1 /* Workout Icons */ = {
 			isa = PBXGroup;
 			children = (
+				FFD29A5F24D55F28007B586D /* Workout.png */,
 				FF379B2024D5050600B441E1 /* Basketball.png */,
 				FF379B2224D5050600B441E1 /* Running.png */,
 				FF379B2124D5050600B441E1 /* Skateboarding.png */,
@@ -260,6 +265,7 @@
 		FF7B26E224D10876007167C5 /* Food Icons */ = {
 			isa = PBXGroup;
 			children = (
+				FFD29A6124D56308007B586D /* Meal.png */,
 				FF07779324D25C0F002D68A7 /* Milk.png */,
 				FF07779524D25C6F002D68A7 /* Omlette Egg.png */,
 				FF7B26E324D10889007167C5 /* Chicken Noodle.png */,
@@ -429,6 +435,7 @@
 				FF0777A424D25F97002D68A7 /* Serving Size 3.png in Resources */,
 				FF379B2424D5050600B441E1 /* Skateboarding.png in Resources */,
 				FF7B26E424D10889007167C5 /* Chicken Noodle.png in Resources */,
+				FFD29A6224D56308007B586D /* Meal.png in Resources */,
 				FF0777AB24D25F97002D68A7 /* Serving Size 5.png in Resources */,
 				FF85CEA424D0131B00E21F0C /* LaunchScreen.storyboard in Resources */,
 				FF07779624D25C6F002D68A7 /* Omlette Egg.png in Resources */,
@@ -437,6 +444,7 @@
 				FF85CEA124D0131B00E21F0C /* Preview Assets.xcassets in Resources */,
 				FF85CE9E24D0131B00E21F0C /* Assets.xcassets in Resources */,
 				FF0777A524D25F97002D68A7 /* Serving Size 8.png in Resources */,
+				FFD29A6024D55F28007B586D /* Workout.png in Resources */,
 				FF0777A824D25F97002D68A7 /* Serving Size 6.png in Resources */,
 				FF0777AA24D25F97002D68A7 /* Serving Size 0.png in Resources */,
 				FF7B26DC24D0FC6D007167C5 /* foodData.json in Resources */,
