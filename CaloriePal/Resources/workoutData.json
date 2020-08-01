@@ -1,0 +1,23 @@
+[
+    {
+        "id":1,
+        "caloriePerMinute":5,
+        "name":"Skateboarding",
+        "duration":75,
+        "excluded": false
+    },
+    {
+        "id":2,
+        "caloriePerMinute":6,
+        "name":"Basketball",
+        "duration":40,
+        "excluded": true
+    },
+    {
+        "id":3,
+        "caloriePerMinute":9,
+        "name":"Running",
+        "duration":20,
+        "excluded": false
+    }
+]

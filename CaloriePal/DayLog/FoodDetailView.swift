@@ -42,6 +42,7 @@ struct FoodDetailView: View {
                         .fontWeight(.heavy)
                     Spacer()
                 }.padding(.leading)
+                Divider()
                 HStack {
                     HStack {
                         VStack {
@@ -86,6 +87,7 @@ struct FoodDetailView: View {
                     .font(.system(size: 15))
                         .padding(.all, 20)
                 }
+                Divider()
                 Text("Amount")
                     .font(.title)
                     .fontWeight(.semibold)
@@ -137,6 +139,7 @@ struct FoodDetailView: View {
                 Spacer()
                     .frame(height: 60.0)
                 HStack {
+                    
                     Text("Serving Size Guide")
                         .font(.headline)
                         .fontWeight(.semibold)

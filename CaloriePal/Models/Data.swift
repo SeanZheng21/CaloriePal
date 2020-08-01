@@ -10,6 +10,7 @@ import Foundation
 import SwiftUI
 
 let foodData: [Food] = load("foodData.json")
+let workoutData: [Workout] = load("workoutData.json")
 
 func load<T: Decodable>(_ filename: String) -> T {
     let data: Data
