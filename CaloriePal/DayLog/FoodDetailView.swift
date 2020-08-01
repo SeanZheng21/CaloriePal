@@ -93,6 +93,7 @@ struct FoodDetailView: View {
                     .fontWeight(.semibold)
                     .padding(.leading)
                 HStack {
+                    Spacer(minLength: geometry.size.width/7)
                     Picker(selection: self.$selectedInteger, label: Text("")) {
                         ForEach(0 ..< self.integerOptions.count) { index in
                             Text(self.integerOptions[index]).tag(index)
@@ -105,8 +106,8 @@ struct FoodDetailView: View {
                             }
                         })
                         .labelsHidden()
-                        .frame(width: geometry.size.width/3, height: self.pickerHeight, alignment: .center)
-                    
+                        .frame(width: geometry.size.width/7, height: self.pickerHeight, alignment: .center)
+                    Spacer(minLength: geometry.size.width/7)
                     Picker(selection: self.$selectedDecimal, label: Text("")) {
                         ForEach(0 ..< self.decimalOptions.count) { index in
                             Text(self.decimalOptions[index]).tag(index)
@@ -119,8 +120,8 @@ struct FoodDetailView: View {
                             }
                         })
                         .labelsHidden()
-                        .frame(width: geometry.size.width/3, height: self.pickerHeight, alignment: .center)
-                    
+                        .frame(width: geometry.size.width/7, height: self.pickerHeight, alignment: .center)
+                    Spacer(minLength: geometry.size.width/7)
                     Picker(selection: self.$selectedUnit, label: Text("")) {
                         ForEach(0 ..< self.unitOptions.count) { index in
                             Text(self.unitOptions[index]).tag(index)
@@ -134,7 +135,8 @@ struct FoodDetailView: View {
                             }
                         })
                         .labelsHidden()
-                        .frame(width: geometry.size.width/3, height: self.pickerHeight, alignment: .center)
+                        .frame(width: geometry.size.width/7, height: self.pickerHeight, alignment: .center)
+                    Spacer(minLength: geometry.size.width/7)
                 }
                 Spacer()
                     .frame(height: 60.0)
@@ -167,15 +169,10 @@ struct FoodDetailView: View {
             .padding(.top)
             .navigationBarTitle("Edit Food")
             .navigationBarItems(trailing: Button("Done"){
-                self.saveFood()
+                self.foodDetail.saveFood(to: self.mealList)
                 self.presentation.wrappedValue.dismiss()
             })
         }
-    }
-    
-    private func saveFood() -> Void {
-        mealList.setFood(food: self.foodDetail.food)
-        self.foodDetail.notifySaveFood()
     }
     
     var transition: AnyTransition {

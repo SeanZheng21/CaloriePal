@@ -9,7 +9,9 @@
 import SwiftUI
 
 struct WorkoutDetailView: View {
+    @Environment(\.presentationMode) var presentation
     @ObservedObject var workoutDetail: WorkoutDetail
+    @EnvironmentObject var exerciseList: ExerciseList
     
     var hourOptions = [Int](0...5).map({ String($0) })
     var minuteOptions = [Int](0...59).map({ String($0) })
@@ -29,7 +31,7 @@ struct WorkoutDetailView: View {
             VStack(alignment: .leading) {
                 HStack {
                     Image(ImageStore.loadImage(name: self.workoutDetail.workoutName, imageExtension: "png"),
-                          scale: WorkoutDetailView.self.imageIconScale, label: Text(self.workoutDetail.workoutName))
+                          scale: WorkoutDetailView.imageIconScale, label: Text(self.workoutDetail.workoutName))
                     Text(self.workoutDetail.workoutName)
                         .fontWeight(.semibold)
                     Spacer()
@@ -43,9 +45,10 @@ struct WorkoutDetailView: View {
                     .padding(.leading)
                 
                 HStack {
-                    Picker(selection: self.$selectedHour, label: Text(self.selectedHour == 1 ? "hour": "hours")) {
+                    Picker("", selection: self.$selectedHour) {
                         ForEach(0 ..< self.hourOptions.count) { index in
-                            Text(self.hourOptions[index]).tag(index)
+                            Text("\(self.hourOptions[index])")
+                                .tag(index)
                         }
                     }
                         .onReceive([self.selectedHour].publisher.first(), perform: { value in
@@ -54,11 +57,12 @@ struct WorkoutDetailView: View {
                             }
                         })
                         .labelsHidden()
-                        .frame(width: geometry.size.width/2, height: WorkoutDetailView.pickerHeight, alignment: .center)
-                    
-                    Picker(selection: self.$selectedMinute, label: Text(self.selectedMinute == 1 ? "minute" : "minutes")) {
+                        .frame(width: geometry.size.width/4, height: WorkoutDetailView.pickerHeight, alignment: .center)
+                    Text(self.selectedHour == 1 ? "hour": "hours")
+                    Picker("", selection: self.$selectedMinute) {
                     ForEach(0 ..< self.minuteOptions.count) { index in
-                            Text(self.minuteOptions[index]).tag(index)
+                            Text("\(self.minuteOptions[index])")
+                                .tag(index)
                         }
                     }
                         .onReceive([self.selectedMinute].publisher.first(), perform: { value in
@@ -67,7 +71,8 @@ struct WorkoutDetailView: View {
                             }
                         })
                         .labelsHidden()
-                        .frame(width: geometry.size.width/2, height: WorkoutDetailView.pickerHeight, alignment: .center)
+                        .frame(width: geometry.size.width/4, height: WorkoutDetailView.pickerHeight, alignment: .center)
+                    Text(self.selectedMinute == 1 ? "minute" : "minutes")
                 }
                 Spacer()
                     .frame(height: 60.0)
@@ -102,8 +107,12 @@ struct WorkoutDetailView: View {
                     .padding(.horizontal)
                 Spacer()
             }
-            .padding(.all)
+                .padding(.all)
                 .navigationBarTitle("Edit Workout")
+                .navigationBarItems(trailing: Button("Done"){
+                    self.workoutDetail.saveWorkout(to: self.exerciseList)
+                    self.presentation.wrappedValue.dismiss()
+                })
         }
     }
     

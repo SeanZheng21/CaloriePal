@@ -15,8 +15,9 @@ struct Day: Hashable, Codable, Identifiable {
     private(set) var lunch: Meal?
     private(set) var dinner: Meal?
     private(set) var snacks: Meal?
+    private(set) var exercise: Exercise?
     
-    init(date: Date?=nil, breakfast: Meal?, lunch: Meal?, dinner: Meal?, snacks: Meal?) {
+    init(date: Date?=nil, breakfast: Meal?, lunch: Meal?, dinner: Meal?, snacks: Meal?, exercise: Exercise?) {
         if let d = date {
             self.date = d
         } else {
@@ -27,6 +28,7 @@ struct Day: Hashable, Codable, Identifiable {
         self.lunch = lunch
         self.dinner = dinner
         self.snacks = snacks
+        self.exercise = exercise
     }
     
     func meals() -> [Meal?] {

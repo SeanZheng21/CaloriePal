@@ -29,7 +29,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let lunch = Meal(id: 1, type: .lunch, foods: [foodData[1], foodData[2]])
         let dinner = Meal(id: 1, type: .dinner, foods: [foodData[2], foodData[3]])
         let snacks = Meal(id: 1, type: .snacks, foods: [foodData[2]])
-        let dayLog = DayLog(day: Day(breakfast: breakfast, lunch: lunch, dinner: dinner, snacks: snacks))
+        let exercise = Exercise(id: 1, workouts: [workoutData[0], workoutData[1]])
+        let dayLog = DayLog(day: Day(breakfast: breakfast, lunch: lunch,
+                                     dinner: dinner, snacks: snacks, exercise: exercise))
 
         let contentView = DayLogView(dayLog: dayLog)
             .environment(\.managedObjectContext, context)

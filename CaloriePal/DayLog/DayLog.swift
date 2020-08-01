@@ -34,4 +34,8 @@ class DayLog: ObservableObject {
     var snacks: Meal? {
         day.snacks
     }
+    
+    var exercise: Exercise? {
+        day.exercise
+    }
 }

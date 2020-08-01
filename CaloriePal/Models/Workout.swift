@@ -35,6 +35,14 @@ struct Workout: Hashable, Codable, Identifiable {
         duration % 60
     }
     
+    func durationDescription() -> String {
+        if duration < 60 {
+            return "\(duration) Min"
+        } else {
+            return "\(durationHour) Hr \(durationMinute) Min"
+        }
+    }
+    
     func toJsonString() -> String {
         let jsonData = try! JSONEncoder().encode(self)
         let jsonString = String(data: jsonData, encoding: .utf8)!

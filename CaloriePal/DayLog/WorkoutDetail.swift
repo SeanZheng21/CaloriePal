@@ -52,4 +52,9 @@ class WorkoutDetail: ObservableObject {
             workout.setExcluded(to: newExcluded)
         }
     }
+    
+    func saveWorkout(to exerciseList: ExerciseList) -> Void {
+        exerciseList.setWorkout(workout: workout)
+        objectWillChange.send()
+    }
 }

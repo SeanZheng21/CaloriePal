@@ -20,10 +20,6 @@ class FoodDetail: ObservableObject {
         self.unitOptions = food.type.foodUnits()
     }
     
-    func notifySaveFood() -> Void {
-        objectWillChange.send()
-    }
-    
     var foodName: String {
         food.name
     }
@@ -51,6 +47,11 @@ class FoodDetail: ObservableObject {
     func setUnit(unitVal: Int) -> (Int, Int) {
         food.setUnit(to: unitOptions[unitVal])
         return FoodDetail.getIntegerDecimalLevels(floatNumber: food.amount.amount)
+    }
+    
+    func saveFood(to mealList: MealList) -> Void {
+        mealList.setFood(food: food)
+        objectWillChange.send()
     }
     
     static func getIntegerDecimalLevels(floatNumber: Float) -> (Int, Int) {
