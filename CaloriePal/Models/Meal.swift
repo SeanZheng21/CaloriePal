@@ -9,12 +9,24 @@
 import Foundation
 
 struct Meal: Hashable, Codable, Identifiable  {
+    private static var _id: Int = 10000
     var id: Int
     private(set) var type: MealType
     private(set) var foods: [Food]
     
     var name: String {
         type.rawValue
+    }
+    
+    init(id: Int?=nil, type: MealType, foods: [Food]=[]) {
+        if id == nil {
+            self.id = Meal._id
+            Meal._id += 1
+        } else {
+            self.id = id!
+        }
+        self.type = type
+        self.foods = foods
     }
     
     mutating func addFood(newFood: Food) -> Void {

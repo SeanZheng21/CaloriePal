@@ -10,8 +10,19 @@ import Foundation
 
 
 struct Exercise: Hashable, Codable, Identifiable {
+    static private var _id: Int = 20000
     var id: Int
     private(set) var workouts: [Workout]
+    
+    init(id: Int?=nil, workouts: [Workout]=[]) {
+        if id == nil {
+            self.id = Exercise._id
+            Exercise._id += 1
+        } else {
+            self.id = id!
+        }
+        self.workouts = workouts
+    }
     
     mutating func addWorkout(newWorkout: Workout) -> Void {
         if let existingIndex = workoutIndex(of: newWorkout) {
