@@ -21,7 +21,7 @@ struct MultiProgressBarView: View {
                 HStack(spacing: 0.0) {
                     ForEach(0..<self.multiProgressBar.valuesCount()) { index in
                         Rectangle().frame(
-                            width: min(CGFloat(self.multiProgressBar.itemValue(at: index)!)*geometry.size.width/1.2, geometry.size.width/1.2),
+                            width: min(CGFloat(self.multiProgressBar.itemValue(at: index)!)*geometry.size.width/1.2, geometry.size.width),
                                           height: geometry.size.height)
                             .foregroundColor(self.multiProgressBar.itemColor(at: index))
                         .animation(.linear)

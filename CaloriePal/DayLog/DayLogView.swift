@@ -18,13 +18,23 @@ struct DayLogView: View {
                     VStack(alignment: .leading, spacing: 0) {
                         DaySummaryView(daySummary: DaySummary(day: self.dayLog.day))
                             .frame(width: geometry.size.width, height: DaySummaryView.summaryViewHeight)
-                        MealListView(mealList: MealList(meal: self.dayLog.breakfast))
+                        
+                        HStack {
+                            MealListView(mealList: MealList(meal: self.dayLog.breakfast))
+                                .environmentObject(self.dayLog)
+                            Button("Log") {
+                                print("\(self.dayLog.day.breakfast)")
+                            }
+                        }
                         Divider()
                         MealListView(mealList: MealList(meal: self.dayLog.lunch))
+                            .environmentObject(self.dayLog)
                         Divider()
                         MealListView(mealList: MealList(meal: self.dayLog.dinner))
+                            .environmentObject(self.dayLog)
                         Divider()
                         MealListView(mealList: MealList(meal: self.dayLog.snacks))
+                            .environmentObject(self.dayLog)
                         Divider()
                         ExerciseListView(exerciseList: ExerciseList(exercise: self.dayLog.exercise))
                     }

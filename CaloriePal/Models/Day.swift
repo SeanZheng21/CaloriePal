@@ -72,4 +72,17 @@ struct Day: Hashable, Codable, Identifiable {
         }
         return nutrient
     }
+    
+    mutating func setMeal(to meal: Meal) -> Void {
+        switch meal.type {
+        case .breakfast:
+            self.breakfast = meal
+        case .lunch:
+            self.lunch = meal
+        case .dinner:
+            self.dinner = meal
+        case .snacks:
+            self.snacks = meal
+        }
+    }
 }

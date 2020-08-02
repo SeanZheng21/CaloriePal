@@ -40,17 +40,23 @@ class FoodDetail: ObservableObject {
         food.calorie
     }
     
-    func setAmount(intVal: Int, decimalVal: Int) -> Void {
+    func setAmount(intVal: Int, decimalVal: Int, mealList: MealList, dayLog: DayLog) -> Void {
         food.setAmount(to: Float(intVal) + FoodDetail.decimalOptions[decimalVal])
+        mealList.setFood(food: food)
+        dayLog.setMeal(meal: mealList.getMeal())
     }
     
-    func setUnit(unitVal: Int) -> (Int, Int) {
+    func setUnit(unitVal: Int, mealList: MealList, dayLog: DayLog) -> (Int, Int) {
         food.setUnit(to: unitOptions[unitVal])
+        mealList.setFood(food: food)
+        dayLog.setMeal(meal: mealList.getMeal())
         return FoodDetail.getIntegerDecimalLevels(floatNumber: food.amount.amount)
     }
     
-    func saveFood(to mealList: MealList) -> Void {
+    func saveFood(to mealList: MealList, dayLog: DayLog) -> Void {
         mealList.setFood(food: food)
+        mealList.setFood(food: food)
+        dayLog.setMeal(meal: mealList.getMeal())
         objectWillChange.send()
     }
     

@@ -38,4 +38,8 @@ class DayLog: ObservableObject {
     var exercise: Exercise {
         day.exercise
     }
+    
+    func setMeal(meal: Meal) -> Void {
+        day.setMeal(to: meal)
+    }
 }

@@ -10,7 +10,8 @@ import SwiftUI
 
 struct FoodDetailView: View {
     @Environment(\.presentationMode) var presentation
-    @EnvironmentObject var mealList: MealList
+    @EnvironmentObject var dayLog: DayLog
+    @ObservedObject var mealList: MealList
     @ObservedObject var foodDetail: FoodDetail
     
     var unitOptions: [String]
@@ -22,8 +23,9 @@ struct FoodDetailView: View {
     @State private var selectedDecimal: Int
     @State private var showServingSize = false
     
-    init(foodDetail: FoodDetail) {
+    init(foodDetail: FoodDetail, mealList: MealList) {
         self.foodDetail = foodDetail
+        self.mealList = mealList
         self.unitOptions = foodDetail.foodType.foodUnits().map { String($0.rawValue)}
         let (int, dec) = FoodDetail.getIntegerDecimalLevels(floatNumber: foodDetail.foodAnount.amount)
         _selectedDecimal = State(initialValue: dec)
@@ -102,7 +104,8 @@ struct FoodDetailView: View {
                         .onReceive([self.selectedInteger].publisher.first(), perform: { value in
                             let (int, _) = FoodDetail.getIntegerDecimalLevels(floatNumber: self.foodDetail.foodAnount.amount)
                             if value != int {
-                                self.foodDetail.setAmount(intVal: value, decimalVal: self.selectedDecimal)
+                                self.foodDetail.setAmount(intVal: value, decimalVal: self.selectedDecimal,
+                                                          mealList: self.mealList, dayLog: self.dayLog)
                             }
                         })
                         .labelsHidden()
@@ -116,7 +119,8 @@ struct FoodDetailView: View {
                         .onReceive([self.selectedDecimal].publisher.first(), perform: { value in
                             let (_, dec) = FoodDetail.getIntegerDecimalLevels(floatNumber: self.foodDetail.foodAnount.amount)
                             if value != dec {
-                                self.foodDetail.setAmount(intVal: self.selectedInteger, decimalVal: value)
+                                self.foodDetail.setAmount(intVal: self.selectedInteger, decimalVal: value,
+                                                          mealList: self.mealList, dayLog: self.dayLog)
                             }
                         })
                         .labelsHidden()
@@ -129,7 +133,8 @@ struct FoodDetailView: View {
                     }
                         .onReceive([self.selectedUnit].publisher.first(), perform: { value in
                             if self.unitOptions[value].lowercased() != self.foodDetail.foodAnount.unit.rawValue {
-                                let (intInd, decIdx) = self.foodDetail.setUnit(unitVal: value)
+                                let (intInd, decIdx) = self.foodDetail.setUnit(unitVal: value,
+                                                                               mealList: self.mealList, dayLog: self.dayLog)
                                 self.selectedInteger = intInd
                                 self.selectedDecimal = decIdx
                             }
@@ -169,7 +174,7 @@ struct FoodDetailView: View {
             .padding(.top)
             .navigationBarTitle("Edit Food")
             .navigationBarItems(trailing: Button("Done"){
-                self.foodDetail.saveFood(to: self.mealList)
+                self.foodDetail.saveFood(to: self.mealList, dayLog: self.dayLog)
                 self.presentation.wrappedValue.dismiss()
             })
         }
@@ -192,6 +197,8 @@ struct FoodDetailView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodDetailView(foodDetail: FoodDetail(food: foodData[2]))
+        FoodDetailView(foodDetail: FoodDetail(food: foodData[2]),
+                       mealList: MealList(meal:
+        Meal(id: 1, type: .breakfast, foods: [foodData[0], foodData[1]])))
     }
 }

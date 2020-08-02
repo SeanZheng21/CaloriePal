@@ -47,9 +47,10 @@ class MealList: ObservableObject {
         return meal.foods.first(where: {$0.id == id})
     }
     
-    func deleteFood(at indexSet: IndexSet) {
+    func deleteFood(at indexSet: IndexSet, from dayLog: DayLog) {
         let foodToDelete = meal.foods[indexSet.first!]
         self.removeFood(food: foodToDelete)
         objectWillChange.send()
+        dayLog.setMeal(meal: self.meal)
     }
 }

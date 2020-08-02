@@ -10,6 +10,7 @@ import SwiftUI
 
 struct MealListView: View {
     @ObservedObject var mealList: MealList
+    @EnvironmentObject var dayLog: DayLog
     @State var showMealDetail = false
     
     var body: some View {
@@ -25,7 +26,7 @@ struct MealListView: View {
                     .imageScale(.large)
                 Spacer()
                 NavigationLink(destination:
-                    FoodSelectorView().environmentObject(self.mealList)
+                    FoodSelectorView(mealList: mealList).environmentObject(self.dayLog)
                 ) {
                     Image(systemName: "plus.circle")
                         .padding(.trailing)
@@ -43,8 +44,8 @@ struct MealListView: View {
                 List {
                     ForEach(mealList.foods(), id: \.self.id) { food in
                         NavigationLink(destination:
-                            FoodDetailView(foodDetail: FoodDetail(food: food))
-                                .environmentObject(self.mealList)
+                            FoodDetailView(foodDetail: FoodDetail(food: food), mealList: self.mealList)
+                                .environmentObject(self.dayLog)
                         ) {
                             HStack {
                                 Image(ImageStore.loadImage(name: food.name, imageExtension: "png"),
@@ -61,14 +62,16 @@ struct MealListView: View {
                                 Text("\(food.calorie)")
                             }
                         }
-                    }.onDelete(perform: self.mealList.deleteFood)
+                    }.onDelete { (indexSet) in
+                        self.mealList.deleteFood(at: indexSet, from: self.dayLog)
+                    }
                 }
                 .onAppear {
                     UITableView.appearance().separatorStyle = .none
                 }
             } else {
                NavigationLink(destination:
-                    FoodSelectorView().environmentObject(self.mealList)
+                FoodSelectorView(mealList: self.mealList).environmentObject(self.dayLog)
                 )  {
                     HStack {
                         Image(systemName: "plus.circle")

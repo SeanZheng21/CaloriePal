@@ -10,7 +10,8 @@ import SwiftUI
 
 struct FoodSelectorView: View {
     @State var searchText: String = ""
-    @EnvironmentObject var mealList: MealList
+    @EnvironmentObject var dayLog: DayLog
+    @ObservedObject var mealList: MealList
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -23,8 +24,8 @@ struct FoodSelectorView: View {
                 { searchText.isEmpty ? true : $0.name.contains(searchText) }
             )) { food in
                 NavigationLink(destination:
-                    FoodDetailView(foodDetail: FoodDetail(food: food))
-                        .environmentObject(self.mealList)
+                    FoodDetailView(foodDetail: FoodDetail(food: food), mealList: self.mealList)
+                        .environmentObject(self.dayLog)
                 ) {
                     HStack {
                         Image(ImageStore.loadImage(name: food.name, imageExtension: "png"),
@@ -50,6 +51,7 @@ struct FoodSelectorView: View {
 
 struct FoodSelectorView_Previews: PreviewProvider {
     static var previews: some View {
-        FoodSelectorView()
+        FoodSelectorView(mealList: MealList(meal:
+            Meal(id: 1, type: .breakfast, foods: [foodData[0], foodData[1]])))
     }
 }
