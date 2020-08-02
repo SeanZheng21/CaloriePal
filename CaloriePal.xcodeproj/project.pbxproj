@@ -50,6 +50,7 @@
 		FF56EE1C24D537EB00A80948 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56EE1B24D537EB00A80948 /* Exercise.swift */; };
 		FF56EE1E24D53CA900A80948 /* ExerciseListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56EE1D24D53CA900A80948 /* ExerciseListView.swift */; };
 		FF56EE2024D53CB900A80948 /* ExerciseList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56EE1F24D53CB900A80948 /* ExerciseList.swift */; };
+		FF58AD3E24D653DB00C0A0F8 /* DayTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF58AD3D24D653DB00C0A0F8 /* DayTests.swift */; };
 		FF7B26DC24D0FC6D007167C5 /* foodData.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7B26DB24D0FC6D007167C5 /* foodData.json */; };
 		FF7B26DE24D0FD3A007167C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B26DD24D0FD3A007167C5 /* Data.swift */; };
 		FF7B26E124D0FEBF007167C5 /* FoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B26E024D0FEBF007167C5 /* FoodTests.swift */; };
@@ -130,6 +131,7 @@
 		FF56EE1B24D537EB00A80948 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
 		FF56EE1D24D53CA900A80948 /* ExerciseListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseListView.swift; sourceTree = "<group>"; };
 		FF56EE1F24D53CB900A80948 /* ExerciseList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseList.swift; sourceTree = "<group>"; };
+		FF58AD3D24D653DB00C0A0F8 /* DayTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTests.swift; sourceTree = "<group>"; };
 		FF7B26DB24D0FC6D007167C5 /* foodData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = foodData.json; sourceTree = "<group>"; };
 		FF7B26DD24D0FD3A007167C5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		FF7B26E024D0FEBF007167C5 /* FoodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTests.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				FFABAF6824D161CB0071EBA2 /* FoodConvertionTests.swift */,
 				FF965F4124D27441006A1AF6 /* MealTests.swift */,
 				FF379B1724D4FA2A00B441E1 /* ExerciseTests.swift */,
+				FF58AD3D24D653DB00C0A0F8 /* DayTests.swift */,
 			);
 			path = ModelsTests;
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				FF965F4224D27441006A1AF6 /* MealTests.swift in Sources */,
 				FF379B1824D4FA2A00B441E1 /* ExerciseTests.swift in Sources */,
 				FFABAF6924D161CB0071EBA2 /* FoodConvertionTests.swift in Sources */,
+				FF58AD3E24D653DB00C0A0F8 /* DayTests.swift in Sources */,
 				FF85CEAF24D0131B00E21F0C /* CaloriePalTests.swift in Sources */,
 				FF7B26E124D0FEBF007167C5 /* FoodTests.swift in Sources */,
 			);

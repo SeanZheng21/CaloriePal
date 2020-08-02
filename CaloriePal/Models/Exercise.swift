@@ -58,7 +58,7 @@ struct Exercise: Hashable, Codable, Identifiable {
     
     func totalCalories() -> Int {
         var sum = 0
-        workouts.forEach({ sum += $0.calories })
+        workouts.forEach({ sum += ($0.excluded ? 0 : $0.calories) })
         return sum
     }
     
