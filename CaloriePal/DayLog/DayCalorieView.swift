@@ -1,5 +1,5 @@
 //
-//  DaySummaryView.swift
+//  DayCalorieView.swift
 //  CaloriePal
 //
 //  Created by Carlistle ZHENG on 8/2/20.
@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct DaySummaryView: View {
+struct DayCalorieView: View {
     @ObservedObject var daySummary: DaySummary
     
     var body: some View {
@@ -19,7 +19,7 @@ struct DaySummaryView: View {
                     .foregroundColor(Color.gray)
                 MultiProgressBarView(multiProgressBar: MultiProgressBar(total: Float(self.daySummary.budgetCalories), values: [Float(self.daySummary.netCalories)],
                     colors: [self.daySummary.remainingCalories >= 0 ? Color.green : Color.yellow]))
-                    .frame(height: DaySummaryView.progressBarHeight)
+                    .frame(height: DayCalorieView.progressBarHeight)
                 HStack {
                     VStack {
                         Text("BUDGET")
@@ -79,8 +79,8 @@ struct DaySummaryView: View {
                 .padding(.horizontal)
             }
             .padding(.vertical)
-            .frame(width: geometry.size.width, height: DaySummaryView.summaryViewHeight)
-            .background(Color.gray.opacity(DaySummaryView.backgroundOpacity))
+            .frame(width: geometry.size.width, height: DayCalorieView.summaryViewHeight)
+            .background(Color.gray.opacity(DayCalorieView.backgroundOpacity))
         }
     }
     
@@ -99,6 +99,6 @@ struct DaySummaryView_Previews: PreviewProvider {
         let exercise = Exercise(id: 1, workouts: [workoutData[0], workoutData[1]])
         let day = Day(breakfast: breakfast, lunch: lunch,
                     dinner: dinner, snacks: snacks, exercise: exercise)
-        return DaySummaryView(daySummary: DaySummary(day: day))
+        return DayCalorieView(daySummary: DaySummary(day: day))
     }
 }

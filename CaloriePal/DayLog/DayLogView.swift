@@ -16,16 +16,10 @@ struct DayLogView: View {
             NavigationView {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        DaySummaryView(daySummary: DaySummary(day: self.dayLog.day))
-                            .frame(width: geometry.size.width, height: DaySummaryView.summaryViewHeight)
-                        
-                        HStack {
-                            MealListView(mealList: MealList(meal: self.dayLog.breakfast))
-                                .environmentObject(self.dayLog)
-                            Button("Log") {
-                                print("\(self.dayLog.day.breakfast)")
-                            }
-                        }
+                        DayCalorieView(daySummary: DaySummary(day: self.dayLog.day))
+                            .frame(width: geometry.size.width, height: DayCalorieView.summaryViewHeight)
+                        MealListView(mealList: MealList(meal: self.dayLog.breakfast))
+                            .environmentObject(self.dayLog)
                         Divider()
                         MealListView(mealList: MealList(meal: self.dayLog.lunch))
                             .environmentObject(self.dayLog)
