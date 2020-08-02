@@ -12,21 +12,26 @@ struct DayLogView: View {
     @ObservedObject var dayLog: DayLog
     
     var body: some View {
-        NavigationView {
-            VStack(alignment: .leading, spacing: 0) {
-                MealListView(mealList: MealList(meal: dayLog.breakfast))
-                Divider()
-                MealListView(mealList: MealList(meal: dayLog.lunch))
-                Divider()
-                MealListView(mealList: MealList(meal: dayLog.dinner))
-                Divider()
-                MealListView(mealList: MealList(meal: dayLog.snacks))
-                Divider()
-                ExerciseListView(exerciseList: ExerciseList(exercise: dayLog.exercise))
-                Spacer()
+        GeometryReader { geometry in
+            NavigationView {
+                ScrollView {
+                    VStack(alignment: .leading, spacing: 0) {
+                        DaySummaryView(daySummary: DaySummary(day: self.dayLog.day))
+                            .frame(width: geometry.size.width, height: DaySummaryView.summaryViewHeight)
+                        MealListView(mealList: MealList(meal: self.dayLog.breakfast))
+                        Divider()
+                        MealListView(mealList: MealList(meal: self.dayLog.lunch))
+                        Divider()
+                        MealListView(mealList: MealList(meal: self.dayLog.dinner))
+                        Divider()
+                        MealListView(mealList: MealList(meal: self.dayLog.snacks))
+                        Divider()
+                        ExerciseListView(exerciseList: ExerciseList(exercise: self.dayLog.exercise))
+                    }
+                .navigationBarTitle("\(self.dayLog.dateString)", displayMode: .inline)
+                .navigationBarItems(trailing: EditButton())
+                }
             }
-            .navigationBarTitle("\(dayLog.dateString)", displayMode: .inline)
-            .navigationBarItems(trailing: EditButton())
         }
     }
 }
