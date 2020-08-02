@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DayNutrientView: View {
-    @ObservedObject var daySummary: DaySummary
+    @ObservedObject var daySummary: DayBanner
     
     var body: some View {
         GeometryReader { geometry in
@@ -17,8 +17,12 @@ struct DayNutrientView: View {
                 Text("MACRONUTRIENTS")
                     .fontWeight(.bold)
                     .foregroundColor(Color.gray)
-                MultiProgressBarView(multiProgressBar: MultiProgressBar(total: Float(self.daySummary.budgetCalories), values: [Float(self.daySummary.netCalories)],
-                    colors: [self.daySummary.remainingCalories >= 0 ? Color.green : Color.yellow]))
+                    .padding(.top)
+                MultiProgressBarView(multiProgressBar: MultiProgressBar(total: Float(self.daySummary.budgetCalories),
+                    values: [Float(self.daySummary.netCalories * self.daySummary.fatPercentage) / 100.0,
+                            Float(self.daySummary.netCalories * self.daySummary.carbsPercentage) / 100.0,
+                            Float(self.daySummary.netCalories * self.daySummary.proteinPercentage) / 100.0],
+                    colors: [Nutrient.fatColor, Nutrient.carbColor, Nutrient.proteinColor]))
                     .frame(height: DayCalorieView.progressBarHeight)
                 HStack {
                     Spacer()
@@ -69,16 +73,18 @@ struct DayNutrientView: View {
                     Spacer()
                 }
                 .padding(.horizontal)
+                Text("")
+                Text("")
             }
             .padding(.vertical)
-            .frame(width: geometry.size.width, height: DayCalorieView.summaryViewHeight)
+            .frame(width: geometry.size.width, height: DayCalorieView.viewHeight)
             .background(Color.gray.opacity(DayCalorieView.backgroundOpacity))
         }
     }
     
     // MARK: - Drawing Constants
     static let progressBarHeight: CGFloat = 15.0
-    static let summaryViewHeight: CGFloat = 100.0
+    static let viewHeight: CGFloat = 120.0
     static let backgroundOpacity: Double = 0.15
 }
 
@@ -91,6 +97,6 @@ struct DayNutrientView_Previews: PreviewProvider {
         let exercise = Exercise(id: 1, workouts: [workoutData[0], workoutData[1]])
         let day = Day(breakfast: breakfast, lunch: lunch,
                     dinner: dinner, snacks: snacks, exercise: exercise)
-        return DayNutrientView(daySummary: DaySummary(day: day))
+        return DayNutrientView(daySummary: DayBanner(day: day))
     }
 }

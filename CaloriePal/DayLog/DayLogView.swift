@@ -16,8 +16,8 @@ struct DayLogView: View {
             NavigationView {
                 ScrollView {
                     VStack(alignment: .leading, spacing: 0) {
-                        DayCalorieView(daySummary: DaySummary(day: self.dayLog.day))
-                            .frame(width: geometry.size.width, height: DayCalorieView.summaryViewHeight)
+                        DayBannerView(dayBanner: DayBanner(day: self.dayLog.day))
+                            .frame(width: geometry.size.width, height: DayBannerView.viewHeight)
                         MealListView(mealList: MealList(meal: self.dayLog.breakfast))
                             .environmentObject(self.dayLog)
                         Divider()

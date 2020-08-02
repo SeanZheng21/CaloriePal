@@ -45,6 +45,10 @@ class DayBanner: ObservableObject {
             totalNutrient.proteinPercentage()
     }
     
+    func getDay() -> Day {
+        return day
+    }
+    
     var fatPercentage: Int {
         Int(totalNutrient.fatPercentage() / totalPercentageCalc * 100)
     }

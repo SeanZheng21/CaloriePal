@@ -11,11 +11,11 @@ import SwiftUI
 struct ServingSizeView: View {
     var body: some View {
         PageView(ServingSizeView.cardRange.map { ServingSizeCard(servingSizeImageIndex: $0) })
-            .aspectRatio(aspectRatio, contentMode: .fit)
+            .aspectRatio(ServingSizeView.drawingAspectRatio, contentMode: .fit)
     }
     
     // MARK: - Drawing Constants
-    private let aspectRatio: CGFloat = 1.0
+    static let drawingAspectRatio: CGFloat = 1.1
     private static let cardRange = [Int](0...8)
 }
 

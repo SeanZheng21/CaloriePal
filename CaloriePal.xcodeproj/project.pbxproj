@@ -46,6 +46,8 @@
 		FF3AADFF24D3FAFA001E0D92 /* DayLogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AADFE24D3FAFA001E0D92 /* DayLogView.swift */; };
 		FF3AAE0124D3FB11001E0D92 /* DayLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3AAE0024D3FB11001E0D92 /* DayLog.swift */; };
 		FF4A4C1424D692B7000A63EE /* DayNutrientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A4C1324D692B7000A63EE /* DayNutrientView.swift */; };
+		FF4A4C1624D69666000A63EE /* DayBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A4C1524D69666000A63EE /* DayBannerView.swift */; };
+		FF4A4C1824D69FA8000A63EE /* PageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4A4C1724D69FA8000A63EE /* PageControl.swift */; };
 		FF4F74BE24D148AF0021C10A /* FoodDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF4F74BD24D148AF0021C10A /* FoodDetail.swift */; };
 		FF56EE1A24D537C000A80948 /* WorkoutSelectorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56EE1924D537C000A80948 /* WorkoutSelectorView.swift */; };
 		FF56EE1C24D537EB00A80948 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF56EE1B24D537EB00A80948 /* Exercise.swift */; };
@@ -74,7 +76,7 @@
 		FF965F4024D27248006A1AF6 /* MealList.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF965F3F24D27248006A1AF6 /* MealList.swift */; };
 		FF965F4224D27441006A1AF6 /* MealTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF965F4124D27441006A1AF6 /* MealTests.swift */; };
 		FFA7086C24D65AC7002884FA /* DayCalorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA7086B24D65AC7002884FA /* DayCalorieView.swift */; };
-		FFA7086E24D65AD9002884FA /* DaySummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA7086D24D65AD9002884FA /* DaySummary.swift */; };
+		FFA7086E24D65AD9002884FA /* DayBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFA7086D24D65AD9002884FA /* DayBanner.swift */; };
 		FFABAF6924D161CB0071EBA2 /* FoodConvertionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFABAF6824D161CB0071EBA2 /* FoodConvertionTests.swift */; };
 		FFD29A6024D55F28007B586D /* Workout.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A5F24D55F28007B586D /* Workout.png */; };
 		FFD29A6224D56308007B586D /* Meal.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A6124D56308007B586D /* Meal.png */; };
@@ -130,6 +132,8 @@
 		FF3AADFE24D3FAFA001E0D92 /* DayLogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLogView.swift; sourceTree = "<group>"; };
 		FF3AAE0024D3FB11001E0D92 /* DayLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayLog.swift; sourceTree = "<group>"; };
 		FF4A4C1324D692B7000A63EE /* DayNutrientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayNutrientView.swift; sourceTree = "<group>"; };
+		FF4A4C1524D69666000A63EE /* DayBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayBannerView.swift; sourceTree = "<group>"; };
+		FF4A4C1724D69FA8000A63EE /* PageControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageControl.swift; sourceTree = "<group>"; };
 		FF4F74BD24D148AF0021C10A /* FoodDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDetail.swift; sourceTree = "<group>"; };
 		FF56EE1924D537C000A80948 /* WorkoutSelectorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutSelectorView.swift; sourceTree = "<group>"; };
 		FF56EE1B24D537EB00A80948 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
@@ -162,7 +166,7 @@
 		FF965F3F24D27248006A1AF6 /* MealList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealList.swift; sourceTree = "<group>"; };
 		FF965F4124D27441006A1AF6 /* MealTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealTests.swift; sourceTree = "<group>"; };
 		FFA7086B24D65AC7002884FA /* DayCalorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayCalorieView.swift; sourceTree = "<group>"; };
-		FFA7086D24D65AD9002884FA /* DaySummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaySummary.swift; sourceTree = "<group>"; };
+		FFA7086D24D65AD9002884FA /* DayBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayBanner.swift; sourceTree = "<group>"; };
 		FFABAF6824D161CB0071EBA2 /* FoodConvertionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodConvertionTests.swift; sourceTree = "<group>"; };
 		FFD29A5F24D55F28007B586D /* Workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Workout.png; sourceTree = "<group>"; };
 		FFD29A6124D56308007B586D /* Meal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meal.png; sourceTree = "<group>"; };
@@ -191,7 +195,8 @@
 			children = (
 				FF3AAE0024D3FB11001E0D92 /* DayLog.swift */,
 				FF3AADFE24D3FAFA001E0D92 /* DayLogView.swift */,
-				FFA7086D24D65AD9002884FA /* DaySummary.swift */,
+				FFA7086D24D65AD9002884FA /* DayBanner.swift */,
+				FF4A4C1524D69666000A63EE /* DayBannerView.swift */,
 				FF4A4C1324D692B7000A63EE /* DayNutrientView.swift */,
 				FFA7086B24D65AC7002884FA /* DayCalorieView.swift */,
 				FF965F3F24D27248006A1AF6 /* MealList.swift */,
@@ -215,6 +220,7 @@
 		FF01FB9B24D262A600EDA410 /* Supporting Views */ = {
 			isa = PBXGroup;
 			children = (
+				FF4A4C1724D69FA8000A63EE /* PageControl.swift */,
 				FF01FB9C24D2637A00EDA410 /* PageView.swift */,
 				FF01FB9E24D2638900EDA410 /* PageViewController.swift */,
 				FF1E160B24D3A80C0043E244 /* PieChartView.swift */,
@@ -504,15 +510,17 @@
 				FF965F4024D27248006A1AF6 /* MealList.swift in Sources */,
 				FF3AADF724D3E084001E0D92 /* FoodSelectorView.swift in Sources */,
 				FF3AADFD24D3F880001E0D92 /* Day.swift in Sources */,
-				FFA7086E24D65AD9002884FA /* DaySummary.swift in Sources */,
+				FFA7086E24D65AD9002884FA /* DayBanner.swift in Sources */,
 				FF07779024D257C9002D68A7 /* MealType.swift in Sources */,
 				FF8C285224D645480056E61E /* MultiProgressBar.swift in Sources */,
 				FF379B1E24D5030900B441E1 /* WorkoutDetail.swift in Sources */,
 				FF1E160E24D3A8370043E244 /* PieChartSlideView.swift in Sources */,
 				FF85CEBC24D01B9200E21F0C /* Food.swift in Sources */,
 				FF1E160C24D3A80C0043E244 /* PieChartView.swift in Sources */,
+				FF4A4C1624D69666000A63EE /* DayBannerView.swift in Sources */,
 				FF8C285024D644350056E61E /* MultiProgressBarView.swift in Sources */,
 				FF85CE9C24D0131A00E21F0C /* FoodDetailView.swift in Sources */,
+				FF4A4C1824D69FA8000A63EE /* PageControl.swift in Sources */,
 				FF01FBA124D2645300EDA410 /* ServingSizeCard.swift in Sources */,
 				FF3AADFB24D3E16C001E0D92 /* SearchBar.swift in Sources */,
 				FFA7086C24D65AC7002884FA /* DayCalorieView.swift in Sources */,

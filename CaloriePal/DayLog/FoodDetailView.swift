@@ -35,148 +35,150 @@ struct FoodDetailView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            VStack(alignment: .leading) {
-                HStack {
-                    Image(ImageStore.loadImage(name: self.foodDetail.foodName, imageExtension: "png"),
-                          scale: self.imageIconScale, label: Text(self.foodDetail.foodName))
-                    Text(self.foodDetail.foodName)
-                        .font(.title)
-                        .fontWeight(.heavy)
-                    Spacer()
-                }.padding(.leading)
-                Divider()
-                HStack {
+            ScrollView {
+                VStack(alignment: .leading) {
                     HStack {
-                        VStack {
-                            Text("\(self.foodDetail.foodCalorie)")
-                                .font(.system(size: self.calorieFont, weight: .semibold))
-                            Text("Calories").fontWeight(.light)
-                        }
-                        .padding(.all, self.caloriePadding)
-                    }.padding()
-                    Spacer()
-                    HStack {
-                        VStack(alignment: .leading, spacing: 4) {
-                            Text("Amount")
-                            Text("Total Fat")
-                            Text("    Sat Fat")
-                                .foregroundColor(Color.gray)
-                            Text("Cholesterol")
-                            Text("Sodium")
-                            Text("Total Carbs")
-                            Text("    Fiber")
-                                .foregroundColor(Color.gray)
-                            Text("    Sugars")
-                                .foregroundColor(Color.gray)
-                            Text("Protein")
-                        }
+                        Image(ImageStore.loadImage(name: self.foodDetail.foodName, imageExtension: "png"),
+                              scale: self.imageIconScale, label: Text(self.foodDetail.foodName))
+                        Text(self.foodDetail.foodName)
+                            .font(.title)
+                            .fontWeight(.heavy)
                         Spacer()
-                        VStack(alignment: .trailing, spacing: 4) {
-                            Text(self.foodDetail.foodAnount.description)
-                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.fat) + "g")
-                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.satFat) + "g")
-                                .foregroundColor(Color.gray)
-                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.cholesterol) + "mg")
-                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.sodium) + "mg")
-                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.carbs) + "g")
-                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.fiber) + "g")
-                                .foregroundColor(Color.gray)
-                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.sugars) + "g")
-                                .foregroundColor(Color.gray)
-                            Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.protein) + "g")
-                        }
-                    }
-                    .font(.system(size: 15))
-                        .padding(.all, 20)
-                }
-                Divider()
-                Text("Amount")
-                    .font(.title)
-                    .fontWeight(.semibold)
-                    .padding(.leading)
-                HStack {
-                    Spacer(minLength: geometry.size.width/7)
-                    Picker(selection: self.$selectedInteger, label: Text("")) {
-                        ForEach(0 ..< self.integerOptions.count) { index in
-                            Text(self.integerOptions[index]).tag(index)
-                        }
-                    }
-                        .onReceive([self.selectedInteger].publisher.first(), perform: { value in
-                            let (int, _) = FoodDetail.getIntegerDecimalLevels(floatNumber: self.foodDetail.foodAnount.amount)
-                            if value != int {
-                                self.foodDetail.setAmount(intVal: value, decimalVal: self.selectedDecimal,
-                                                          mealList: self.mealList, dayLog: self.dayLog)
+                    }.padding(.leading)
+                    Divider()
+                    HStack {
+                        HStack {
+                            VStack {
+                                Text("\(self.foodDetail.foodCalorie)")
+                                    .font(.system(size: self.calorieFont, weight: .semibold))
+                                Text("Calories").fontWeight(.light)
                             }
-                        })
-                        .labelsHidden()
-                        .frame(width: geometry.size.width/7, height: self.pickerHeight, alignment: .center)
-                    Spacer(minLength: geometry.size.width/7)
-                    Picker(selection: self.$selectedDecimal, label: Text("")) {
-                        ForEach(0 ..< self.decimalOptions.count) { index in
-                            Text(self.decimalOptions[index]).tag(index)
-                        }
-                    }
-                        .onReceive([self.selectedDecimal].publisher.first(), perform: { value in
-                            let (_, dec) = FoodDetail.getIntegerDecimalLevels(floatNumber: self.foodDetail.foodAnount.amount)
-                            if value != dec {
-                                self.foodDetail.setAmount(intVal: self.selectedInteger, decimalVal: value,
-                                                          mealList: self.mealList, dayLog: self.dayLog)
+                            .padding(.all, self.caloriePadding)
+                        }.padding()
+                        Spacer()
+                        HStack {
+                            VStack(alignment: .leading, spacing: 4) {
+                                Text("Amount")
+                                Text("Total Fat")
+                                Text("    Sat Fat")
+                                    .foregroundColor(Color.gray)
+                                Text("Cholesterol")
+                                Text("Sodium")
+                                Text("Total Carbs")
+                                Text("    Fiber")
+                                    .foregroundColor(Color.gray)
+                                Text("    Sugars")
+                                    .foregroundColor(Color.gray)
+                                Text("Protein")
                             }
-                        })
-                        .labelsHidden()
-                        .frame(width: geometry.size.width/7, height: self.pickerHeight, alignment: .center)
-                    Spacer(minLength: geometry.size.width/7)
-                    Picker(selection: self.$selectedUnit, label: Text("")) {
-                        ForEach(0 ..< self.unitOptions.count) { index in
-                            Text(self.unitOptions[index]).tag(index)
-                        }
-                    }
-                        .onReceive([self.selectedUnit].publisher.first(), perform: { value in
-                            if self.unitOptions[value].lowercased() != self.foodDetail.foodAnount.unit.rawValue {
-                                let (intInd, decIdx) = self.foodDetail.setUnit(unitVal: value,
-                                                                               mealList: self.mealList, dayLog: self.dayLog)
-                                self.selectedInteger = intInd
-                                self.selectedDecimal = decIdx
+                            Spacer()
+                            VStack(alignment: .trailing, spacing: 4) {
+                                Text(self.foodDetail.foodAnount.description)
+                                Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.fat) + "g")
+                                Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.satFat) + "g")
+                                    .foregroundColor(Color.gray)
+                                Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.cholesterol) + "mg")
+                                Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.sodium) + "mg")
+                                Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.carbs) + "g")
+                                Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.fiber) + "g")
+                                    .foregroundColor(Color.gray)
+                                Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.sugars) + "g")
+                                    .foregroundColor(Color.gray)
+                                Text(Nutrient.formatNutrient(self.foodDetail.foodNutrient.protein) + "g")
                             }
-                        })
-                        .labelsHidden()
-                        .frame(width: geometry.size.width/7, height: self.pickerHeight, alignment: .center)
-                    Spacer(minLength: geometry.size.width/7)
-                }
-                Spacer()
-                    .frame(height: 60.0)
-                HStack {
-                    
-                    Text("Serving Size Guide")
-                        .font(.headline)
+                        }
+                        .font(.system(size: 15))
+                            .padding(.all, 20)
+                    }
+                    Divider()
+                    Text("Amount")
+                        .font(.title)
                         .fontWeight(.semibold)
                         .padding(.leading)
-                    Spacer()
-                    Button(action: {
-                        withAnimation {
-                            self.showServingSize.toggle()
+                    HStack {
+                        Spacer(minLength: geometry.size.width/7)
+                        Picker(selection: self.$selectedInteger, label: Text("")) {
+                            ForEach(0 ..< self.integerOptions.count) { index in
+                                Text(self.integerOptions[index]).tag(index)
+                            }
                         }
-                    }) {
-                        Image(systemName: "chevron.right.circle")
-                            .imageScale(.large)
-                            .rotationEffect(.degrees(self.showServingSize ? 90 : 0))
-                            .scaleEffect(self.showServingSize ? 1.5 : 1)
-                            .padding()
+                            .onReceive([self.selectedInteger].publisher.first(), perform: { value in
+                                let (int, _) = FoodDetail.getIntegerDecimalLevels(floatNumber: self.foodDetail.foodAnount.amount)
+                                if value != int {
+                                    self.foodDetail.setAmount(intVal: value, decimalVal: self.selectedDecimal,
+                                                              mealList: self.mealList, dayLog: self.dayLog)
+                                }
+                            })
+                            .labelsHidden()
+                            .frame(width: geometry.size.width/7, height: self.pickerHeight, alignment: .center)
+                        Spacer(minLength: geometry.size.width/7)
+                        Picker(selection: self.$selectedDecimal, label: Text("")) {
+                            ForEach(0 ..< self.decimalOptions.count) { index in
+                                Text(self.decimalOptions[index]).tag(index)
+                            }
+                        }
+                            .onReceive([self.selectedDecimal].publisher.first(), perform: { value in
+                                let (_, dec) = FoodDetail.getIntegerDecimalLevels(floatNumber: self.foodDetail.foodAnount.amount)
+                                if value != dec {
+                                    self.foodDetail.setAmount(intVal: self.selectedInteger, decimalVal: value,
+                                                              mealList: self.mealList, dayLog: self.dayLog)
+                                }
+                            })
+                            .labelsHidden()
+                            .frame(width: geometry.size.width/7, height: self.pickerHeight, alignment: .center)
+                        Spacer(minLength: geometry.size.width/7)
+                        Picker(selection: self.$selectedUnit, label: Text("")) {
+                            ForEach(0 ..< self.unitOptions.count) { index in
+                                Text(self.unitOptions[index]).tag(index)
+                            }
+                        }
+                            .onReceive([self.selectedUnit].publisher.first(), perform: { value in
+                                if self.unitOptions[value].lowercased() != self.foodDetail.foodAnount.unit.rawValue {
+                                    let (intInd, decIdx) = self.foodDetail.setUnit(unitVal: value,
+                                                                                   mealList: self.mealList, dayLog: self.dayLog)
+                                    self.selectedInteger = intInd
+                                    self.selectedDecimal = decIdx
+                                }
+                            })
+                            .labelsHidden()
+                            .frame(width: geometry.size.width/7, height: self.pickerHeight, alignment: .center)
+                        Spacer(minLength: geometry.size.width/7)
                     }
+                    Spacer()
+                        .frame(height: 60.0)
+                    HStack {
+                        
+                        Text("Serving Size Guide")
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .padding(.leading)
+                        Spacer()
+                        Button(action: {
+                            withAnimation {
+                                self.showServingSize.toggle()
+                            }
+                        }) {
+                            Image(systemName: "chevron.right.circle")
+                                .imageScale(.large)
+                                .rotationEffect(.degrees(self.showServingSize ? 90 : 0))
+                                .scaleEffect(self.showServingSize ? 1.5 : 1)
+                                .padding()
+                        }
+                    }
+                    if self.showServingSize {
+                        ServingSizeView()
+                            .frame(width: geometry.size.width, height: geometry.size.width / ServingSizeView.drawingAspectRatio, alignment: .center)
+                            .transition(self.transition)
+                    }
+                    Spacer()
                 }
-                if self.showServingSize {
-                    ServingSizeView()
-                        .frame(width: geometry.size.width, height: geometry.size.width, alignment: .center)
-                        .transition(self.transition)
-                }
-                Spacer()
+                .padding(.top)
+                .navigationBarTitle("Edit Food")
+                .navigationBarItems(trailing: Button("Done"){
+                    self.foodDetail.saveFood(to: self.mealList, dayLog: self.dayLog)
+                    self.presentation.wrappedValue.dismiss()
+                })
             }
-            .padding(.top)
-            .navigationBarTitle("Edit Food")
-            .navigationBarItems(trailing: Button("Done"){
-                self.foodDetail.saveFood(to: self.mealList, dayLog: self.dayLog)
-                self.presentation.wrappedValue.dismiss()
-            })
         }
     }
     

@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DayCalorieView: View {
-    @ObservedObject var daySummary: DaySummary
+    @ObservedObject var daySummary: DayBanner
     
     var body: some View {
         GeometryReader { geometry in
@@ -77,16 +77,18 @@ struct DayCalorieView: View {
                     }
                 }
                 .padding(.horizontal)
+                Text("")
+                Text("")
             }
             .padding(.vertical)
-            .frame(width: geometry.size.width, height: DayCalorieView.summaryViewHeight)
+            .frame(width: geometry.size.width, height: DayCalorieView.viewHeight)
             .background(Color.gray.opacity(DayCalorieView.backgroundOpacity))
         }
     }
     
     // MARK: - Drawing Constants
     static let progressBarHeight: CGFloat = 15.0
-    static let summaryViewHeight: CGFloat = 100.0
+    static let viewHeight: CGFloat = 120.0
     static let backgroundOpacity: Double = 0.15
 }
 
@@ -99,6 +101,6 @@ struct DaySummaryView_Previews: PreviewProvider {
         let exercise = Exercise(id: 1, workouts: [workoutData[0], workoutData[1]])
         let day = Day(breakfast: breakfast, lunch: lunch,
                     dinner: dinner, snacks: snacks, exercise: exercise)
-        return DayCalorieView(daySummary: DaySummary(day: day))
+        return DayCalorieView(daySummary: DayBanner(day: day))
     }
 }
