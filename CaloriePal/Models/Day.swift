@@ -85,4 +85,8 @@ struct Day: Hashable, Codable, Identifiable {
             self.snacks = meal
         }
     }
+    
+    mutating func setExercise(to exercise: Exercise) -> Void {
+        self.exercise = exercise
+    }
 }

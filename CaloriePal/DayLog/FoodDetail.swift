@@ -55,7 +55,6 @@ class FoodDetail: ObservableObject {
     
     func saveFood(to mealList: MealList, dayLog: DayLog) -> Void {
         mealList.setFood(food: food)
-        mealList.setFood(food: food)
         dayLog.setMeal(meal: mealList.getMeal())
         objectWillChange.send()
     }

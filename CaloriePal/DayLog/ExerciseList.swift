@@ -9,22 +9,18 @@
 import Foundation
 
 class ExerciseList: ObservableObject {
-    @Published private var exercise: Exercise?
+    @Published private var exercise: Exercise
     
-    init(exercise: Exercise?) {
+    init(exercise: Exercise) {
         self.exercise = exercise
     }
-    
-    func hasExercise() -> Bool {
-        exercise == nil
-    }
-    
+
     var totalCalories: Int {
-        exercise!.totalCalories()
+        exercise.totalCalories()
     }
     
     func workouts() -> [Workout] {
-        exercise!.workouts
+        exercise.workouts
     }
     
     var exerciseName: String {
@@ -32,28 +28,29 @@ class ExerciseList: ObservableObject {
     }
     
     func getExercise() -> Exercise {
-        return exercise!
+        return exercise
     }
     
     func setWorkout(workout: Workout) -> Void {
-        exercise!.setWorkout(to: workout)
+        exercise.setWorkout(to: workout)
     }
     
     func addWorkout(newWorkout: Workout) -> Void {
-        exercise!.addWorkout(newWorkout: newWorkout)
+        exercise.addWorkout(newWorkout: newWorkout)
     }
     
     func removeWorkout(workout: Workout) -> Void {
-        exercise!.removeWorkout(workout: workout)
+        exercise.removeWorkout(workout: workout)
     }
     
     func getWorkout(of id: Int) -> Workout? {
-        return exercise!.workouts.first(where: {$0.id == id})
+        return exercise.workouts.first(where: {$0.id == id})
     }
     
-    func deleteWorkout(at indexSet: IndexSet) {
-        let workoutToDelete = exercise!.workouts[indexSet.first!]
+    func deleteWorkout(at indexSet: IndexSet, from dayLog: DayLog) {
+        let workoutToDelete = exercise.workouts[indexSet.first!]
         self.removeWorkout(workout: workoutToDelete)
+        dayLog.setExercise(exercise: self.exercise)
         objectWillChange.send()
     }
 }

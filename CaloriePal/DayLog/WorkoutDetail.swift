@@ -39,22 +39,27 @@ class WorkoutDetail: ObservableObject {
         workout.durationMinute
     }
     
-    func setDuration(to newDuration: Int) -> Void {
+    func setDuration(to newDuration: Int, exerciseList: ExerciseList, dayLog: DayLog) -> Void {
         workout.setDuration(to: newDuration)
+        exerciseList.setWorkout(workout: workout)
+        dayLog.setExercise(exercise: exerciseList.getExercise())
     }
     
-    func setDuration(newHour: Int, newMinute: Int) -> Void {
-        workout.setDuration(to: newHour * 60 + newMinute)
+    func setDuration(newHour: Int, newMinute: Int, exerciseList: ExerciseList, dayLog: DayLog) -> Void {
+        setDuration(to: newHour * 60 + newMinute, exerciseList: exerciseList, dayLog: dayLog)
     }
     
-    func setExcluded(to newExcluded: Bool) -> Void {
+    func setExcluded(to newExcluded: Bool, exerciseList: ExerciseList, dayLog: DayLog) -> Void {
         if newExcluded != workout.excluded {
             workout.setExcluded(to: newExcluded)
+            exerciseList.setWorkout(workout: workout)
+            dayLog.setExercise(exercise: exerciseList.getExercise())
         }
     }
     
-    func saveWorkout(to exerciseList: ExerciseList) -> Void {
+    func saveWorkout(to exerciseList: ExerciseList, dayLog: DayLog) -> Void {
         exerciseList.setWorkout(workout: workout)
+        dayLog.setExercise(exercise: exerciseList.getExercise())
         objectWillChange.send()
     }
 }

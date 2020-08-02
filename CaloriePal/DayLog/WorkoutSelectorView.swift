@@ -10,7 +10,8 @@ import SwiftUI
 
 struct WorkoutSelectorView: View {
     @State var searchText: String = ""
-    @EnvironmentObject var exerciseList: ExerciseList
+    @EnvironmentObject var dayLog: DayLog
+    @ObservedObject var exerciseList: ExerciseList
     @Environment(\.presentationMode) var presentationMode
 
     var body: some View {
@@ -23,7 +24,7 @@ struct WorkoutSelectorView: View {
                 { searchText.isEmpty ? true : $0.name.contains(searchText) }
             )) { workout in
                 NavigationLink(destination:
-                    WorkoutDetailView(workoutDetail: WorkoutDetail(workout: workout))
+                    WorkoutDetailView(workoutDetail: WorkoutDetail(workout: workout), exerciseList: self.exerciseList)
                         .environmentObject(self.exerciseList)
                 ) {
                     HStack {
@@ -50,6 +51,7 @@ struct WorkoutSelectorView: View {
 
 struct WorkoutSelectorView_Previews: PreviewProvider {
     static var previews: some View {
-        WorkoutSelectorView()
+        let exercise = Exercise(id: 1, workouts: [workoutData[0], workoutData[1]])
+        return WorkoutSelectorView(exerciseList: ExerciseList(exercise: exercise))
     }
 }

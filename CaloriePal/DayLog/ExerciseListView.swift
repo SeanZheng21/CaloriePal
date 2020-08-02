@@ -10,6 +10,7 @@ import SwiftUI
 
 struct ExerciseListView: View {
     @ObservedObject var exerciseList: ExerciseList
+    @EnvironmentObject var dayLog: DayLog
     @State var showExerciseDetail = false
     
     var body: some View {
@@ -23,7 +24,8 @@ struct ExerciseListView: View {
                     .fontWeight(.bold)
                 Spacer()
                 NavigationLink(destination:
-                    WorkoutSelectorView().environmentObject(self.exerciseList)
+                    WorkoutSelectorView(exerciseList: self.exerciseList)
+                        .environmentObject(self.dayLog)
                 ) {
                     Image(systemName: "plus.circle")
                         .padding(.trailing)
@@ -35,8 +37,8 @@ struct ExerciseListView: View {
                 List {
                     ForEach(exerciseList.workouts(), id: \.self.id) { workout in
                         NavigationLink(destination:
-                            WorkoutDetailView(workoutDetail: WorkoutDetail(workout: workout))
-                                .environmentObject(self.exerciseList)
+                            WorkoutDetailView(workoutDetail: WorkoutDetail(workout: workout), exerciseList: self.exerciseList)
+                                    .environmentObject(self.exerciseList)
                         ) {
                             HStack {
                                 Image(ImageStore.loadImage(name: workout.name, imageExtension: "png"),
@@ -53,14 +55,17 @@ struct ExerciseListView: View {
                                 Text("\(workout.calories)")
                             }
                         }
-                    }.onDelete(perform: self.exerciseList.deleteWorkout)
+                    }.onDelete { (indexSet) in
+                        self.exerciseList.deleteWorkout(at: indexSet, from: self.dayLog)
+                    }
                 }
                 .onAppear {
                     UITableView.appearance().separatorStyle = .none
                 }
             } else {
                 NavigationLink(destination:
-                    WorkoutSelectorView().environmentObject(self.exerciseList)
+                    WorkoutSelectorView(exerciseList: self.exerciseList)
+                        .environmentObject(self.dayLog)
                 ) {
                     HStack {
                         Image(systemName: "plus.circle")

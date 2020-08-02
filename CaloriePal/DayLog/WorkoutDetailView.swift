@@ -10,8 +10,9 @@ import SwiftUI
 
 struct WorkoutDetailView: View {
     @Environment(\.presentationMode) var presentation
+    @EnvironmentObject var dayLog: DayLog
     @ObservedObject var workoutDetail: WorkoutDetail
-    @EnvironmentObject var exerciseList: ExerciseList
+    @ObservedObject var exerciseList: ExerciseList
     
     var hourOptions = [Int](0...5).map({ String($0) })
     var minuteOptions = [Int](0...59).map({ String($0) })
@@ -19,8 +20,9 @@ struct WorkoutDetailView: View {
     @State private var selectedMinute: Int
     @State private var isExcluded: Bool
     
-    init(workoutDetail: WorkoutDetail) {
+    init(workoutDetail: WorkoutDetail, exerciseList: ExerciseList) {
         self.workoutDetail = workoutDetail
+        self.exerciseList = exerciseList
         _selectedHour = State(initialValue: workoutDetail.workoutHour)
         _selectedMinute = State(initialValue: workoutDetail.workoutMinute)
         _isExcluded = State(initialValue: workoutDetail.workoutExcluded)
@@ -53,7 +55,8 @@ struct WorkoutDetailView: View {
                     }
                         .onReceive([self.selectedHour].publisher.first(), perform: { value in
                             if value != self.workoutDetail.workoutHour {
-                                self.workoutDetail.setDuration(newHour: value, newMinute: self.selectedMinute)
+                                self.workoutDetail.setDuration(newHour: value, newMinute: self.selectedMinute,
+                                                               exerciseList: self.exerciseList, dayLog: self.dayLog)
                             }
                         })
                         .labelsHidden()
@@ -67,7 +70,8 @@ struct WorkoutDetailView: View {
                     }
                         .onReceive([self.selectedMinute].publisher.first(), perform: { value in
                             if value != self.workoutDetail.workoutMinute {
-                                self.workoutDetail.setDuration(newHour: self.selectedHour, newMinute: value)
+                                self.workoutDetail.setDuration(newHour: self.selectedHour, newMinute: value,
+                                                               exerciseList: self.exerciseList, dayLog: self.dayLog)
                             }
                         })
                         .labelsHidden()
@@ -99,7 +103,7 @@ struct WorkoutDetailView: View {
                         Spacer()
                         Toggle("Exclude From Total", isOn: self.$isExcluded)
                             .onReceive([self.isExcluded].publisher.first()) { value in
-                                self.workoutDetail.setExcluded(to: value)
+                                self.workoutDetail.setExcluded(to: value, exerciseList: self.exerciseList, dayLog: self.dayLog)
                             }
                     }
                     .foregroundColor(.blue)
@@ -110,7 +114,7 @@ struct WorkoutDetailView: View {
                 .padding(.all)
                 .navigationBarTitle("Edit Workout")
                 .navigationBarItems(trailing: Button("Done"){
-                    self.workoutDetail.saveWorkout(to: self.exerciseList)
+                    self.workoutDetail.saveWorkout(to: self.exerciseList, dayLog: self.dayLog)
                     self.presentation.wrappedValue.dismiss()
                 })
         }
@@ -126,6 +130,7 @@ struct WorkoutDetailView: View {
 struct WorkoutDetailView_Previews: PreviewProvider {
     static var previews: some View {
         let workoutDetail = WorkoutDetail(workout: workoutData[0])
-        return WorkoutDetailView(workoutDetail: workoutDetail)
+        let exercise = Exercise(id: 1, workouts: [workoutData[0], workoutData[1]])
+        return WorkoutDetailView(workoutDetail: workoutDetail, exerciseList: ExerciseList(exercise: exercise))
     }
 }

@@ -37,6 +37,7 @@ struct DayLogView: View {
                             .environmentObject(self.dayLog)
                         Divider()
                         ExerciseListView(exerciseList: ExerciseList(exercise: self.dayLog.exercise))
+                            .environmentObject(self.dayLog)
                     }
                 .navigationBarTitle("\(self.dayLog.dateString)", displayMode: .inline)
                 .navigationBarItems(trailing: EditButton())
