@@ -19,7 +19,8 @@ struct Day: Hashable, Codable, Identifiable {
     private(set) var snacks: Meal
     private(set) var exercise: Exercise
     
-    init(budgetCalories: Int?=nil, date: Date?=nil, breakfast: Meal?=nil, lunch: Meal?=nil, dinner: Meal?=nil, snacks: Meal?=nil, exercise: Exercise?=nil) {
+    init(budgetCalories: Int?=nil, date: Date?=nil, breakfast: Meal?=nil, lunch: Meal?=nil,
+         dinner: Meal?=nil, snacks: Meal?=nil, exercise: Exercise?=nil) {
         if let d = date {
             self.date = d
         } else {
