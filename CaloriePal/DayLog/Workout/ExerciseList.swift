@@ -47,10 +47,11 @@ class ExerciseList: ObservableObject {
         return exercise.workouts.first(where: {$0.id == id})
     }
     
-    func deleteWorkout(at indexSet: IndexSet, from dayLog: DayLog) {
+    func deleteWorkout(at indexSet: IndexSet, from dayLog: DayLog, store: RootStore) {
         let workoutToDelete = exercise.workouts[indexSet.first!]
         self.removeWorkout(workout: workoutToDelete)
-        dayLog.setExercise(exercise: self.exercise)
+        dayLog.setExercise(exercise: self.exercise, rootStore: store)
+        store.saveDay(day: dayLog.day)
         objectWillChange.send()
     }
 }

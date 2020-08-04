@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DayCalorieView: View {
-    @ObservedObject var daySummary: DayBanner
+    @ObservedObject var dayBanner: DayBanner
     
     var body: some View {
         GeometryReader { geometry in
@@ -17,8 +17,9 @@ struct DayCalorieView: View {
                 Text("CALORIES")
                     .fontWeight(.bold)
                     .foregroundColor(Color.gray)
-                MultiProgressBarView(multiProgressBar: MultiProgressBar(total: Float(self.daySummary.budgetCalories), values: [Float(self.daySummary.netCalories)],
-                    colors: [self.daySummary.remainingCalories >= 0 ? Color.green : Color.yellow]))
+                MultiProgressBarView(multiProgressBar: MultiProgressBar(
+                    total: Float(self.dayBanner.budgetCalories), values: [Float(self.dayBanner.netCalories)],
+                    colors: [self.dayBanner.remainingCalories >= 0 ? Color.green : Color.yellow]))
                     .frame(height: DayCalorieView.progressBarHeight)
                 HStack {
                     VStack {
@@ -26,7 +27,7 @@ struct DayCalorieView: View {
                             .font(.caption)
                             .fontWeight(.bold)
                             .foregroundColor(Color.gray)
-                        Text("\(self.daySummary.budgetCalories)")
+                        Text("\(self.dayBanner.budgetCalories)")
                             .font(.callout)
                             .foregroundColor(Color.blue)
                             .fontWeight(.bold)
@@ -37,7 +38,7 @@ struct DayCalorieView: View {
                             .font(.caption)
                             .fontWeight(.bold)
                             .foregroundColor(Color.gray)
-                        Text("\(self.daySummary.foodCalories)")
+                        Text("\(self.dayBanner.foodCalories)")
                             .font(.callout)
                             .fontWeight(.bold)
                     }
@@ -47,7 +48,7 @@ struct DayCalorieView: View {
                             .font(.caption)
                             .fontWeight(.bold)
                             .foregroundColor(Color.gray)
-                        Text("\(self.daySummary.exerciseCalories)")
+                        Text("\(self.dayBanner.exerciseCalories)")
                             .font(.callout)
                             .fontWeight(.bold)
                     }
@@ -57,22 +58,22 @@ struct DayCalorieView: View {
                             .font(.caption)
                             .fontWeight(.bold)
                             .foregroundColor(Color.gray)
-                        Text("\(self.daySummary.netCalories)")
+                        Text("\(self.dayBanner.netCalories)")
                             .font(.callout)
                             .fontWeight(.bold)
                     }
                     Spacer()
                     VStack {
-                        Text(self.daySummary.remainingCalories >= 0 ? "UNDER" : "OVER")
+                        Text(self.dayBanner.remainingCalories >= 0 ? "UNDER" : "OVER")
                             .font(.caption)
                             .fontWeight(.bold)
-                            .foregroundColor(self.daySummary.remainingCalories >= 0 ?
+                            .foregroundColor(self.dayBanner.remainingCalories >= 0 ?
                                 Color.green : Color.red)
-                        Text("\(abs(self.daySummary.remainingCalories))")
+                        Text("\(abs(self.dayBanner.remainingCalories))")
                             .font(.callout)
                             .fontWeight(.bold)
                             .foregroundColor(.white)
-                            .background(self.daySummary.remainingCalories >= 0 ?
+                            .background(self.dayBanner.remainingCalories >= 0 ?
                             Color.green : Color.red)
                     }
                 }
@@ -101,6 +102,6 @@ struct DaySummaryView_Previews: PreviewProvider {
         let exercise = Exercise(id: 1, workouts: [workoutData[0], workoutData[1]])
         let day = Day(breakfast: breakfast, lunch: lunch,
                     dinner: dinner, snacks: snacks, exercise: exercise)
-        return DayCalorieView(daySummary: DayBanner(day: day))
+        return DayCalorieView(dayBanner: DayBanner(day: day))
     }
 }

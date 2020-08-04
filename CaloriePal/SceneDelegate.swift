@@ -45,9 +45,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         plan.addDay(newDay: day1)
         plan.addDay(newDay: day2)
         plan.addDay(newDay: day3)
-        let dayLog = DayLog(plan: plan)
-
-        let contentView = DayLogView(dayLog: dayLog)
+        
+        let contentView = RootTabView(rootTab: RootStore(plan: plan))
             .environment(\.managedObjectContext, context)
 
         // Use a UIHostingController as window root view controller.

@@ -10,7 +10,8 @@ import SwiftUI
 
 struct FoodDetailView: View {
     @Environment(\.presentationMode) var presentation
-    @EnvironmentObject var dayLog: DayLog
+    @EnvironmentObject var rootStore: RootStore
+    @ObservedObject var dayLog: DayLog
     @ObservedObject var mealList: MealList
     @ObservedObject var foodDetail: FoodDetail
     
@@ -23,9 +24,10 @@ struct FoodDetailView: View {
     @State private var selectedDecimal: Int
     @State private var showServingSize = false
     
-    init(foodDetail: FoodDetail, mealList: MealList) {
+    init(foodDetail: FoodDetail, mealList: MealList, dayLog: DayLog) {
         self.foodDetail = foodDetail
         self.mealList = mealList
+        self.dayLog = dayLog
         self.unitOptions = foodDetail.foodType.foodUnits().map { String($0.rawValue)}
         let (int, dec) = FoodDetail.getIntegerDecimalLevels(floatNumber: foodDetail.foodAnount.amount)
         _selectedDecimal = State(initialValue: dec)
@@ -106,7 +108,7 @@ struct FoodDetailView: View {
                                 let (int, _) = FoodDetail.getIntegerDecimalLevels(floatNumber: self.foodDetail.foodAnount.amount)
                                 if value != int {
                                     self.foodDetail.setAmount(intVal: value, decimalVal: self.selectedDecimal,
-                                                              mealList: self.mealList, dayLog: self.dayLog)
+                                                              mealList: self.mealList, dayLog: self.dayLog, rootStore: self.rootStore)
                                 }
                             })
                             .labelsHidden()
@@ -121,7 +123,7 @@ struct FoodDetailView: View {
                                 let (_, dec) = FoodDetail.getIntegerDecimalLevels(floatNumber: self.foodDetail.foodAnount.amount)
                                 if value != dec {
                                     self.foodDetail.setAmount(intVal: self.selectedInteger, decimalVal: value,
-                                                              mealList: self.mealList, dayLog: self.dayLog)
+                                                              mealList: self.mealList, dayLog: self.dayLog, rootStore: self.rootStore)
                                 }
                             })
                             .labelsHidden()
@@ -134,8 +136,8 @@ struct FoodDetailView: View {
                         }
                             .onReceive([self.selectedUnit].publisher.first(), perform: { value in
                                 if self.unitOptions[value].lowercased() != self.foodDetail.foodAnount.unit.rawValue {
-                                    let (intInd, decIdx) = self.foodDetail.setUnit(unitVal: value,
-                                                                                   mealList: self.mealList, dayLog: self.dayLog)
+                                    let (intInd, decIdx) = self.foodDetail.setUnit(unitVal: value, mealList: self.mealList,
+                                                                                   dayLog: self.dayLog, rootStore: self.rootStore)
                                     self.selectedInteger = intInd
                                     self.selectedDecimal = decIdx
                                 }
@@ -175,7 +177,7 @@ struct FoodDetailView: View {
                 .padding(.top)
                 .navigationBarTitle("Edit Food")
                 .navigationBarItems(trailing: Button("Done"){
-                    self.foodDetail.saveFood(to: self.mealList, dayLog: self.dayLog)
+                    self.foodDetail.saveFood(to: self.mealList, dayLog: self.dayLog, rootStore: self.rootStore)
                     self.presentation.wrappedValue.dismiss()
                 })
             }
@@ -201,6 +203,6 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         FoodDetailView(foodDetail: FoodDetail(food: foodData[2]),
                        mealList: MealList(meal:
-        Meal(id: 1, type: .breakfast, foods: [foodData[0], foodData[1]])))
+                        Meal(id: 1, type: .breakfast, foods: [foodData[0], foodData[1]])), dayLog: DayLog(day: Day()))
     }
 }

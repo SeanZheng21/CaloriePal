@@ -10,13 +10,15 @@ import SwiftUI
 
 struct DateBannerView: View {
     @Binding var selectedDate: Date
-    @EnvironmentObject var dayLog: DayLog
+    @ObservedObject var dayLog: DayLog
+    @EnvironmentObject var rootStore: RootStore
     @State var showPicker = false
     var body: some View {
         VStack(alignment: .center) {
-            HStack {
+            HStack  {
+                Spacer()
                 Button(action: {
-                    self.dayLog.setPreviousDay()
+                    self.selectedDate = self.dayLog.setPreviousDay(rootStore: self.rootStore)
                 }, label: {
                     Image(systemName: "arrowshape.turn.up.left.circle")
                         .imageScale(.large)
@@ -39,23 +41,30 @@ struct DateBannerView: View {
                 }
                 Spacer()
                 Button(action: {
-                    self.dayLog.setFollowingDay()
+                    self.selectedDate = self.dayLog.setFollowingDay(rootStore: self.rootStore)
                 }, label: {
                     Image(systemName: "arrowshape.turn.up.right.circle")
                         .imageScale(.large)
                 })
+                Spacer()
             }
             if showPicker {
-                DatePicker("", selection: $selectedDate, displayedComponents: .date)
+                HStack (alignment: .center) {
+
+                    Spacer()
+                    DatePicker("", selection: $selectedDate, displayedComponents: .date)
                     .onReceive([self.selectedDate].publisher.first(), perform: {value in
                         if !value.onSameDay(otherDate: self.dayLog.day.date) {
-                            let updated = self.dayLog.setToDate(date: value)
+                            let updated = self.dayLog.setToDate(date: value, rootStore: self.rootStore)
                             if !updated {
                                 self.selectedDate = self.dayLog.day.date
                             }
                         }
                     })
                     .labelsHidden()
+                    Spacer()
+                    
+                }.padding(.horizontal)
             }
         }
         .padding(.horizontal)
@@ -68,6 +77,6 @@ struct DateBannerView: View {
 
 struct DatePickerView_Previews: PreviewProvider {
     static var previews: some View {
-        DateBannerView(selectedDate: .constant(Date()))
+        DateBannerView(selectedDate: .constant(Date()), dayLog: DayLog(day: Day()))
     }
 }

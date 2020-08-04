@@ -40,22 +40,25 @@ class FoodDetail: ObservableObject {
         food.calorie
     }
     
-    func setAmount(intVal: Int, decimalVal: Int, mealList: MealList, dayLog: DayLog) -> Void {
+    func setAmount(intVal: Int, decimalVal: Int, mealList: MealList, dayLog: DayLog, rootStore: RootStore) -> Void {
         food.setAmount(to: Float(intVal) + FoodDetail.decimalOptions[decimalVal])
         mealList.setFood(food: food)
-        dayLog.setMeal(meal: mealList.getMeal())
+        dayLog.setMeal(meal: mealList.getMeal(), rootStore: rootStore)
+        rootStore.saveDay(day: dayLog.day)
     }
     
-    func setUnit(unitVal: Int, mealList: MealList, dayLog: DayLog) -> (Int, Int) {
+    func setUnit(unitVal: Int, mealList: MealList, dayLog: DayLog, rootStore: RootStore) -> (Int, Int) {
         food.setUnit(to: unitOptions[unitVal])
         mealList.setFood(food: food)
-        dayLog.setMeal(meal: mealList.getMeal())
+        dayLog.setMeal(meal: mealList.getMeal(), rootStore: rootStore)
+        rootStore.saveDay(day: dayLog.day)
         return FoodDetail.getIntegerDecimalLevels(floatNumber: food.amount.amount)
     }
     
-    func saveFood(to mealList: MealList, dayLog: DayLog) -> Void {
+    func saveFood(to mealList: MealList, dayLog: DayLog, rootStore: RootStore) -> Void {
         mealList.setFood(food: food)
-        dayLog.setMeal(meal: mealList.getMeal())
+        dayLog.setMeal(meal: mealList.getMeal(), rootStore: rootStore)
+        rootStore.saveDay(day: dayLog.day)
         objectWillChange.send()
     }
     

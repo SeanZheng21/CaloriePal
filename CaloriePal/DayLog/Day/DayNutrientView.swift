@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DayNutrientView: View {
-    @ObservedObject var daySummary: DayBanner
+    @ObservedObject var dayBanner: DayBanner
     
     var body: some View {
         GeometryReader { geometry in
@@ -18,10 +18,10 @@ struct DayNutrientView: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color.gray)
                     .padding(.top)
-                MultiProgressBarView(multiProgressBar: MultiProgressBar(total: Float(self.daySummary.budgetCalories),
-                    values: [Float(self.daySummary.netCalories * self.daySummary.fatPercentage) / 100.0,
-                            Float(self.daySummary.netCalories * self.daySummary.carbsPercentage) / 100.0,
-                            Float(self.daySummary.netCalories * self.daySummary.proteinPercentage) / 100.0],
+                MultiProgressBarView(multiProgressBar: MultiProgressBar(total: Float(self.dayBanner.budgetCalories),
+                    values: [Float(self.dayBanner.netCalories * self.dayBanner.fatPercentage) / 100.0,
+                            Float(self.dayBanner.netCalories * self.dayBanner.carbsPercentage) / 100.0,
+                            Float(self.dayBanner.netCalories * self.dayBanner.proteinPercentage) / 100.0],
                     colors: [Nutrient.fatColor, Nutrient.carbColor, Nutrient.proteinColor]))
                     .frame(height: DayCalorieView.progressBarHeight)
                 HStack {
@@ -36,7 +36,7 @@ struct DayNutrientView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.gray)
                         }
-                        Text("\(Int(self.daySummary.fatPercentage))%")
+                        Text("\(Int(self.dayBanner.fatPercentage))%")
                             .font(.callout)
                             .fontWeight(.bold)
                     }
@@ -51,7 +51,7 @@ struct DayNutrientView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.gray)
                         }
-                        Text("\(Int(self.daySummary.carbsPercentage))%")
+                        Text("\(Int(self.dayBanner.carbsPercentage))%")
                             .font(.callout)
                             .fontWeight(.bold)
                     }
@@ -66,7 +66,7 @@ struct DayNutrientView: View {
                                 .fontWeight(.bold)
                                 .foregroundColor(Color.gray)
                         }
-                        Text("\(Int(self.daySummary.proteinPercentage))%")
+                        Text("\(Int(self.dayBanner.proteinPercentage))%")
                             .font(.callout)
                             .fontWeight(.bold)
                     }
@@ -97,6 +97,6 @@ struct DayNutrientView_Previews: PreviewProvider {
         let exercise = Exercise(id: 1, workouts: [workoutData[0], workoutData[1]])
         let day = Day(breakfast: breakfast, lunch: lunch,
                     dinner: dinner, snacks: snacks, exercise: exercise)
-        return DayNutrientView(daySummary: DayBanner(day: day))
+        return DayNutrientView(dayBanner: DayBanner(day: day))
     }
 }

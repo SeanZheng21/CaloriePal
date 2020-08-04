@@ -10,7 +10,8 @@ import SwiftUI
 
 struct ExerciseListView: View {
     @ObservedObject var exerciseList: ExerciseList
-    @EnvironmentObject var dayLog: DayLog
+    @ObservedObject var dayLog: DayLog
+    @EnvironmentObject var rootStore: RootStore
     @State var showExerciseDetail = false
     
     var body: some View {
@@ -24,8 +25,8 @@ struct ExerciseListView: View {
                     .fontWeight(.bold)
                 Spacer()
                 NavigationLink(destination:
-                    WorkoutSelectorView(exerciseList: self.exerciseList)
-                        .environmentObject(self.dayLog)
+                    WorkoutSelectorView(searchText: "", dayLog: self.dayLog, exerciseList: self.exerciseList)
+                        .environmentObject(self.rootStore)
                 ) {
                     Image(systemName: "plus.circle")
                         .padding(.trailing)
@@ -37,8 +38,8 @@ struct ExerciseListView: View {
                 List {
                     ForEach(exerciseList.workouts(), id: \.self.id) { workout in
                         NavigationLink(destination:
-                            WorkoutDetailView(workoutDetail: WorkoutDetail(workout: workout), exerciseList: self.exerciseList)
-                                    .environmentObject(self.exerciseList)
+                            WorkoutDetailView(workoutDetail: WorkoutDetail(workout: workout), exerciseList: self.exerciseList, dayLog: self.dayLog)
+                                    .environmentObject(self.rootStore)
                         ) {
                             HStack {
                                 Image(ImageStore.loadImage(name: workout.name, imageExtension: "png"),
@@ -56,7 +57,7 @@ struct ExerciseListView: View {
                             }
                         }
                     }.onDelete { (indexSet) in
-                        self.exerciseList.deleteWorkout(at: indexSet, from: self.dayLog)
+                        self.exerciseList.deleteWorkout(at: indexSet, from: self.dayLog, store: self.rootStore)
                     }
                 }
                 .onAppear {
@@ -64,8 +65,8 @@ struct ExerciseListView: View {
                 }
             } else {
                 NavigationLink(destination:
-                    WorkoutSelectorView(exerciseList: self.exerciseList)
-                        .environmentObject(self.dayLog)
+                    WorkoutSelectorView(searchText: "", dayLog: self.dayLog, exerciseList: self.exerciseList)
+                        .environmentObject(self.rootStore)
                 ) {
                     HStack {
                         Image(systemName: "plus.circle")
@@ -98,6 +99,6 @@ struct ExerciseListView: View {
 struct ExerciseListView_Previews: PreviewProvider {
     static var previews: some View {
         let exercise = Exercise(id: 1, workouts: [workoutData[0], workoutData[1]])
-        return ExerciseListView(exerciseList: ExerciseList(exercise: exercise))
+        return ExerciseListView(exerciseList: ExerciseList(exercise: exercise), dayLog: DayLog(day: Day()))
     }
 }

@@ -10,13 +10,15 @@ import SwiftUI
 
 struct MealListView: View {
     @ObservedObject var mealList: MealList
-    @EnvironmentObject var dayLog: DayLog
+    @ObservedObject var dayLog: DayLog
+    @EnvironmentObject var rootStore: RootStore
     @State var showMealDetail = false
     
     var body: some View {
         VStack(alignment: .leading) {
             HStack {
-                Image(ImageStore.loadImage(name: "Meal", imageExtension: "png"),
+                Image(ImageStore.loadImage(name:
+                    self.mealList.getMeal().type.rawValue.capitalized, imageExtension: "png"),
                       scale: MealListView.imageIconScale, label: Text("Workout"))
                     .padding(.leading)
                 Text("\(mealList.mealName.capitalized): \(mealList.totalCalories)")
@@ -26,7 +28,7 @@ struct MealListView: View {
                     .imageScale(.large)
                 Spacer()
                 NavigationLink(destination:
-                    FoodSelectorView(mealList: mealList).environmentObject(self.dayLog)
+                    FoodSelectorView(searchText: "", dayLog: self.dayLog, mealList: mealList).environmentObject(self.rootStore)
                 ) {
                     Image(systemName: "plus.circle")
                         .padding(.trailing)
@@ -44,8 +46,8 @@ struct MealListView: View {
                 List {
                     ForEach(mealList.foods(), id: \.self.id) { food in
                         NavigationLink(destination:
-                            FoodDetailView(foodDetail: FoodDetail(food: food), mealList: self.mealList)
-                                .environmentObject(self.dayLog)
+                            FoodDetailView(foodDetail: FoodDetail(food: food), mealList: self.mealList, dayLog: self.dayLog)
+                                .environmentObject(self.rootStore)
                         ) {
                             HStack {
                                 Image(ImageStore.loadImage(name: food.name, imageExtension: "png"),
@@ -63,7 +65,7 @@ struct MealListView: View {
                             }
                         }
                     }.onDelete { (indexSet) in
-                        self.mealList.deleteFood(at: indexSet, from: self.dayLog)
+                        self.mealList.deleteFood(at: indexSet, from: self.dayLog, store: self.rootStore)
                     }
                 }
                 .onAppear {
@@ -71,7 +73,8 @@ struct MealListView: View {
                 }
             } else {
                NavigationLink(destination:
-                FoodSelectorView(mealList: self.mealList).environmentObject(self.dayLog)
+                FoodSelectorView(searchText: "", dayLog: self.dayLog, mealList: self.mealList)
+                    .environmentObject(self.rootStore)
                 )  {
                     HStack {
                         Image(systemName: "plus.circle")
@@ -104,6 +107,6 @@ struct MealListView: View {
 struct MealView_Previews: PreviewProvider {
     static var previews: some View {
         MealListView(mealList: MealList(meal:
-            Meal(id: 1, type: .breakfast, foods: [foodData[0], foodData[1]])))
+            Meal(id: 1, type: .breakfast, foods: [foodData[0], foodData[1]])), dayLog: DayLog(day: Day()))
     }
 }

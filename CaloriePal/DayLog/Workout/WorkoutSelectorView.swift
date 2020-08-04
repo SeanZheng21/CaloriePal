@@ -10,7 +10,8 @@ import SwiftUI
 
 struct WorkoutSelectorView: View {
     @State var searchText: String = ""
-    @EnvironmentObject var dayLog: DayLog
+    @EnvironmentObject var rootStore: RootStore
+    @ObservedObject var dayLog: DayLog
     @ObservedObject var exerciseList: ExerciseList
     @Environment(\.presentationMode) var presentationMode
 
@@ -24,8 +25,8 @@ struct WorkoutSelectorView: View {
                 { searchText.isEmpty ? true : $0.name.contains(searchText) }
             )) { workout in
                 NavigationLink(destination:
-                    WorkoutDetailView(workoutDetail: WorkoutDetail(workout: workout), exerciseList: self.exerciseList)
-                        .environmentObject(self.exerciseList)
+                    WorkoutDetailView(workoutDetail: WorkoutDetail(workout: workout), exerciseList: self.exerciseList, dayLog: self.dayLog)
+                        .environmentObject(self.rootStore)
                 ) {
                     HStack {
                         Image(ImageStore.loadImage(name: workout.name, imageExtension: "png"),
@@ -52,6 +53,6 @@ struct WorkoutSelectorView: View {
 struct WorkoutSelectorView_Previews: PreviewProvider {
     static var previews: some View {
         let exercise = Exercise(id: 1, workouts: [workoutData[0], workoutData[1]])
-        return WorkoutSelectorView(exerciseList: ExerciseList(exercise: exercise))
+        return WorkoutSelectorView(searchText: "", dayLog: DayLog(day: Day()), exerciseList: ExerciseList(exercise: exercise))
     }
 }

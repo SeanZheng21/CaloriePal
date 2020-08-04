@@ -12,8 +12,8 @@ struct DayBannerView: View {
     @ObservedObject var dayBanner: DayBanner
 
     var body: some View {
-        PageView( [AnyView(DayCalorieView(daySummary: DayBanner(day: dayBanner.getDay()))),
-                   AnyView(DayNutrientView(daySummary: DayBanner(day: dayBanner.getDay())))] )
+        PageView( [AnyView(DayCalorieView(dayBanner: DayBanner(day: dayBanner.getDay()))),
+                   AnyView(DayNutrientView(dayBanner: DayBanner(day: dayBanner.getDay())))] )
     }
     
     // MARK: - Drawing Constants
