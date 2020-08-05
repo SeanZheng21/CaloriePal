@@ -13,15 +13,6 @@ struct RootTabView: View {
     
     var body: some View {
         TabView() {
-            AdderView(rootStore: rootStore, adder: Adder())
-//                .environmentObject(rootStore)
-                .tabItem {
-                    VStack {
-                        Image(systemName: "plus.app.fill")
-                        Text("Add")
-                    }
-            }
-                .tag(1)
             DayLogView(rootStore: rootStore,
                        dayLog: DayLog(day:
                         rootStore.getDay(on: self.rootStore.lastAccessedDate) ?? Day()))
@@ -30,6 +21,14 @@ struct RootTabView: View {
                             Image(systemName: "sun.haze.fill")
                             Text("Day")
                         }
+                }
+                .tag(1)
+            AdderView(rootStore: rootStore, adder: Adder())
+//                .environmentObject(rootStore)
+                .tabItem {
+                    Image(systemName: "plus.app.fill")
+                        .imageScale(.large)
+                    Text("Add")
                 }
                 .tag(2)
         }

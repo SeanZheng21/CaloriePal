@@ -92,6 +92,8 @@
 		FFCA500624DA7CCD005F57B8 /* Adder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA500524DA7CCD005F57B8 /* Adder.swift */; };
 		FFD29A6024D55F28007B586D /* Workout.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A5F24D55F28007B586D /* Workout.png */; };
 		FFD29A6224D56308007B586D /* Meal.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A6124D56308007B586D /* Meal.png */; };
+		FFF4015224DA892400931631 /* FoodAdderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4015124DA892400931631 /* FoodAdderView.swift */; };
+		FFF4015824DA8F0200931631 /* WorkoutAdderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4015724DA8F0200931631 /* WorkoutAdderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -194,6 +196,8 @@
 		FFCA500524DA7CCD005F57B8 /* Adder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adder.swift; sourceTree = "<group>"; };
 		FFD29A5F24D55F28007B586D /* Workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Workout.png; sourceTree = "<group>"; };
 		FFD29A6124D56308007B586D /* Meal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meal.png; sourceTree = "<group>"; };
+		FFF4015124DA892400931631 /* FoodAdderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAdderView.swift; sourceTree = "<group>"; };
+		FFF4015724DA8F0200931631 /* WorkoutAdderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAdderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +320,8 @@
 			children = (
 				FFCA500524DA7CCD005F57B8 /* Adder.swift */,
 				FF5FA4BC24D7E5A10059A28C /* AdderView.swift */,
+				FFF4015124DA892400931631 /* FoodAdderView.swift */,
+				FFF4015724DA8F0200931631 /* WorkoutAdderView.swift */,
 			);
 			path = Adder;
 			sourceTree = "<group>";
@@ -576,6 +582,7 @@
 				FF01FB9F24D2638900EDA410 /* PageViewController.swift in Sources */,
 				FF379B1624D4F94100B441E1 /* Workout.swift in Sources */,
 				FF5FA4B924D7E5060059A28C /* RootTabView.swift in Sources */,
+				FFF4015824DA8F0200931631 /* WorkoutAdderView.swift in Sources */,
 				FF56EE1E24D53CA900A80948 /* ExerciseListView.swift in Sources */,
 				FF85CE9524D0131A00E21F0C /* AppDelegate.swift in Sources */,
 				FF56EE1C24D537EB00A80948 /* Exercise.swift in Sources */,
@@ -599,6 +606,7 @@
 				FF379B1E24D5030900B441E1 /* WorkoutDetail.swift in Sources */,
 				FFBEEAD924D7AC9F00DA489F /* DateBannerView.swift in Sources */,
 				FF1E160E24D3A8370043E244 /* PieChartSlideView.swift in Sources */,
+				FFF4015224DA892400931631 /* FoodAdderView.swift in Sources */,
 				FF85CEBC24D01B9200E21F0C /* Food.swift in Sources */,
 				FF1E160C24D3A80C0043E244 /* PieChartView.swift in Sources */,
 				FF5FA4BD24D7E5A10059A28C /* AdderView.swift in Sources */,

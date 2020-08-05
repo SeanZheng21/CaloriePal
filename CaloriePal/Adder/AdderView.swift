@@ -13,19 +13,56 @@ struct AdderView: View {
     @ObservedObject var adder: Adder
     
     var body: some View {
-        NavigationView {
-            VStack {
-                Text("Adder")
-//                NavigationLink(destination:
-//                    FoodSelectorView(searchText: "",
-//                        dayLog: DayLog(day: self.rootStore.getOrCreateCurrentDay()),
-//                        mealList: MealList(meal: self.rootStore.getToday().breakfast))) {
-//                    Text("Breakfast")
-//                }
+        GeometryReader { geometry in
+            NavigationView {
+                VStack(alignment: .leading) {
+                    Text("Add Meals")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .padding(.leading)
+                    ForEach(MealType.allCases, id: \.self) { mealType in
+                        HStack {
+                            Image(ImageStore.loadImage(name: mealType.rawValue.capitalized, imageExtension: "png"),
+                                  scale: AdderView.imageIconScale, label: Text("Meal"))
+                                .padding(.leading)
+                            NavigationLink(destination:
+                                FoodAdderView(mealTypeToAdd: mealType)
+                                    .environmentObject(self.rootStore)
+                                ) {
+                                    Text(mealType.rawValue.capitalized)
+                                        .foregroundColor(Color.black)
+                                    Spacer()
+                            }
+                        }
+                    }
+                    
+                    Text("Add Workout")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .padding(.top, 40.0)
+                        .padding(.leading)
+                    HStack {
+                        Image(ImageStore.loadImage(name: "Workout", imageExtension: "png"),
+                              scale: AdderView.imageIconScale, label: Text("Meal"))
+                            .padding(.leading)
+                        NavigationLink(destination:
+                            WorkoutAdderView()
+                                .environmentObject(self.rootStore)
+                            ) {
+                                Text("Workout")
+                                    .foregroundColor(Color.black)
+                                Spacer()
+                        }
+                    }
+                    Spacer()
+                }
+                    .padding(.all)
+                .frame(width: geometry.size.width, height: geometry.size.height)
             }
         }
-        
     }
+    
+    private static let imageIconScale: CGFloat = 1.0
 }
 
 struct AdderView_Previews: PreviewProvider {

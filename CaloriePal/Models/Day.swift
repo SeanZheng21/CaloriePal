@@ -87,6 +87,19 @@ struct Day: Hashable, Codable, Identifiable {
         }
     }
     
+    func getMeal(of mealType: MealType) -> Meal {
+        switch mealType {
+            case .breakfast:
+                return self.breakfast
+            case .lunch:
+                return self.lunch
+            case .dinner:
+                return self.dinner
+            case .snacks:
+                return self.snacks
+        }
+    }
+    
     mutating func setExercise(to exercise: Exercise) -> Void {
         self.exercise = exercise
     }
