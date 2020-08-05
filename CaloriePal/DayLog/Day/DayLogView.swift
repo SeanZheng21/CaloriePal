@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct DayLogView: View {
-    @EnvironmentObject var rootStore: RootStore
+    @ObservedObject var rootStore: RootStore
     @ObservedObject var dayLog: DayLog
     @State var selectedDate = Date()
     
@@ -59,6 +59,6 @@ struct DayLogView_Previews: PreviewProvider {
         
         let dayLog = DayLog(day: day)
         
-        return DayLogView(dayLog: dayLog)
+        return DayLogView(rootStore: RootStore(plan: Plan(from: Date(), to: Date(), startWeight: 157, goalWeight: 155, rate: 0.5)), dayLog: dayLog)
     }
 }

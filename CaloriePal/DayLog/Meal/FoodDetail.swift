@@ -42,16 +42,16 @@ class FoodDetail: ObservableObject {
     
     func setAmount(intVal: Int, decimalVal: Int, mealList: MealList, dayLog: DayLog, rootStore: RootStore) -> Void {
         food.setAmount(to: Float(intVal) + FoodDetail.decimalOptions[decimalVal])
-        mealList.setFood(food: food)
-        dayLog.setMeal(meal: mealList.getMeal(), rootStore: rootStore)
-        rootStore.saveDay(day: dayLog.day)
+//        mealList.setFood(food: food)
+//        dayLog.setMeal(meal: mealList.getMeal(), rootStore: rootStore)
+//        rootStore.saveDay(day: dayLog.day)
     }
     
     func setUnit(unitVal: Int, mealList: MealList, dayLog: DayLog, rootStore: RootStore) -> (Int, Int) {
         food.setUnit(to: unitOptions[unitVal])
-        mealList.setFood(food: food)
-        dayLog.setMeal(meal: mealList.getMeal(), rootStore: rootStore)
-        rootStore.saveDay(day: dayLog.day)
+//        mealList.setFood(food: food)
+//        dayLog.setMeal(meal: mealList.getMeal(), rootStore: rootStore)
+//        rootStore.saveDay(day: dayLog.day)
         return FoodDetail.getIntegerDecimalLevels(floatNumber: food.amount.amount)
     }
     
