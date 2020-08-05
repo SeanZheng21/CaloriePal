@@ -9,12 +9,7 @@
 import Foundation
 
 class DayLog: ObservableObject {
-    @Published var day: Day {
-        didSet {
-            print("Set day to \(day.dateString())")
-        }
-    }
-//    private var plan: Plan
+    @Published var day: Day
     
     init(day: Day) {
         self.day = day

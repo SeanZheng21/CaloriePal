@@ -89,6 +89,7 @@
 		FFBEEAD724D7986E00DA489F /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEAD624D7986E00DA489F /* Plan.swift */; };
 		FFBEEAD924D7AC9F00DA489F /* DateBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEAD824D7AC9F00DA489F /* DateBannerView.swift */; };
 		FFBEEADB24D7B36000DA489F /* PlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEADA24D7B36000DA489F /* PlanTests.swift */; };
+		FFCA500624DA7CCD005F57B8 /* Adder.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCA500524DA7CCD005F57B8 /* Adder.swift */; };
 		FFD29A6024D55F28007B586D /* Workout.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A5F24D55F28007B586D /* Workout.png */; };
 		FFD29A6224D56308007B586D /* Meal.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A6124D56308007B586D /* Meal.png */; };
 /* End PBXBuildFile section */
@@ -190,6 +191,7 @@
 		FFBEEAD624D7986E00DA489F /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		FFBEEAD824D7AC9F00DA489F /* DateBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateBannerView.swift; sourceTree = "<group>"; };
 		FFBEEADA24D7B36000DA489F /* PlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTests.swift; sourceTree = "<group>"; };
+		FFCA500524DA7CCD005F57B8 /* Adder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adder.swift; sourceTree = "<group>"; };
 		FFD29A5F24D55F28007B586D /* Workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Workout.png; sourceTree = "<group>"; };
 		FFD29A6124D56308007B586D /* Meal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meal.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -312,6 +314,7 @@
 		FF5FA4B724D7E4E10059A28C /* Adder */ = {
 			isa = PBXGroup;
 			children = (
+				FFCA500524DA7CCD005F57B8 /* Adder.swift */,
 				FF5FA4BC24D7E5A10059A28C /* AdderView.swift */,
 			);
 			path = Adder;
@@ -600,6 +603,7 @@
 				FF1E160C24D3A80C0043E244 /* PieChartView.swift in Sources */,
 				FF5FA4BD24D7E5A10059A28C /* AdderView.swift in Sources */,
 				FF4A4C1624D69666000A63EE /* DayBannerView.swift in Sources */,
+				FFCA500624DA7CCD005F57B8 /* Adder.swift in Sources */,
 				FF8C285024D644350056E61E /* MultiProgressBarView.swift in Sources */,
 				FF85CE9C24D0131A00E21F0C /* FoodDetailView.swift in Sources */,
 				FFBEEAD724D7986E00DA489F /* Plan.swift in Sources */,

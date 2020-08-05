@@ -9,13 +9,27 @@
 import SwiftUI
 
 struct AdderView: View {
+    @EnvironmentObject var rootStore: RootStore
+    @ObservedObject var adder: Adder
+    
     var body: some View {
-        Text("Adder")
+        NavigationView {
+            VStack {
+                Text("Adder")
+//                NavigationLink(destination:
+//                    FoodSelectorView(searchText: "",
+//                        dayLog: DayLog(day: self.rootStore.getOrCreateCurrentDay()),
+//                        mealList: MealList(meal: self.rootStore.getToday().breakfast))) {
+//                    Text("Breakfast")
+//                }
+            }
+        }
+        
     }
 }
 
 struct AdderView_Previews: PreviewProvider {
     static var previews: some View {
-        AdderView()
+        AdderView(adder: Adder())
     }
 }

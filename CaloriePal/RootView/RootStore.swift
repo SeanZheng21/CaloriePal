@@ -39,4 +39,8 @@ class RootStore: ObservableObject {
     func getDay(on date: Date) -> Day? {
         return plan.dayRecord(on: date)
     }
+    
+    func getOrCreateCurrentDay() -> Day {
+        return plan.getOrCreateCurrentDay()
+    }
 }

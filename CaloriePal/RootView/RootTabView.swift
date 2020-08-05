@@ -9,12 +9,12 @@
 import SwiftUI
 
 struct RootTabView: View {
-    @ObservedObject var rootTab: RootStore
+    @ObservedObject var rootStore: RootStore
     
     var body: some View {
         TabView() {
-            AdderView()
-                .environmentObject(rootTab)
+            AdderView(adder: Adder())
+                .environmentObject(rootStore)
                 .tabItem {
                     VStack {
                         Image(systemName: "plus.app.fill")
@@ -22,8 +22,8 @@ struct RootTabView: View {
                     }
             }
                 .tag(1)
-            DayLogView(dayLog: DayLog(day: rootTab.getDay(on: self.rootTab.lastAccessedDate) ?? Day()))
-                .environmentObject(rootTab)
+            DayLogView(dayLog: DayLog(day: rootStore.getDay(on: self.rootStore.lastAccessedDate) ?? Day()))
+                .environmentObject(rootStore)
                 .tabItem {
                         VStack {
                             Image(systemName: "sun.haze.fill")
@@ -57,6 +57,6 @@ struct RootTabView_Previews: PreviewProvider {
         plan.addDay(newDay: day1)
         plan.addDay(newDay: day2)
         plan.addDay(newDay: day3)
-        return RootTabView(rootTab: RootStore(plan: plan))
+        return RootTabView(rootStore: RootStore(plan: plan))
     }
 }
