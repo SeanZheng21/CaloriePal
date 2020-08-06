@@ -13,6 +13,13 @@ struct RootTabView: View {
     
     var body: some View {
         TabView() {
+            StatisticsView()
+                .tabItem {
+                    Image(systemName: "chart.pie.fill")
+                        .imageScale(.large)
+                    Text("Statistics")
+                }
+                .tag(1)
             DayLogView(rootStore: rootStore,
                        dayLog: DayLog(day:
                         rootStore.getDay(on: self.rootStore.lastAccessedDate) ?? Day()))
@@ -22,15 +29,14 @@ struct RootTabView: View {
                             Text("Day")
                         }
                 }
-                .tag(1)
-            AdderView(rootStore: rootStore, adder: Adder())
-//                .environmentObject(rootStore)
+                .tag(2)
+            AdderView(rootStore: rootStore)
                 .tabItem {
                     Image(systemName: "plus.app.fill")
                         .imageScale(.large)
                     Text("Add")
                 }
-                .tag(2)
+                .tag(3)
         }
     }
 }
