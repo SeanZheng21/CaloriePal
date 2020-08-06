@@ -12,26 +12,36 @@ struct StatisticsView: View {
     @ObservedObject var rootStore: RootStore
     
     var body: some View {
-        NavigationView {
-            ScrollView() {
-                HStack {
-                    Text("Calories Summary")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                    Spacer()
-                }
-                    .padding()
-                
-                HStack {
-                    Text("Nutrients Summary")
-                        .font(.title)
-                        .fontWeight(.semibold)
-                    Spacer()
-                }
-                    .padding()
-            }.navigationBarTitle("Statistics", displayMode: .inline)
+        GeometryReader { geometry in
+            NavigationView {
+                ScrollView() {
+                    VStack(alignment: .center) {
+                        HStack {
+                            Text("Calories Summary")
+                                .font(.title)
+                                .fontWeight(.semibold)
+                            Spacer()
+                        }
+                        .padding()
+                        
+                        StatisticsCalorieView(rootStore: self.rootStore)
+                            .frame(width: geometry.size.width, height: StatisticsView.calorieSummaryHeight)
+                            
+                        HStack {
+                            Text("Nutrients Summary")
+                                .font(.title)
+                                .fontWeight(.semibold)
+                            Spacer()
+                        }
+                            .padding()
+                    }
+                        .frame(width: geometry.size.width)
+                }.navigationBarTitle("Statistics", displayMode: .inline)
+            }
         }
     }
+    
+    static private var calorieSummaryHeight: CGFloat = 300
 }
 
 struct StatisticsView_Previews: PreviewProvider {

@@ -98,15 +98,15 @@ struct Plan: Hashable, Codable, Identifiable {
         return weekdays
     }
     
-    func weekdays(withRespectTo date: Date) -> [Date: Day?] {
-        var weekdays: [Date: Day?] = [:]
-        let daysArr = weekdaysInWeek(withRespectTo: date)
-        for shiftedDate in date.weekdaysInWeek() {
-            let otherDay = daysArr.first(where: { $0.date.onSameDay(otherDate: shiftedDate) })
-            weekdays[shiftedDate] = otherDay
-        }
-        return weekdays
-    }
+//    func weekdays(withRespectTo date: Date) -> [Date: Day?] {
+//        var weekdays: [Date: Day?] = [:]
+//        let daysArr = weekdaysInWeek(withRespectTo: date)
+//        for shiftedDate in date.weekdaysInWeek() {
+//            let otherDay = daysArr.first(where: { $0.date.onSameDay(otherDate: shiftedDate) })
+//            weekdays[shiftedDate] = otherDay
+//        }
+//        return weekdays
+//    }
 }
 
 extension Date {

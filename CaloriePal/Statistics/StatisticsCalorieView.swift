@@ -12,8 +12,31 @@ struct StatisticsCalorieView: View {
     @ObservedObject var rootStore: RootStore
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        GeometryReader { geometry in
+            HStack {
+                Spacer(minLength: 0.0)
+                BarChartView(data: StatisticsCalorieView.convertCalories(from: self.rootStore.plan),
+                         tags: ["S", "M", "Tu", "W", "Th", "F", "Sa"],
+                         colors: [.green])
+                    .frame(width: geometry.size.width, height: StatisticsCalorieView.chartHeight)
+                Spacer(minLength: 0.0)
+            }
+                .frame(width: geometry.size.width)
+        }
     }
+    
+    private static func convertCalories(from plan: Plan) -> [[Float]] {
+        var calories: [[Float]] = [[], [], [], [], [], [], []]
+        let days = plan.weekdaysInWeek(withRespectTo: Date())
+        let dates = Date().weekdaysInWeek()
+        for day in days {
+            let idx = dates.firstIndex(where: {$0.onSameDay(otherDate: day.date)})
+            calories[idx!] = [Float(day.totalCalories()) / Float(plan.days[0].budgetCalories)]
+        }
+        return calories
+    }
+    
+    private static var chartHeight: CGFloat = 100
 }
 
 struct StatisticsCalorieView_Previews: PreviewProvider {

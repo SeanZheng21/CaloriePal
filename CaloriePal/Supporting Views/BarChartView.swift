@@ -15,11 +15,11 @@ struct BarChartView: View {
     var showOverflow: Bool
     
     init(data: [[Float]], tags: [String], colors: [Color], showOverflow: Bool=false) {
-        if showOverflow {
-            self.data = BarChartView.scaleData(data: data)
-        } else {
+//        if showOverflow {
+//            self.data = BarChartView.scaleData(data: data)
+//        } else {
             self.data = data
-        }
+//        }
         self.tags = tags
         self.colors = colors
         self.showOverflow = showOverflow
@@ -27,23 +27,13 @@ struct BarChartView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            if !self.showOverflow {
-                HStack {
-                    ForEach(0..<self.data.count, id: \.self) { idx in
-                        BarView(data: self.data[idx], tag: self.tags[idx], colors: self.colors)
-                            .frame(width: BarChartView.barWidth, height: BarChartView.height)
-                    }
+            HStack {
+                Spacer(minLength: 0.0)
+                ForEach(0..<self.data.count, id: \.self) { idx in
+                    BarView(data: self.data[idx], tag: self.tags[idx], colors: self.colors)
+                        .frame(width: BarChartView.barWidth, height: BarChartView.height)
                 }
-            } else {
-//                ZStack {
-//                    self.overflowLine(in: CGRect(origin: CGPoint(x: 0, y: 0), size: geometry.size), scale: BarChartView.maxPercentage)
-                    HStack {
-                        ForEach(0..<self.data.count, id: \.self) { idx in
-                            BarView(data: self.data[idx], tag: self.tags[idx], colors: self.colors)
-                                .frame(width: BarChartView.barWidth, height: BarChartView.height)
-                        }
-                    }
-//                }
+                Spacer(minLength: 0.0)
             }
         }
     }
@@ -121,6 +111,7 @@ struct BarView: View {
     
     private static let cornerRadius: CGFloat = 5.0
     private static let emptyBarOpacity: Double = 0.4
+    private static let maxPercentage: Float = 1.2
 }
 
 struct BarChartView_Previews: PreviewProvider {
@@ -137,11 +128,11 @@ struct BarChartView_Previews: PreviewProvider {
     }
 }
 
-struct BarView_Previews: PreviewProvider {
-    static var previews: some View {
-        BarView(data: [0.2, 0.1, 0.5],
-                tag: "Tu",
-                colors: [.green, .purple, .orange, .blue])
-            .frame(width: 25.0, height: 200.0)
-    }
-}
+//struct BarView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        BarView(data: [0.2, 0.1, 0.5],
+//                tag: "Tu",
+//                colors: [.green, .purple, .orange, .blue])
+//            .frame(width: 25.0, height: 200.0)
+//    }
+//}

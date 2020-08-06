@@ -71,8 +71,8 @@ class PlanTests: XCTestCase {
         XCTAssertEqual(4, weekdays.count)
     }
     
-    func testWeekdays() {
-        let weekdays = plan.weekdays(withRespectTo: Date())
-        XCTAssertEqual(7, weekdays.count)
-    }
+//    func testWeekdays() {
+//        let weekdays = plan.weekdays(withRespectTo: Date())
+//        XCTAssertEqual(7, weekdays.count)
+//    }
 }

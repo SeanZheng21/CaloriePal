@@ -43,4 +43,8 @@ class RootStore: ObservableObject {
     func getOrCreateCurrentDay() -> Day {
         return plan.getOrCreateCurrentDay()
     }
+    
+//    func weekdays() -> [Day] {
+//        plan.week
+//    }
 }
