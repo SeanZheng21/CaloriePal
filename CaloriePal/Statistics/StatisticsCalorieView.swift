@@ -1,47 +1,22 @@
 //
-//  RootTabView.swift
+//  StatisticsCalorieView.swift
 //  CaloriePal
 //
-//  Created by Carlistle ZHENG on 8/3/20.
+//  Created by Carlistle ZHENG on 8/6/20.
 //  Copyright © 2020 Carlistle ZHENG. All rights reserved.
 //
 
 import SwiftUI
 
-struct RootTabView: View {
+struct StatisticsCalorieView: View {
     @ObservedObject var rootStore: RootStore
     
     var body: some View {
-        TabView() {
-            StatisticsView(rootStore: self.rootStore)
-                .tabItem {
-                    Image(systemName: "chart.pie.fill")
-                        .imageScale(.large)
-                    Text("Statistics")
-                }
-                .tag(1)
-            DayLogView(rootStore: rootStore,
-                       dayLog: DayLog(day:
-                        rootStore.getDay(on: self.rootStore.lastAccessedDate) ?? Day()))
-                .tabItem {
-                        VStack {
-                            Image(systemName: "sun.haze.fill")
-                            Text("Day")
-                        }
-                }
-                .tag(2)
-            AdderView(rootStore: rootStore)
-                .tabItem {
-                    Image(systemName: "plus.app.fill")
-                        .imageScale(.large)
-                    Text("Add")
-                }
-                .tag(3)
-        }
+        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
     }
 }
 
-struct RootTabView_Previews: PreviewProvider {
+struct StatisticsCalorieView_Previews: PreviewProvider {
     static var previews: some View {
         let breakfast = Meal(id: 1, type: .breakfast, foods: [foodData[0]])
         let lunch = Meal(id: 1, type: .lunch, foods: [foodData[1]])
@@ -63,6 +38,6 @@ struct RootTabView_Previews: PreviewProvider {
         plan.addDay(newDay: day1)
         plan.addDay(newDay: day2)
         plan.addDay(newDay: day3)
-        return RootTabView(rootStore: RootStore(plan: plan))
+        return StatisticsCalorieView(rootStore: RootStore(plan: plan))
     }
 }

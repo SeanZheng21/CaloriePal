@@ -92,6 +92,8 @@
 		FFD29A6024D55F28007B586D /* Workout.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A5F24D55F28007B586D /* Workout.png */; };
 		FFD29A6224D56308007B586D /* Meal.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A6124D56308007B586D /* Meal.png */; };
 		FFEBF2F724DB982500DD89DB /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEBF2F624DB982500DD89DB /* StatisticsView.swift */; };
+		FFEBF2F924DBAEC600DD89DB /* StatisticsCalorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEBF2F824DBAEC600DD89DB /* StatisticsCalorieView.swift */; };
+		FFEBF2FB24DBB1E700DD89DB /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEBF2FA24DBB1E700DD89DB /* BarChartView.swift */; };
 		FFF4015224DA892400931631 /* FoodAdderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4015124DA892400931631 /* FoodAdderView.swift */; };
 		FFF4015824DA8F0200931631 /* WorkoutAdderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFF4015724DA8F0200931631 /* WorkoutAdderView.swift */; };
 /* End PBXBuildFile section */
@@ -196,6 +198,8 @@
 		FFD29A5F24D55F28007B586D /* Workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Workout.png; sourceTree = "<group>"; };
 		FFD29A6124D56308007B586D /* Meal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meal.png; sourceTree = "<group>"; };
 		FFEBF2F624DB982500DD89DB /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
+		FFEBF2F824DBAEC600DD89DB /* StatisticsCalorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCalorieView.swift; sourceTree = "<group>"; };
+		FFEBF2FA24DBB1E700DD89DB /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
 		FFF4015124DA892400931631 /* FoodAdderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodAdderView.swift; sourceTree = "<group>"; };
 		FFF4015724DA8F0200931631 /* WorkoutAdderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkoutAdderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -242,6 +246,7 @@
 				FF3AADFA24D3E16C001E0D92 /* SearchBar.swift */,
 				FF8C284F24D644350056E61E /* MultiProgressBarView.swift */,
 				FF8C285124D645480056E61E /* MultiProgressBar.swift */,
+				FFEBF2FA24DBB1E700DD89DB /* BarChartView.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 			isa = PBXGroup;
 			children = (
 				FFEBF2F624DB982500DD89DB /* StatisticsView.swift */,
+				FFEBF2F824DBAEC600DD89DB /* StatisticsCalorieView.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -608,9 +614,11 @@
 				FF965F4024D27248006A1AF6 /* MealList.swift in Sources */,
 				FF5FA4BB24D7E5610059A28C /* RootStore.swift in Sources */,
 				FF3AADF724D3E084001E0D92 /* FoodSelectorView.swift in Sources */,
+				FFEBF2FB24DBB1E700DD89DB /* BarChartView.swift in Sources */,
 				FF3AADFD24D3F880001E0D92 /* Day.swift in Sources */,
 				FFA7086E24D65AD9002884FA /* DayBanner.swift in Sources */,
 				FF07779024D257C9002D68A7 /* MealType.swift in Sources */,
+				FFEBF2F924DBAEC600DD89DB /* StatisticsCalorieView.swift in Sources */,
 				FF8C285224D645480056E61E /* MultiProgressBar.swift in Sources */,
 				FF379B1E24D5030900B441E1 /* WorkoutDetail.swift in Sources */,
 				FFBEEAD924D7AC9F00DA489F /* DateBannerView.swift in Sources */,

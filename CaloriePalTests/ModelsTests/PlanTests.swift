@@ -18,6 +18,7 @@ class PlanTests: XCTestCase {
         plan.addDay(newDay: Day(date: Date(timeIntervalSinceNow: -60*60*24*3)))
         plan.addDay(newDay: Day(date: Date(timeIntervalSinceNow: -60*60*24*2)))
         plan.addDay(newDay: Day(date: Date(timeIntervalSinceNow: -60*60*24)))
+        plan.addDay(newDay: Day(date: Date()))
     }
 
     override func tearDownWithError() throws {
@@ -37,13 +38,13 @@ class PlanTests: XCTestCase {
     func testAddDay() {
         plan.addDay(newDay: Day(date: Date(timeIntervalSinceNow: 60*60*24*3)))
         XCTAssertTrue(plan.hasRecord(on: Date(timeIntervalSinceNow: 60*60*24*3)))
-        XCTAssertEqual(4, plan.days.count)
+        XCTAssertEqual(5, plan.days.count)
     }
     
     func testRemoveDay() {
         plan.removeDay(on: Date(timeIntervalSinceNow: -60*60*24*3))
         XCTAssertFalse(plan.hasRecord(on: Date(timeIntervalSinceNow: -60*60*24*3)))
-        XCTAssertEqual(2, plan.days.count)
+        XCTAssertEqual(3, plan.days.count)
     }
     
     func testHasRecord() {
@@ -52,6 +53,7 @@ class PlanTests: XCTestCase {
     
     func testDayRecord() {
         XCTAssertTrue(((plan.dayRecord(on: Date(timeIntervalSinceNow: -60*60*24))?.date.onSameDay(otherDate: Date(timeIntervalSinceNow: -60*60*24))) != nil))
+        XCTAssertTrue(Date().onSameDay(otherDate: plan.dayRecord(on: Date())!.date))
     }
     
     func testPreviousDay() {
@@ -62,5 +64,15 @@ class PlanTests: XCTestCase {
     func testFollowingDay() {
         let day = Day(date: Date(timeIntervalSinceNow: -60*60*24*2))
         XCTAssertTrue(plan.followingDay(withRespectTo: day).date.onSameDay(otherDate: Date(timeIntervalSinceNow: -60*60*24)))
+    }
+    
+    func testWeekdaysInWeek() {
+        let weekdays = plan.weekdaysInWeek(withRespectTo: Date())
+        XCTAssertEqual(4, weekdays.count)
+    }
+    
+    func testWeekdays() {
+        let weekdays = plan.weekdays(withRespectTo: Date())
+        XCTAssertEqual(7, weekdays.count)
     }
 }

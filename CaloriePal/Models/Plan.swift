@@ -86,6 +86,27 @@ struct Plan: Hashable, Codable, Identifiable {
             return day
         }
     }
+    
+    func weekdaysInWeek(withRespectTo date: Date) -> [Day] {
+        var weekdays: [Day] = []
+        for shiftedDate in date.weekdaysInWeek() {
+            if hasRecord(on: shiftedDate) {
+                let d: Day = dayRecord(on: shiftedDate)!
+                weekdays.append(d)
+            }
+        }
+        return weekdays
+    }
+    
+    func weekdays(withRespectTo date: Date) -> [Date: Day?] {
+        var weekdays: [Date: Day?] = [:]
+        let daysArr = weekdaysInWeek(withRespectTo: date)
+        for shiftedDate in date.weekdaysInWeek() {
+            let otherDay = daysArr.first(where: { $0.date.onSameDay(otherDate: shiftedDate) })
+            weekdays[shiftedDate] = otherDay
+        }
+        return weekdays
+    }
 }
 
 extension Date {
@@ -100,5 +121,16 @@ extension Date {
         return (currentDayInt == otherDayInt) &&
             (currentMonthInt == otherMonthInt) &&
             (currentYearInt == otherYearInt)
+    }
+    
+    func weekdaysInWeek() -> [Date] {
+        let calendar = NSCalendar.init(calendarIdentifier: NSCalendar.Identifier.gregorian)
+        let currentWeekdayInt = (calendar?.component(NSCalendar.Unit.weekday, from: self))!
+        var weekdays: [Date] = []
+        for i in (1-currentWeekdayInt)...(7-currentWeekdayInt) {
+            let shiftedDate = Date(timeIntervalSinceNow: 24*60*60*Double(i))
+            weekdays.append(shiftedDate)
+        }
+        return weekdays
     }
 }

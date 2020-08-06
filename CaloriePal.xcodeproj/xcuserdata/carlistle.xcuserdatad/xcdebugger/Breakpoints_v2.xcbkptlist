@@ -7,32 +7,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "AB13AA50-2495-4E7A-AC24-92C10A550BF2"
-            shouldBeEnabled = "No"
+            uuid = "76CC53D8-7132-47B3-BF2C-DFB298362F0D"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CaloriePal/DayLog/Day/DayLog.swift"
+            filePath = "CaloriePalTests/ModelsTests/PlanTests.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "setPreviousDay(rootStore:)"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "testWeekdays()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "237907B1-EFB3-4BCC-B8FB-1CB0853097CD"
-            shouldBeEnabled = "No"
+            uuid = "67E45A45-A349-4F70-B58C-6EFBFF186C1A"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CaloriePal/RootView/RootStore.swift"
+            filePath = "CaloriePal/Models/Plan.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "getOrCreateCurrentDay()"
+            startingLineNumber = "103"
+            endingLineNumber = "103"
+            landmarkName = "weekdays(withRespectTo:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

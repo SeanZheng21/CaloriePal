@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Combine
 
 struct Day: Hashable, Codable, Identifiable {
     private static let _defaultBudgetCalories: Int = 1500
@@ -33,6 +34,14 @@ struct Day: Hashable, Codable, Identifiable {
         self.dinner = dinner ?? Meal(type: .dinner)
         self.snacks = snacks ?? Meal(type: .snacks)
         self.exercise = exercise ?? Exercise()
+    }
+    
+    func hash(into hasher: inout Hasher) {
+      hasher.combine(self.date)
+    }
+    
+    var hashValue: Int {
+        date.hashValue
     }
     
     func meals() -> [Meal] {
