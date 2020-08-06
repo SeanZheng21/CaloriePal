@@ -31,7 +31,7 @@ struct StatisticsCalorieView: View {
         let dates = Date().weekdaysInWeek()
         for day in days {
             let idx = dates.firstIndex(where: {$0.onSameDay(otherDate: day.date)})
-            calories[idx!] = [Float(day.totalCalories()) / Float(plan.days[0].budgetCalories)]
+            calories[idx!] = [Float(day.totalCalories()) / Float(plan.caloriesPerDay)]
         }
         return calories
     }

@@ -16,6 +16,7 @@ struct Plan: Hashable, Codable, Identifiable {
     private(set) var endDate: Date
     private(set) var goal: Float
     private(set) var rate: Float
+    private(set) var caloriesPerDay: Float
     private(set) var weights: [Date: Float]
 
     init(from startDate: Date, to endDate: Date, startWeight: Float, goalWeight: Float, rate: Float) {
@@ -27,6 +28,7 @@ struct Plan: Hashable, Codable, Identifiable {
         self.goal = goalWeight
         self.rate = rate
         self.weights = [startDate: startWeight]
+        self.caloriesPerDay = 1500
     }
     
     mutating func getOrCreateCurrentDay() -> Day {
