@@ -100,6 +100,29 @@ struct Plan: Hashable, Codable, Identifiable {
         return weekdays
     }
     
+    func weekdaysCalories(withRespectTo date: Date) -> Int {
+        var cal = 0
+        weekdaysInWeek(withRespectTo: date).forEach {
+            cal += $0.totalCalories()
+        }
+        return cal
+    }
+    
+    func weekdaysNetCalories(withRespectTo date: Date) -> Int {
+        let cal = weekdaysCalories(withRespectTo: date)
+        let calendar = NSCalendar.init(calendarIdentifier: NSCalendar.Identifier.gregorian)
+        let currentWeekdayInt = (calendar?.component(NSCalendar.Unit.weekday, from: date))!
+        return currentWeekdayInt * Int(caloriesPerDay) - cal
+    }
+    
+    func weekdaysNutrients(withRespectTo date: Date) -> Nutrient {
+        var nutrient = Nutrient(fat: 0, satFat: 0, cholesterol: 0, sodium: 0, carbs: 0, fiber: 0, sugars: 0, protein: 0)
+        weekdaysInWeek(withRespectTo: date).forEach {
+            nutrient = nutrient.addNutrient(otherNutrient: $0.totalNutrients())
+        }
+        return nutrient
+    }
+    
 //    func weekdays(withRespectTo date: Date) -> [Date: Day?] {
 //        var weekdays: [Date: Day?] = [:]
 //        let daysArr = weekdaysInWeek(withRespectTo: date)

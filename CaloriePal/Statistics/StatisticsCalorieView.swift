@@ -13,16 +13,77 @@ struct StatisticsCalorieView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack {
-                Spacer(minLength: 0.0)
-                BarChartView(data: StatisticsCalorieView.convertCalories(from: self.rootStore.plan),
-                         tags: ["S", "M", "Tu", "W", "Th", "F", "Sa"],
-                         colors: [.green])
-                    .frame(width: geometry.size.width, height: StatisticsCalorieView.chartHeight)
-                Spacer(minLength: 0.0)
-            }
-                .frame(width: geometry.size.width)
+            VStack(alignment: .leading) {
+                Text("Today")
+                    .font(.system(size: 25))
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color.gray)
+                HStack(alignment: .top, spacing: 0) {
+                    VStack(alignment: .leading) {
+                        Text("Budget:")
+                            .font(.system(size: 23))
+                            .foregroundColor(Color.gray)
+                        Text("\(Int(self.rootStore.plan.caloriesPerDay)) cal")
+                            .font(.system(size: 23))
+                            .fontWeight(.bold)
+                        Spacer().frame(height: 7)
+                        Text("Net:")
+                            .font(.system(size: 23))
+                            .foregroundColor(Color.gray)
+                        Text("\(Int(self.rootStore.getToday().totalCalories())) cal")
+                            .font(.system(size: 23))
+                            .fontWeight(.bold)
+                        Spacer().frame(height: 7)
+                        Text("\(abs(Int(self.rootStore.plan.caloriesPerDay) - self.rootStore.getToday().totalCalories())) cal")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Text("\(Int(self.rootStore.plan.caloriesPerDay) > self.rootStore.getToday().totalCalories() ? "under" : "over") budget")
+                        .foregroundColor(Int(self.rootStore.plan.caloriesPerDay) > self.rootStore.getToday().totalCalories() ? .green : .orange)
+                            .font(.title)
+                            .fontWeight(.bold)
+                    }
+                    PieChartView(pieChartData: PieChartData(data: self.pieChartPercentages, colors: [self.isUnderBudget ? .green : .orange, .white]))
+                        .frame(width: 200, height: 200)
+                }
+                Text("Weekly")
+                    .font(.system(size: 25))
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color.gray)
+                HStack {
+                    Spacer(minLength: 0.0)
+                    BarChartView(data: StatisticsCalorieView.convertCalories(from: self.rootStore.plan),
+                             tags: ["S", "M", "Tu", "W", "Th", "F", "Sa"],
+                             colors: [.green], showOverflow: true)
+                        .frame(height: StatisticsCalorieView.chartHeight)
+                    Spacer(minLength: 0.0)
+                }
+                .frame(height: StatisticsCalorieView.chartHeight)
+                HStack {
+                    Spacer(minLength: 0)
+                    VStack(alignment: .center) {
+                        Text("\(abs(self.rootStore.plan.weekdaysNetCalories(withRespectTo: Date())))")
+                            .font(.title)
+                            .foregroundColor((self.rootStore.plan.weekdaysNetCalories(withRespectTo: Date()) > 0) ? .green : .orange)
+                            .fontWeight(.bold)
+                        Text("calories \((self.rootStore.plan.weekdaysNetCalories(withRespectTo: Date()) > 0) ? "under" : "over") the weekly budget")
+                    }
+                    Spacer(minLength: 0)
+                }
+            }.padding()
         }
+    }
+    
+    var pieChartPercentages: [Double] {
+        let percentage = Double(self.rootStore.getToday().totalCalories())/Double(self.rootStore.plan.caloriesPerDay)
+        if percentage < 1 {
+            return [percentage, 1 - percentage]
+        } else {
+            return [percentage - Double(Int(percentage)), 1 - percentage + Double(Int(percentage))]
+        }
+    }
+    
+    var isUnderBudget: Bool {
+        Int(self.rootStore.plan.caloriesPerDay) > self.rootStore.getToday().totalCalories()
     }
     
     private static func convertCalories(from plan: Plan) -> [[Float]] {

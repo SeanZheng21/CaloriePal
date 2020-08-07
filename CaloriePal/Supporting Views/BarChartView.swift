@@ -27,24 +27,23 @@ struct BarChartView: View {
     
     var body: some View {
         GeometryReader { geometry in
-            HStack {
-                Spacer(minLength: 0.0)
-                ForEach(0..<self.data.count, id: \.self) { idx in
-                    BarView(data: self.data[idx], tag: self.tags[idx], colors: self.colors)
-                        .frame(width: BarChartView.barWidth, height: BarChartView.height)
+            ZStack(alignment: .top) {
+                HStack {
+                    Spacer(minLength: 0.0)
+                    ForEach(0..<self.data.count, id: \.self) { idx in
+                        BarView(data: self.data[idx], tag: self.tags[idx], colors: self.colors)
+                            .frame(width: BarChartView.barWidth)
+                    }
+                    Spacer(minLength: 0.0)
                 }
-                Spacer(minLength: 0.0)
+                if self.showOverflow {
+                    Rectangle()
+                        .foregroundColor(.red)
+                        .opacity(0.1)
+                        .frame(width: BarChartView.barWidth * CGFloat(Double(self.data.count) * 1.24), height: geometry.size.height * (1-1/CGFloat(BarChartView.maxPercentage)))
+                }
             }
         }
-    }
-    
-    private func overflowLine(in rect: CGRect, scale: Float) -> Path {
-        var path = Path()
-        path.move(to: CGPoint(x: rect.size.height/CGFloat(scale), y: 0))
-        path.addLine(to: CGPoint(x: rect.size.height/CGFloat(scale), y: rect.size.width))
-        path.closeSubpath()
-
-        return path
     }
     
     private static func scaleData(data: [[Float]], scale: Float=BarChartView.maxPercentage) -> [[Float]] {
@@ -94,7 +93,7 @@ struct BarView: View {
                                 Rectangle()
                                     .foregroundColor(self.colors[idx])
                                     .frame(width: geometry.size.width,
-                                           height: geometry.size.height * CGFloat(self.data[idx]),
+                                           height: geometry.size.height * min(1.0, CGFloat(self.data[idx])),
                                            alignment: .bottom)
                             }
                         }
@@ -120,7 +119,7 @@ struct BarChartView_Previews: PreviewProvider {
                     [0.3,0.1,0.1],
                     [0.5],
                     [0.2, 0.3, 0.3],
-                    [0.1],
+                    [1.1],
                     [],
                     []],
                      tags: ["S", "M", "Tu", "W", "Th", "F", "Sa"],

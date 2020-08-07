@@ -15,18 +15,18 @@ struct StatisticsView: View {
         GeometryReader { geometry in
             NavigationView {
                 ScrollView() {
-                    VStack(alignment: .center) {
+                    VStack(alignment: .leading, spacing: 0.0) {
                         HStack {
                             Text("Calories Summary")
                                 .font(.title)
                                 .fontWeight(.semibold)
                             Spacer()
                         }
-                        .padding()
+                        .padding(.horizontal)
                         
                         StatisticsCalorieView(rootStore: self.rootStore)
-                            .frame(width: geometry.size.width, height: StatisticsView.calorieSummaryHeight)
-                            
+                            .frame(height: StatisticsView.calorieSummaryHeight)
+//                            .background(Color.red)
                         HStack {
                             Text("Nutrients Summary")
                                 .font(.title)
@@ -41,7 +41,7 @@ struct StatisticsView: View {
         }
     }
     
-    static private var calorieSummaryHeight: CGFloat = 300
+    static private var calorieSummaryHeight: CGFloat = 480
 }
 
 struct StatisticsView_Previews: PreviewProvider {
@@ -55,7 +55,9 @@ struct StatisticsView_Previews: PreviewProvider {
         
         let breakfast1 = Meal(id: 1, type: .breakfast, foods: [foodData[1]])
         let lunch1 = Meal(id: 1, type: .lunch, foods: [])
-        let dinner1 = Meal(id: 1, type: .dinner, foods: [foodData[2]])
+        var food = foodData[2]
+        food.setAmount(to: 7)
+        let dinner1 = Meal(id: 1, type: .dinner, foods: [food])
         let snacks1 = Meal(id: 1, type: .snacks, foods: [])
         let exercise1 = Exercise(id: 1, workouts: [workoutData[1]])
         let day2 = Day(date: Date(timeIntervalSinceNow: -60*60*24), breakfast: breakfast1, lunch: lunch1, dinner: dinner1, snacks: snacks1,
