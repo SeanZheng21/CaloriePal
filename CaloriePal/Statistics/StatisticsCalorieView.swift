@@ -14,10 +14,23 @@ struct StatisticsCalorieView: View {
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
-                Text("Today")
-                    .font(.system(size: 25))
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.gray)
+                NavigationLink(destination:
+                    StatisticsCalorieDetailView(rootStore: self.rootStore,
+                                                day: self.rootStore.getToday())
+                    ) {
+                        HStack {
+                            Text("Today")
+                            .font(.system(size: 25))
+                            .fontWeight(.semibold)
+                                .foregroundColor(Color.blue)
+                            Spacer()
+                            Text("More")
+                                .foregroundColor(Color.blue)
+                            Image(systemName: "chevron.right.circle")
+                                .foregroundColor(Color.blue)
+                                .imageScale(.medium)
+                        }
+                }
                 HStack(alignment: .top, spacing: 0) {
                     VStack(alignment: .leading) {
                         Text("Budget:")
@@ -42,13 +55,13 @@ struct StatisticsCalorieView: View {
                             .font(.title)
                             .fontWeight(.bold)
                     }
-                    PieChartView(pieChartData: PieChartData(data: self.pieChartPercentages, colors: [self.isUnderBudget ? .green : .orange, .white]))
+                PieChartView(pieChartData: PieChartData(data: self.pieChartPercentages, colors: (self.isUnderBudget ? [.green, .white] : [.orange, .green])))
                         .frame(width: 200, height: 200)
                 }
                 Text("Weekly")
                     .font(.system(size: 25))
                     .fontWeight(.semibold)
-                    .foregroundColor(Color.gray)
+                    .foregroundColor(Color.blue)
                 HStack {
                     Spacer(minLength: 0.0)
                     BarChartView(data: StatisticsCalorieView.convertCalories(from: self.rootStore.plan),
