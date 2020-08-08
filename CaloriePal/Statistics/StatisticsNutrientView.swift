@@ -12,7 +12,25 @@ struct StatisticsNutrientView: View {
     @ObservedObject var rootStore: RootStore
 
     var body: some View {
-        VStack {
+        VStack(alignment: .center) {
+            NavigationLink(destination:
+                StatisticsNutrientDetailView(rootStore: self.rootStore,
+                                            day: self.rootStore.getToday())
+                ) {
+                    HStack {
+                        Text("Today")
+                        .font(.system(size: 25))
+                        .fontWeight(.semibold)
+                            .foregroundColor(Color.blue)
+                        Spacer()
+                        Text("More")
+                            .foregroundColor(Color.blue)
+                        Image(systemName: "chevron.right.circle")
+                            .foregroundColor(Color.blue)
+                            .imageScale(.medium)
+                    }
+            }
+            .padding(.horizontal)
             HStack {
                 Spacer(minLength: 0.0)
                 PieChartView(pieChartData:
@@ -54,6 +72,14 @@ struct StatisticsNutrientView: View {
                 }
                     .padding(.horizontal)
             }
+            HStack {
+                Text("Weekly")
+                    .font(.system(size: 25))
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color.blue)
+                Spacer()
+            }
+            .padding(.horizontal)
             BarChartView(data: convertNutrients(from: rootStore.plan),
                      tags: ["S", "M", "Tu", "W", "Th", "F", "Sa"],
                      colors: [Nutrient.fatColor, Nutrient.carbColor, Nutrient.proteinColor])

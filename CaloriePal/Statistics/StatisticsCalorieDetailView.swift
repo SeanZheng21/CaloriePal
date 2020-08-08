@@ -40,7 +40,8 @@ struct StatisticsCalorieDetailView: View {
                 }
                 Spacer()
             }
-                .padding()
+            .padding(.horizontal)
+            Divider()
             HStack(alignment: .top, spacing: 0) {
                 VStack(alignment: .leading) {
                     Text("Budget:")
