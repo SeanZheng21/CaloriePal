@@ -89,6 +89,7 @@
 		FFBEEAD724D7986E00DA489F /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEAD624D7986E00DA489F /* Plan.swift */; };
 		FFBEEAD924D7AC9F00DA489F /* DateBannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEAD824D7AC9F00DA489F /* DateBannerView.swift */; };
 		FFBEEADB24D7B36000DA489F /* PlanTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFBEEADA24D7B36000DA489F /* PlanTests.swift */; };
+		FFCC5F3424DE4CEB002C1119 /* StatisticsNutrientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC5F3324DE4CEB002C1119 /* StatisticsNutrientView.swift */; };
 		FFD29A6024D55F28007B586D /* Workout.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A5F24D55F28007B586D /* Workout.png */; };
 		FFD29A6224D56308007B586D /* Meal.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A6124D56308007B586D /* Meal.png */; };
 		FFEBF2F724DB982500DD89DB /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEBF2F624DB982500DD89DB /* StatisticsView.swift */; };
@@ -195,6 +196,7 @@
 		FFBEEAD624D7986E00DA489F /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		FFBEEAD824D7AC9F00DA489F /* DateBannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateBannerView.swift; sourceTree = "<group>"; };
 		FFBEEADA24D7B36000DA489F /* PlanTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTests.swift; sourceTree = "<group>"; };
+		FFCC5F3324DE4CEB002C1119 /* StatisticsNutrientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsNutrientView.swift; sourceTree = "<group>"; };
 		FFD29A5F24D55F28007B586D /* Workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Workout.png; sourceTree = "<group>"; };
 		FFD29A6124D56308007B586D /* Meal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meal.png; sourceTree = "<group>"; };
 		FFEBF2F624DB982500DD89DB /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
@@ -461,6 +463,7 @@
 			children = (
 				FFEBF2F624DB982500DD89DB /* StatisticsView.swift */,
 				FFEBF2F824DBAEC600DD89DB /* StatisticsCalorieView.swift */,
+				FFCC5F3324DE4CEB002C1119 /* StatisticsNutrientView.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -615,6 +618,7 @@
 				FF5FA4BB24D7E5610059A28C /* RootStore.swift in Sources */,
 				FF3AADF724D3E084001E0D92 /* FoodSelectorView.swift in Sources */,
 				FFEBF2FB24DBB1E700DD89DB /* BarChartView.swift in Sources */,
+				FFCC5F3424DE4CEB002C1119 /* StatisticsNutrientView.swift in Sources */,
 				FF3AADFD24D3F880001E0D92 /* Day.swift in Sources */,
 				FFA7086E24D65AD9002884FA /* DayBanner.swift in Sources */,
 				FF07779024D257C9002D68A7 /* MealType.swift in Sources */,

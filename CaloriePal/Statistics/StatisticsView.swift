@@ -33,7 +33,8 @@ struct StatisticsView: View {
                                 .fontWeight(.semibold)
                             Spacer()
                         }
-                            .padding()
+                            .padding([.top, .leading, .trailing])
+                        StatisticsNutrientView(rootStore: self.rootStore)
                     }
                         .frame(width: geometry.size.width)
                 }.navigationBarTitle("Statistics", displayMode: .inline)
