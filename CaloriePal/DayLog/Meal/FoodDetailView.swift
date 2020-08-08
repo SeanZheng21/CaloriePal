@@ -52,7 +52,7 @@ struct FoodDetailView: View {
                         HStack {
                             VStack {
                                 Text("\(self.foodDetail.foodCalorie)")
-                                    .font(.system(size: self.calorieFont, weight: .semibold))
+                                    .font(.system(size: self.foodDetail.foodCalorie<=1000 ? self.calorieFont : self.calorieSmallerFont, weight: .semibold))
                                 Text("Calories").fontWeight(.light)
                             }
                             .padding(.all, self.caloriePadding)
@@ -195,6 +195,7 @@ struct FoodDetailView: View {
     // MARK: - Drawing Constants
     let imageIconScale: CGFloat = 1.5
     let calorieFont: CGFloat = 50
+    let calorieSmallerFont: CGFloat = 35
     let caloriePadding: CGFloat = 30
     let pickerHeight: CGFloat = 100.0
 }

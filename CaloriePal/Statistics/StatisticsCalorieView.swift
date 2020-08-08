@@ -55,6 +55,7 @@ struct StatisticsCalorieView: View {
                             .font(.title)
                             .fontWeight(.bold)
                     }
+                    Spacer(minLength: 0)
                 PieChartView(pieChartData: PieChartData(data: self.pieChartPercentages, colors: (self.isUnderBudget ? [.green, .white] : [.orange, .green])))
                         .frame(width: 200, height: 200)
                 }

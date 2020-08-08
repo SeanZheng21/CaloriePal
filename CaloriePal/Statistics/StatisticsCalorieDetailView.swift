@@ -53,21 +53,23 @@ struct StatisticsCalorieDetailView: View {
                     Text("Net:")
                         .font(.system(size: 23))
                         .foregroundColor(Color.gray)
-                    Text("\(Int(self.rootStore.getToday().totalCalories())) cal")
+                    Text("\(Int(self.day.totalCalories())) cal")
                         .font(.system(size: 23))
                         .fontWeight(.bold)
                     Spacer().frame(height: 7)
-                    Text("\(abs(Int(self.rootStore.plan.caloriesPerDay) - self.rootStore.getToday().totalCalories())) cal")
+                    Text("\(abs(Int(self.rootStore.plan.caloriesPerDay) - self.day.totalCalories())) cal")
                         .font(.title)
                         .fontWeight(.bold)
-                    Text("\(Int(self.rootStore.plan.caloriesPerDay) > self.rootStore.getToday().totalCalories() ? "under" : "over") budget")
-                    .foregroundColor(Int(self.rootStore.plan.caloriesPerDay) > self.rootStore.getToday().totalCalories() ? .green : .orange)
+                    Text("\(Int(self.rootStore.plan.caloriesPerDay) > self.day.totalCalories() ? "under" : "over") budget")
+                    .foregroundColor(Int(self.rootStore.plan.caloriesPerDay) > self.day.totalCalories() ? .green : .orange)
                         .font(.title)
                         .fontWeight(.bold)
                 }
+                Spacer(minLength: 0)
                 PieChartView(pieChartData: PieChartData(data: self.pieChartPercentages, colors: (self.isUnderBudget ? [.green, .white] : [.orange, .green])))
                     .frame(width: 200, height: 200)
             }
+            .padding(.horizontal)
             
             VStack(alignment: .leading) {
                 HStack {
@@ -120,7 +122,7 @@ struct StatisticsCalorieDetailView: View {
     }
     
     var pieChartPercentages: [Double] {
-        let percentage = Double(self.rootStore.getToday().totalCalories())/Double(self.rootStore.plan.caloriesPerDay)
+        let percentage = Double(self.day.totalCalories())/Double(self.rootStore.plan.caloriesPerDay)
         if percentage < 1 {
             return [percentage, 1 - percentage]
         } else {
@@ -129,7 +131,7 @@ struct StatisticsCalorieDetailView: View {
     }
     
     var isUnderBudget: Bool {
-        Int(self.rootStore.plan.caloriesPerDay) > self.rootStore.getToday().totalCalories()
+        Int(self.rootStore.plan.caloriesPerDay) > self.day.totalCalories()
     }
 }
 

@@ -114,7 +114,7 @@ struct StatisticsNutrientView: View {
     }
     
     private static var chartSideLength: CGFloat = 220
-    private static var barChartHeight: CGFloat = 150
+    private static var barChartHeight: CGFloat = 100
 }
 
 struct StatisticsNutrientView_Previews: PreviewProvider {
