@@ -94,6 +94,7 @@
 		FFCC5F3424DE4CEB002C1119 /* StatisticsNutrientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFCC5F3324DE4CEB002C1119 /* StatisticsNutrientView.swift */; };
 		FFD29A6024D55F28007B586D /* Workout.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A5F24D55F28007B586D /* Workout.png */; };
 		FFD29A6224D56308007B586D /* Meal.png in Resources */ = {isa = PBXBuildFile; fileRef = FFD29A6124D56308007B586D /* Meal.png */; };
+		FFE2A3A624DE8E35009766D9 /* StatisticsNutrientWeeklyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFE2A3A524DE8E35009766D9 /* StatisticsNutrientWeeklyView.swift */; };
 		FFEBF2F724DB982500DD89DB /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEBF2F624DB982500DD89DB /* StatisticsView.swift */; };
 		FFEBF2F924DBAEC600DD89DB /* StatisticsCalorieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEBF2F824DBAEC600DD89DB /* StatisticsCalorieView.swift */; };
 		FFEBF2FB24DBB1E700DD89DB /* BarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEBF2FA24DBB1E700DD89DB /* BarChartView.swift */; };
@@ -203,6 +204,7 @@
 		FFCC5F3324DE4CEB002C1119 /* StatisticsNutrientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsNutrientView.swift; sourceTree = "<group>"; };
 		FFD29A5F24D55F28007B586D /* Workout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Workout.png; sourceTree = "<group>"; };
 		FFD29A6124D56308007B586D /* Meal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Meal.png; sourceTree = "<group>"; };
+		FFE2A3A524DE8E35009766D9 /* StatisticsNutrientWeeklyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsNutrientWeeklyView.swift; sourceTree = "<group>"; };
 		FFEBF2F624DB982500DD89DB /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		FFEBF2F824DBAEC600DD89DB /* StatisticsCalorieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCalorieView.swift; sourceTree = "<group>"; };
 		FFEBF2FA24DBB1E700DD89DB /* BarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartView.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				FF99C48024DE744500FBCB20 /* StatisticsCalorieDetailView.swift */,
 				FFCC5F3324DE4CEB002C1119 /* StatisticsNutrientView.swift */,
 				FF99C48224DE808900FBCB20 /* StatisticsNutrientDetailView.swift */,
+				FFE2A3A524DE8E35009766D9 /* StatisticsNutrientWeeklyView.swift */,
 			);
 			path = Statistics;
 			sourceTree = "<group>";
@@ -653,6 +656,7 @@
 				FF85CE9724D0131A00E21F0C /* SceneDelegate.swift in Sources */,
 				FF3AADFF24D3FAFA001E0D92 /* DayLogView.swift in Sources */,
 				FF379B1C24D502F500B441E1 /* WorkoutDetailView.swift in Sources */,
+				FFE2A3A624DE8E35009766D9 /* StatisticsNutrientWeeklyView.swift in Sources */,
 				FF7B26DE24D0FD3A007167C5 /* Data.swift in Sources */,
 				FF85CEC224D021E600E21F0C /* FoodAmount.swift in Sources */,
 				FF1E161024D3A8AA0043E244 /* PieChartData.swift in Sources */,

@@ -42,7 +42,7 @@ struct StatisticsView: View {
         }
     }
     
-    static private var calorieSummaryHeight: CGFloat = 480
+    static private var calorieSummaryHeight: CGFloat = 540
 }
 
 struct StatisticsView_Previews: PreviewProvider {

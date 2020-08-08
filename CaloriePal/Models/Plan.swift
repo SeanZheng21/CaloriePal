@@ -108,6 +108,10 @@ struct Plan: Hashable, Codable, Identifiable {
         return cal
     }
     
+    func weeklyAverageCalories(withRespectTo date: Date) -> Int {
+        weekdaysCalories(withRespectTo: date) / 7
+    }
+    
     func weekdaysNetCalories(withRespectTo date: Date) -> Int {
         let cal = weekdaysCalories(withRespectTo: date)
         let calendar = NSCalendar.init(calendarIdentifier: NSCalendar.Identifier.gregorian)
@@ -121,6 +125,19 @@ struct Plan: Hashable, Codable, Identifiable {
             nutrient = nutrient.addNutrient(otherNutrient: $0.totalNutrients())
         }
         return nutrient
+    }
+    
+    func weeklyAverageNutrients(withRespectTo date: Date) -> Nutrient {
+        let totalNutrient = weekdaysNutrients(withRespectTo: date)
+        let averageNutrient = Nutrient(fat: totalNutrient.fat / 7,
+                                       satFat: totalNutrient.satFat / 7,
+                                       cholesterol: totalNutrient.cholesterol / 7,
+                                       sodium: totalNutrient.sodium / 7,
+                                       carbs: totalNutrient.carbs / 7,
+                                       fiber: totalNutrient.fiber / 7,
+                                       sugars: totalNutrient.sugars / 7,
+                                       protein: totalNutrient.protein / 7)
+        return averageNutrient
     }
     
 //    func weekdays(withRespectTo date: Date) -> [Date: Day?] {

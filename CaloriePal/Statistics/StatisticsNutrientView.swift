@@ -30,7 +30,8 @@ struct StatisticsNutrientView: View {
                             .imageScale(.medium)
                     }
             }
-            .padding(.horizontal)
+                .padding(.horizontal)
+            
             HStack {
                 Spacer(minLength: 0.0)
                 PieChartView(pieChartData:
@@ -72,18 +73,63 @@ struct StatisticsNutrientView: View {
                 }
                     .padding(.horizontal)
             }
-            HStack {
-                Text("Weekly")
-                    .font(.system(size: 25))
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color.blue)
-                Spacer()
+
+            NavigationLink(destination:
+                StatisticsNutrientWeeklyView(rootStore: self.rootStore,
+                                            day: self.rootStore.getToday())
+                ) {
+                    HStack {
+                        Text("Weekly")
+                            .font(.system(size: 25))
+                            .fontWeight(.semibold)
+                            .foregroundColor(Color.blue)
+                        Spacer()
+                        Text("More")
+                            .foregroundColor(Color.blue)
+                        Image(systemName: "chevron.right.circle")
+                            .foregroundColor(Color.blue)
+                            .imageScale(.medium)
+                    }
             }
-            .padding(.horizontal)
+                .padding(.horizontal)
+            
             BarChartView(data: convertNutrients(from: rootStore.plan),
                      tags: ["S", "M", "Tu", "W", "Th", "F", "Sa"],
                      colors: [Nutrient.fatColor, Nutrient.carbColor, Nutrient.proteinColor])
                 .frame(height: StatisticsNutrientView.barChartHeight)
+            
+            HStack {
+                VStack(alignment: .center) {
+                    HStack {
+                        Image(systemName: "circle.fill")
+                            .foregroundColor(Nutrient.fatColor)
+                            .imageScale(.medium)
+                        Text("Fat")
+                    }
+                    Text("\(fatPercentage(totalNutrient: weeklyAvgNutrients))% - \(Int(weeklyAvgNutrients.fat))g")
+                }
+                    .padding(.horizontal)
+                VStack(alignment: .center) {
+                    HStack {
+                        Image(systemName: "circle.fill")
+                            .foregroundColor(Nutrient.carbColor)
+                            .imageScale(.medium)
+                        Text("Carb")
+                    }
+                    Text("\(carbsPercentage(totalNutrient: weeklyAvgNutrients))% - \(Int(weeklyAvgNutrients.carbs))g")
+                }
+                    .padding(.horizontal)
+                VStack(alignment: .center) {
+                    HStack {
+                        Image(systemName: "circle.fill")
+                            .foregroundColor(Nutrient.proteinColor)
+                            .imageScale(.medium)
+                        Text("Protein")
+                    }
+                    Text("\(proteinPercentage(totalNutrient: weeklyAvgNutrients))% - \(Int(weeklyAvgNutrients.protein))g")
+                }
+                    .padding(.horizontal)
+            }
         }
         .padding(.vertical)
     }
@@ -94,15 +140,20 @@ struct StatisticsNutrientView: View {
         let dates = Date().weekdaysInWeek()
         for day in days {
             let idx = dates.firstIndex(where: {$0.onSameDay(otherDate: day.date)})
-            nutrients[idx!] = [Float(fatPercentage(totalNutrient: day.totalNutrients()))/100,
-                                Float(carbsPercentage(totalNutrient: day.totalNutrients()))/100,
-                                Float(proteinPercentage(totalNutrient: day.totalNutrients()))/100]
+            let percentageMultiplier = min(Float(day.totalCalories()) / plan.caloriesPerDay, 1.0)
+            nutrients[idx!] = [Float(fatPercentage(totalNutrient: day.totalNutrients())) * percentageMultiplier/100,
+                                Float(carbsPercentage(totalNutrient: day.totalNutrients())) * percentageMultiplier/100,
+                                Float(proteinPercentage(totalNutrient: day.totalNutrients())) * percentageMultiplier/100]
         }
         return nutrients
     }
     
     var totalNutrients: Nutrient {
         rootStore.getDay(on: Date())!.totalNutrients()
+    }
+    
+    var weeklyAvgNutrients: Nutrient {
+        rootStore.plan.weeklyAverageNutrients(withRespectTo: Date())
     }
     
     func fatPercentage(totalNutrient: Nutrient)-> Int {

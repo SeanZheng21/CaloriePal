@@ -71,7 +71,8 @@ struct StatisticsCalorieView: View {
                         .frame(height: StatisticsCalorieView.chartHeight)
                     Spacer(minLength: 0.0)
                 }
-                .frame(height: StatisticsCalorieView.chartHeight)
+                    .frame(height: StatisticsCalorieView.chartHeight)
+                
                 HStack {
                     Spacer(minLength: 0)
                     VStack(alignment: .center) {
@@ -80,6 +81,17 @@ struct StatisticsCalorieView: View {
                             .foregroundColor((self.rootStore.plan.weekdaysNetCalories(withRespectTo: Date()) > 0) ? .green : .orange)
                             .fontWeight(.bold)
                         Text("calories \((self.rootStore.plan.weekdaysNetCalories(withRespectTo: Date()) > 0) ? "under" : "over") the weekly budget")
+                    }
+                    Spacer(minLength: 0)
+                }
+                
+                HStack {
+                    Spacer(minLength: 0)
+                    VStack(alignment: .center) {
+                        Text("\(self.rootStore.plan.weeklyAverageCalories(withRespectTo: self.rootStore.getToday().date))")
+                            .font(.title)
+                            .fontWeight(.bold)
+                        Text("daily average calories")
                     }
                     Spacer(minLength: 0)
                 }
