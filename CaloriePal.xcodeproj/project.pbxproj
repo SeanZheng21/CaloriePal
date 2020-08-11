@@ -62,6 +62,10 @@
 		FF5FA4B924D7E5060059A28C /* RootTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5FA4B824D7E5060059A28C /* RootTabView.swift */; };
 		FF5FA4BB24D7E5610059A28C /* RootStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5FA4BA24D7E5610059A28C /* RootStore.swift */; };
 		FF5FA4BD24D7E5A10059A28C /* AdderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF5FA4BC24D7E5A10059A28C /* AdderView.swift */; };
+		FF6854B024E23560007067E5 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6854AF24E23560007067E5 /* GoalView.swift */; };
+		FF6854B224E2428D007067E5 /* WeightChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6854B124E2428D007067E5 /* WeightChartView.swift */; };
+		FF6854B424E24AAC007067E5 /* WeightUpdateView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6854B324E24AAC007067E5 /* WeightUpdateView.swift */; };
+		FF6854B824E24EFF007067E5 /* GoalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF6854B724E24EFF007067E5 /* GoalViewModel.swift */; };
 		FF7B26DC24D0FC6D007167C5 /* foodData.json in Resources */ = {isa = PBXBuildFile; fileRef = FF7B26DB24D0FC6D007167C5 /* foodData.json */; };
 		FF7B26DE24D0FD3A007167C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B26DD24D0FD3A007167C5 /* Data.swift */; };
 		FF7B26E124D0FEBF007167C5 /* FoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B26E024D0FEBF007167C5 /* FoodTests.swift */; };
@@ -168,6 +172,10 @@
 		FF5FA4B824D7E5060059A28C /* RootTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootTabView.swift; sourceTree = "<group>"; };
 		FF5FA4BA24D7E5610059A28C /* RootStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootStore.swift; sourceTree = "<group>"; };
 		FF5FA4BC24D7E5A10059A28C /* AdderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdderView.swift; sourceTree = "<group>"; };
+		FF6854AF24E23560007067E5 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
+		FF6854B124E2428D007067E5 /* WeightChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightChartView.swift; sourceTree = "<group>"; };
+		FF6854B324E24AAC007067E5 /* WeightUpdateView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightUpdateView.swift; sourceTree = "<group>"; };
+		FF6854B724E24EFF007067E5 /* GoalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalViewModel.swift; sourceTree = "<group>"; };
 		FF7B26DB24D0FC6D007167C5 /* foodData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = foodData.json; sourceTree = "<group>"; };
 		FF7B26DD24D0FD3A007167C5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		FF7B26E024D0FEBF007167C5 /* FoodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTests.swift; sourceTree = "<group>"; };
@@ -347,6 +355,17 @@
 			path = RootView;
 			sourceTree = "<group>";
 		};
+		FF6854AE24E234F9007067E5 /* Goal */ = {
+			isa = PBXGroup;
+			children = (
+				FF6854AF24E23560007067E5 /* GoalView.swift */,
+				FF6854B124E2428D007067E5 /* WeightChartView.swift */,
+				FF6854B324E24AAC007067E5 /* WeightUpdateView.swift */,
+				FF6854B724E24EFF007067E5 /* GoalViewModel.swift */,
+			);
+			path = Goal;
+			sourceTree = "<group>";
+		};
 		FF7B26DA24D0FC29007167C5 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -416,6 +435,7 @@
 				FF01FB9A24D2628900EDA410 /* DayLog */,
 				FF5FA4B724D7E4E10059A28C /* Adder */,
 				FFEBF2F524DB97C500DD89DB /* Statistics */,
+				FF6854AE24E234F9007067E5 /* Goal */,
 				FF5FA4BE24D7EB5C0059A28C /* RootView */,
 				FF85CE9D24D0131B00E21F0C /* Assets.xcassets */,
 				FF85CE9424D0131A00E21F0C /* AppDelegate.swift */,
@@ -612,6 +632,7 @@
 				FF56EE1E24D53CA900A80948 /* ExerciseListView.swift in Sources */,
 				FF85CE9524D0131A00E21F0C /* AppDelegate.swift in Sources */,
 				FF56EE1C24D537EB00A80948 /* Exercise.swift in Sources */,
+				FF6854B424E24AAC007067E5 /* WeightUpdateView.swift in Sources */,
 				FF1E161424D3A8FA0043E244 /* PieChartDataItem.swift in Sources */,
 				FF3AAE0124D3FB11001E0D92 /* DayLog.swift in Sources */,
 				FF1E161224D3A8CD0043E244 /* PieChartSlideData.swift in Sources */,
@@ -628,6 +649,7 @@
 				FF3AADF724D3E084001E0D92 /* FoodSelectorView.swift in Sources */,
 				FFEBF2FB24DBB1E700DD89DB /* BarChartView.swift in Sources */,
 				FFCC5F3424DE4CEB002C1119 /* StatisticsNutrientView.swift in Sources */,
+				FF6854B224E2428D007067E5 /* WeightChartView.swift in Sources */,
 				FF3AADFD24D3F880001E0D92 /* Day.swift in Sources */,
 				FFA7086E24D65AD9002884FA /* DayBanner.swift in Sources */,
 				FF07779024D257C9002D68A7 /* MealType.swift in Sources */,
@@ -640,6 +662,7 @@
 				FF85CEBC24D01B9200E21F0C /* Food.swift in Sources */,
 				FF1E160C24D3A80C0043E244 /* PieChartView.swift in Sources */,
 				FF99C48124DE744600FBCB20 /* StatisticsCalorieDetailView.swift in Sources */,
+				FF6854B824E24EFF007067E5 /* GoalViewModel.swift in Sources */,
 				FF5FA4BD24D7E5A10059A28C /* AdderView.swift in Sources */,
 				FF4A4C1624D69666000A63EE /* DayBannerView.swift in Sources */,
 				FF8C285024D644350056E61E /* MultiProgressBarView.swift in Sources */,
@@ -651,6 +674,7 @@
 				FFA7086C24D65AC7002884FA /* DayCalorieView.swift in Sources */,
 				FF4A4C1424D692B7000A63EE /* DayNutrientView.swift in Sources */,
 				FF56EE2024D53CB900A80948 /* ExerciseList.swift in Sources */,
+				FF6854B024E23560007067E5 /* GoalView.swift in Sources */,
 				FF85CEC024D0211000E21F0C /* FoodType.swift in Sources */,
 				FF99C48324DE808900FBCB20 /* StatisticsNutrientDetailView.swift in Sources */,
 				FF85CE9724D0131A00E21F0C /* SceneDelegate.swift in Sources */,

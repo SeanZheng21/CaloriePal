@@ -13,17 +13,15 @@ struct Plan: Hashable, Codable, Identifiable {
     var id: Int
     private(set) var days: [Day]
     private(set) var startDate: Date
-    private(set) var endDate: Date
     private(set) var goal: Float
     private(set) var rate: Float
     private(set) var caloriesPerDay: Float
 
-    init(from startDate: Date, to endDate: Date, startWeight: Float, goalWeight: Float, rate: Float) {
+    init(from startDate: Date, startWeight: Float, goalWeight: Float, rate: Float) {
         self.id = Plan._id
         Plan._id += 1
         days = []
         self.startDate = startDate
-        self.endDate = endDate
         self.goal = goalWeight
         self.rate = rate
         self.caloriesPerDay = 1500
@@ -156,6 +154,29 @@ struct Plan: Hashable, Codable, Identifiable {
             }
         }
         return weightPairs
+    }
+    
+    func orderedWeights() -> [(Date, Float)] {
+        var resList: [(Date, Float)] = []
+        let weights = self.weights()
+        for date in weights.keys.sorted() {
+            resList.append((date, weights[date]!))
+        }
+        return resList
+    }
+    
+    func latestWeight() -> Float {
+        let weights = self.weights()
+        let sortedDates = weights.keys.sorted()
+        return weights[sortedDates.last!]!
+    }
+    
+    mutating func updateWeight(date: Date, weight: Float) -> Void {
+        if hasRecord(on: date) {
+            var record = dayRecord(on: date)!
+            record.setWeight(to: weight)
+            addDay(newDay: record)
+        }
     }
 }
 

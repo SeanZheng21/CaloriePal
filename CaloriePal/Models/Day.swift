@@ -22,7 +22,7 @@ struct Day: Hashable, Codable, Identifiable {
     private(set) var exercise: Exercise
     
     init(budgetCalories: Int?=nil, date: Date?=nil, breakfast: Meal?=nil, lunch: Meal?=nil,
-         dinner: Meal?=nil, snacks: Meal?=nil, exercise: Exercise?=nil) {
+         dinner: Meal?=nil, snacks: Meal?=nil, exercise: Exercise?=nil, weight: Float?=nil) {
         if let d = date {
             self.date = d
         } else {
@@ -35,6 +35,7 @@ struct Day: Hashable, Codable, Identifiable {
         self.dinner = dinner ?? Meal(type: .dinner)
         self.snacks = snacks ?? Meal(type: .snacks)
         self.exercise = exercise ?? Exercise()
+        self.weight = weight
     }
     
     func hash(into hasher: inout Hasher) {

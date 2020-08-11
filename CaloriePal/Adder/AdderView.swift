@@ -66,6 +66,6 @@ struct AdderView: View {
 
 struct AdderView_Previews: PreviewProvider {
     static var previews: some View {
-        AdderView(rootStore: RootStore(plan: Plan(from: Date(), to: Date(), startWeight: 157, goalWeight: 155, rate: 0.5)))
+        AdderView(rootStore: RootStore(plan: Plan(from: Date(), startWeight: 157, goalWeight: 155, rate: 0.5)))
     }
 }

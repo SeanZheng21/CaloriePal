@@ -154,7 +154,7 @@ struct StatisticsNutrientWeeklyView_Previews: PreviewProvider {
                       exercise: exercise1)
         let day3 = Day(date: Date(timeIntervalSinceNow: -60*60*24*2), breakfast: breakfast)
 
-        var plan = Plan(from: Date(), to: Date(timeIntervalSinceNow: 60*60*24*15), startWeight: 157, goalWeight: 155, rate: 1.0)
+        var plan = Plan(from: Date(), startWeight: 157, goalWeight: 155, rate: 1.0)
         plan.addDay(newDay: day1)
         plan.addDay(newDay: day2)
         plan.addDay(newDay: day3)

@@ -59,6 +59,6 @@ struct DayLogView_Previews: PreviewProvider {
         
         let dayLog = DayLog(day: day)
         
-        return DayLogView(rootStore: RootStore(plan: Plan(from: Date(), to: Date(), startWeight: 157, goalWeight: 155, rate: 0.5)), dayLog: dayLog)
+        return DayLogView(rootStore: RootStore(plan: Plan(from: Date(), startWeight: 157, goalWeight: 155, rate: 0.5)), dayLog: dayLog)
     }
 }

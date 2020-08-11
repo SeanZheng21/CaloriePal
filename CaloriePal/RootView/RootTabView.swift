@@ -37,6 +37,13 @@ struct RootTabView: View {
                     Text("Add")
                 }
                 .tag(3)
+            GoalView(rootStore: self.rootStore, goalViewModel: GoalViewModel())
+                .tabItem {
+                    Image(systemName: "waveform.path.ecg")
+                        .imageScale(.large)
+                    Text("Goal")
+                }
+                .tag(1)
         }
     }
 }
@@ -59,7 +66,7 @@ struct RootTabView_Previews: PreviewProvider {
                       exercise: exercise1)
         let day3 = Day(date: Date(timeIntervalSinceNow: -60*60*24*2), breakfast: breakfast)
 
-        var plan = Plan(from: Date(), to: Date(timeIntervalSinceNow: 60*60*24*15), startWeight: 157, goalWeight: 155, rate: 1.0)
+        var plan = Plan(from: Date(), startWeight: 157, goalWeight: 155, rate: 1.0)
         plan.addDay(newDay: day1)
         plan.addDay(newDay: day2)
         plan.addDay(newDay: day3)
