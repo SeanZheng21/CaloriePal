@@ -17,7 +17,6 @@ struct Plan: Hashable, Codable, Identifiable {
     private(set) var goal: Float
     private(set) var rate: Float
     private(set) var caloriesPerDay: Float
-    private(set) var weights: [Date: Float]
 
     init(from startDate: Date, to endDate: Date, startWeight: Float, goalWeight: Float, rate: Float) {
         self.id = Plan._id
@@ -27,7 +26,6 @@ struct Plan: Hashable, Codable, Identifiable {
         self.endDate = endDate
         self.goal = goalWeight
         self.rate = rate
-        self.weights = [startDate: startWeight]
         self.caloriesPerDay = 1500
     }
     
@@ -149,6 +147,16 @@ struct Plan: Hashable, Codable, Identifiable {
 //        }
 //        return weekdays
 //    }
+    
+    func weights() -> [Date: Float] {
+        var weightPairs: [Date: Float] = [:]
+        for day in self.days {
+            if day.hasWeight() {
+                weightPairs[day.date] = day.weight!
+            }
+        }
+        return weightPairs
+    }
 }
 
 extension Date {

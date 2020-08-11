@@ -71,8 +71,13 @@ class PlanTests: XCTestCase {
         XCTAssertEqual(4, weekdays.count)
     }
     
-//    func testWeekdays() {
-//        let weekdays = plan.weekdays(withRespectTo: Date())
-//        XCTAssertEqual(7, weekdays.count)
-//    }
+    func testWeights() {
+        var d = plan.days[0]
+        d.setWeight(to: 157)
+        plan.addDay(newDay: d)
+
+        let weights = plan.weights()
+        XCTAssertEqual(1, weights.count)
+        XCTAssertEqual(157, weights[plan.days[3].date])
+    }
 }

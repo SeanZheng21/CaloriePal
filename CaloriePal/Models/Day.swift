@@ -13,6 +13,7 @@ struct Day: Hashable, Codable, Identifiable {
     private static let _defaultBudgetCalories: Int = 1500
     var id: Int
     private(set) var budgetCalories: Int
+    private(set) var weight: Float? = nil
     private(set) var date: Date
     private(set) var breakfast: Meal
     private(set) var lunch: Meal
@@ -111,5 +112,13 @@ struct Day: Hashable, Codable, Identifiable {
     
     mutating func setExercise(to exercise: Exercise) -> Void {
         self.exercise = exercise
+    }
+    
+    func hasWeight() -> Bool {
+        self.weight != nil
+    }
+    
+    mutating func setWeight(to newWeight: Float) -> Void {
+        weight = newWeight
     }
 }
