@@ -13,6 +13,7 @@ struct WeightUpdateView: View {
     @ObservedObject var goalViewModel: GoalViewModel
     @Binding var isPresented: Bool
     @State var weightNumber: String = ""
+    @State var selectedDate: Date = Date()
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
@@ -24,11 +25,29 @@ struct WeightUpdateView: View {
                     Spacer()
                     Button("Done") {
                         let weightFloat = (self.weightNumber as NSString).floatValue
-                        self.goalViewModel.updateWeight(weight: weightFloat, date: Date(), rootStore: self.rootStore)
+                        self.goalViewModel.updateWeight(weight: weightFloat, date: self.selectedDate, rootStore: self.rootStore)
                         self.isPresented = false
                     }
                 }
                 .padding(.horizontal)
+                HStack {
+                    Spacer()
+                    Button(action: {
+                        self.selectedDate = self.rootStore.plan.previousDay(withRespectTo: Day(date: self.selectedDate)).date
+                    }, label: {
+                        Image(systemName: "arrowshape.turn.up.left.circle")
+                            .imageScale(.large)
+                    })
+                    Text("\(self.formatDate(date: self.selectedDate))")
+                    Button(action: {
+                        self.selectedDate = self.rootStore.plan.followingDay(withRespectTo: Day(date: self.selectedDate)).date
+                    }, label: {
+                        Image(systemName: "arrowshape.turn.up.right.circle")
+                            .imageScale(.large)
+                    })
+                    Spacer()
+                }
+                .padding()
                 Form {
                     TextField("lbs", text: self.$weightNumber)
                     .keyboardType(.numberPad)
@@ -37,7 +56,12 @@ struct WeightUpdateView: View {
             }
             .padding(.top)
         }
-
+    }
+    
+    func formatDate(date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMM d"
+        return formatter.string(from: date)
     }
 }
 

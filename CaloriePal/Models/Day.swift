@@ -51,10 +51,9 @@ struct Day: Hashable, Codable, Identifiable {
     }
     
     func dateString() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = .medium
-        dateFormatter.timeStyle = .none
-        return dateFormatter.string(from: date)
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMM d"
+        return formatter.string(from: date)
     }
     
     func foodCalories() -> Int {

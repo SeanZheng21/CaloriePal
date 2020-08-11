@@ -13,8 +13,8 @@ struct WeightChartView: View {
     
     var body: some View {
         VStack {
-            ForEach(0..<self.rootStore.plan.orderedWeights().count) { idx in
-                Text("\(self.rootStore.plan.orderedWeights()[idx].0.description) - \(Int(self.rootStore.plan.orderedWeights()[idx].1))")
+            ForEach(self.rootStore.plan.days, id: \.self) { day in
+                Text("\(day.dateString()) - \( day.hasWeight() ? String(Int(day.weight!)) : "No Record")")
             }
         }
     }
