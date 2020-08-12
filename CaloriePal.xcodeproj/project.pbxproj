@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FF01F9B224E373E7001DDA19 /* GoalEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01F9B124E373E7001DDA19 /* GoalEditorView.swift */; };
+		FF01F9B424E373F7001DDA19 /* GoalEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01F9B324E373F7001DDA19 /* GoalEditor.swift */; };
 		FF01FB9D24D2637A00EDA410 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01FB9C24D2637A00EDA410 /* PageView.swift */; };
 		FF01FB9F24D2638900EDA410 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01FB9E24D2638900EDA410 /* PageViewController.swift */; };
 		FF01FBA124D2645300EDA410 /* ServingSizeCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF01FBA024D2645300EDA410 /* ServingSizeCard.swift */; };
@@ -118,6 +120,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FF01F9B124E373E7001DDA19 /* GoalEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalEditorView.swift; sourceTree = "<group>"; };
+		FF01F9B324E373F7001DDA19 /* GoalEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalEditor.swift; sourceTree = "<group>"; };
 		FF01FB9C24D2637A00EDA410 /* PageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageView.swift; sourceTree = "<group>"; };
 		FF01FB9E24D2638900EDA410 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		FF01FBA024D2645300EDA410 /* ServingSizeCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServingSizeCard.swift; sourceTree = "<group>"; };
@@ -365,6 +369,8 @@
 				FF6854B124E2428D007067E5 /* WeightChartView.swift */,
 				FF6854B324E24AAC007067E5 /* WeightUpdateView.swift */,
 				FF6854B724E24EFF007067E5 /* GoalViewModel.swift */,
+				FF01F9B124E373E7001DDA19 /* GoalEditorView.swift */,
+				FF01F9B324E373F7001DDA19 /* GoalEditor.swift */,
 			);
 			path = Goal;
 			sourceTree = "<group>";
@@ -668,6 +674,7 @@
 				FF99C48124DE744600FBCB20 /* StatisticsCalorieDetailView.swift in Sources */,
 				FF6854B824E24EFF007067E5 /* GoalViewModel.swift in Sources */,
 				FF5FA4BD24D7E5A10059A28C /* AdderView.swift in Sources */,
+				FF01F9B424E373F7001DDA19 /* GoalEditor.swift in Sources */,
 				FF4A4C1624D69666000A63EE /* DayBannerView.swift in Sources */,
 				FF8C285024D644350056E61E /* MultiProgressBarView.swift in Sources */,
 				FF85CE9C24D0131A00E21F0C /* FoodDetailView.swift in Sources */,
@@ -678,6 +685,7 @@
 				FFA7086C24D65AC7002884FA /* DayCalorieView.swift in Sources */,
 				FF4A4C1424D692B7000A63EE /* DayNutrientView.swift in Sources */,
 				FF56EE2024D53CB900A80948 /* ExerciseList.swift in Sources */,
+				FF01F9B224E373E7001DDA19 /* GoalEditorView.swift in Sources */,
 				FF6854B024E23560007067E5 /* GoalView.swift in Sources */,
 				FF85CEC024D0211000E21F0C /* FoodType.swift in Sources */,
 				FF99C48324DE808900FBCB20 /* StatisticsNutrientDetailView.swift in Sources */,

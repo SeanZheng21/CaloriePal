@@ -13,12 +13,17 @@ struct Plan: Hashable, Codable, Identifiable {
     var id: Int
     private(set) var days: [Day]
     private(set) var startDate: Date
+    // Male = true, female = false
+    private(set) var gender: Bool
+    // In foot
+    private(set) var height: Float
+    private(set) var age: Int
     private(set) var goal: Float
     private(set) var rate: Float
     private(set) var caloriesPerDay: Float
     private(set) var startWeight: Float?
 
-    init(from startDate: Date, startWeight: Float, goalWeight: Float, rate: Float) {
+    init(gender: Bool, height: Float, age: Int, from startDate: Date, startWeight: Float, goalWeight: Float, rate: Float) {
         self.id = Plan._id
         Plan._id += 1
         days = []
@@ -26,6 +31,9 @@ struct Plan: Hashable, Codable, Identifiable {
         self.startWeight = startWeight
         self.goal = goalWeight
         self.rate = rate
+        self.gender = gender
+        self.height = height
+        self.age = age
         self.caloriesPerDay = 1500
     }
     

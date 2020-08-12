@@ -41,7 +41,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                       exercise: exercise1)
         let day3 = Day(date: Date(timeIntervalSinceNow: -60*60*24*2), breakfast: breakfast, weight: 157)
 
-        var plan = Plan(from: Date(), startWeight: 157, goalWeight: 150, rate: 1.0)
+        var plan = Plan(gender: true, height: 73, age: 23, from: Date(), startWeight: 157, goalWeight: 150, rate: 1.0)
         plan.addDay(newDay: day3)
         plan.addDay(newDay: day2)
         plan.addDay(newDay: day1)
