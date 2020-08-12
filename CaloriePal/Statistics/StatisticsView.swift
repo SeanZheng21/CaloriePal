@@ -65,7 +65,7 @@ struct StatisticsView_Previews: PreviewProvider {
                       exercise: exercise1)
         let day3 = Day(date: Date(timeIntervalSinceNow: -60*60*24*2), breakfast: breakfast)
 
-        var plan = Plan(gender: true, height: 73, age: 23, from: Date(), startWeight: 157,
+        var plan = Plan(gender: true, height: 73, age: 23, activityLevel: 1, from: Date(), startWeight: 157,
                         goalWeight: 155, rate: 1.0)
         plan.addDay(newDay: day1)
         plan.addDay(newDay: day2)

@@ -18,12 +18,13 @@ struct Plan: Hashable, Codable, Identifiable {
     // In foot
     private(set) var height: Float
     private(set) var age: Int
+    private(set) var activityLevel: Int
     private(set) var goal: Float
     private(set) var rate: Float
     private(set) var caloriesPerDay: Float
     private(set) var startWeight: Float?
 
-    init(gender: Bool, height: Float, age: Int, from startDate: Date, startWeight: Float, goalWeight: Float, rate: Float) {
+    init(gender: Bool, height: Float, age: Int, activityLevel: Int, from startDate: Date, startWeight: Float, goalWeight: Float, rate: Float) {
         self.id = Plan._id
         Plan._id += 1
         days = []
@@ -34,6 +35,7 @@ struct Plan: Hashable, Codable, Identifiable {
         self.gender = gender
         self.height = height
         self.age = age
+        self.activityLevel = activityLevel
         self.caloriesPerDay = 1500
     }
     
@@ -247,6 +249,18 @@ struct Plan: Hashable, Codable, Identifiable {
         let formatter = DateFormatter()
         formatter.dateFormat = "E, MMM d YYYY"
         return formatter.string(from: expectedDate())
+    }
+    
+    func activityLevelDescription() -> String {
+        if activityLevel == 0 {
+            return "Not Active"
+        } else if activityLevel == 1 {
+            return "Somewhat Active"
+        } else if activityLevel == 2 {
+            return "Active"
+        } else {
+            return "Extremely Active"
+        }
     }
 }
 

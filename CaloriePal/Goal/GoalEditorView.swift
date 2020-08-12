@@ -114,7 +114,7 @@ struct GoalEditorView_Previews: PreviewProvider {
                       exercise: exercise1)
         let day3 = Day(date: Date(timeIntervalSinceNow: -60*60*24*2), breakfast: breakfast, weight: 157)
 
-        var plan = Plan(gender: true, height: 73, age: 23, from: Date(), startWeight: 157, goalWeight: 150, rate: 1.5)
+        var plan = Plan(gender: true, height: 73, age: 23, activityLevel: 1, from: Date(), startWeight: 157, goalWeight: 150, rate: 1.5)
         plan.addDay(newDay: day3)
         plan.addDay(newDay: day2)
         plan.addDay(newDay: day1)
