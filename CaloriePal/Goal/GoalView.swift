@@ -22,11 +22,14 @@ struct GoalView: View {
                             .font(.title)
                             .fontWeight(.semibold)
                         Spacer()
-                        Button(action: /*@START_MENU_TOKEN@*/{}/*@END_MENU_TOKEN@*/) {
+                        NavigationLink(destination:
+                            GoalEditorView(goalEditor: GoalEditor(plan: self.rootStore.plan))
+                                .environmentObject(self.rootStore)
+                        ) {
                             Text("Change")
                         }
                     }
-                        .padding(.horizontal)
+                        .padding(.all)
                     
                     WeightChartView(rootStore: self.rootStore)
                         .frame(width: geometry.size.width, height: GoalView.chartHeight)

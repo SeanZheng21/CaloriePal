@@ -9,7 +9,9 @@
 import Foundation
 
 class GoalEditor: ObservableObject {
-    init() {
-        
+    @Published var plan: Plan
+    
+    init(plan: Plan) {
+        self.plan = plan
     }
 }
