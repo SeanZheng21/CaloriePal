@@ -12,8 +12,15 @@ struct WeightUpdateView: View {
     @EnvironmentObject var rootStore: RootStore
     @ObservedObject var goalViewModel: GoalViewModel
     @Binding var isPresented: Bool
-    @State var weightNumber: String = ""
+    @State var weightNumber: String
     @State var selectedDate: Date = Date()
+    
+    init(goalViewModel: GoalViewModel, isPresented: Binding<Bool>, weightNumber: Float) {
+        self.goalViewModel = goalViewModel
+        self._isPresented = isPresented
+        self._weightNumber = State(initialValue: String(Int(weightNumber)))
+    }
+    
     var body: some View {
         GeometryReader { geometry in
             VStack(alignment: .leading) {
@@ -49,8 +56,11 @@ struct WeightUpdateView: View {
                 }
                 .padding()
                 Form {
-                    TextField("lbs", text: self.$weightNumber)
-                    .keyboardType(.numberPad)
+                    HStack {
+                        TextField("Weight (lbs)", text: self.$weightNumber)
+                            .keyboardType(.numberPad)
+                        Text("lbs")
+                    }
                 }
                 Spacer()
             }
@@ -67,6 +77,6 @@ struct WeightUpdateView: View {
 
 struct WeightUpdateView_Previews: PreviewProvider {
     static var previews: some View {
-        WeightUpdateView(goalViewModel: GoalViewModel(), isPresented: .constant(true))
+        WeightUpdateView(goalViewModel: GoalViewModel(), isPresented: .constant(true), weightNumber: 155)
     }
 }

@@ -16,12 +16,14 @@ struct Plan: Hashable, Codable, Identifiable {
     private(set) var goal: Float
     private(set) var rate: Float
     private(set) var caloriesPerDay: Float
+    private(set) var startWeight: Float?
 
     init(from startDate: Date, startWeight: Float, goalWeight: Float, rate: Float) {
         self.id = Plan._id
         Plan._id += 1
         days = []
         self.startDate = startDate
+        self.startWeight = startWeight
         self.goal = goalWeight
         self.rate = rate
         self.caloriesPerDay = 1500
@@ -42,6 +44,9 @@ struct Plan: Hashable, Codable, Identifiable {
             removeDay(on: newDay.date)
         }
         days.append(newDay)
+        if days.count == 1 {
+            startWeight = newDay.weight ?? nil
+        }
     }
     
     mutating func removeDay(on date: Date) -> Void {
@@ -177,6 +182,63 @@ struct Plan: Hashable, Codable, Identifiable {
             record.setWeight(to: weight)
             addDay(newDay: record)
         }
+    }
+    
+    func rateDescription() -> String {
+        if rate == 0 {
+            return "Maintain current weight"
+        } else if rate == 0.5 || rate == 1.5 {
+            return "Lose \(Int(rate)).5 lbs per week"
+        } else if rate == 1.0 {
+            return "Lose 1 lb per week"
+        } else {
+            return "Lose \(Int(rate)) lbs per week"
+        }
+    }
+    
+    func isWeightDecreasing() -> Bool {
+        if let weight = startWeight {
+            return latestWeight() <= weight
+        } else {
+            return false
+        }
+    }
+    
+    func weightDifference() -> Float {
+        if let weight = startWeight {
+            return abs(latestWeight() - weight)
+        } else {
+            return 0
+        }
+    }
+    
+    func weightDifferencePercenage() -> Int {
+        if let start = startWeight, start != goal {
+            return Int((start - latestWeight()) / (start - goal) * 100)
+        } else {
+            return 0
+        }
+    }
+    
+    func expectedDaysLeft() -> Int {
+        if latestWeight() <= goal {
+            return 0
+        } else {
+            let weightLeft = latestWeight() - goal
+            let weeksLeft = weightLeft / rate
+            return Int(weeksLeft * 7)
+        }
+    }
+    
+    func expectedDate() -> Date {
+        let daysLeft = expectedDaysLeft()
+        return Date(timeIntervalSinceNow: Double(60*60*24*daysLeft))
+    }
+    
+    func expectedDateString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "E, MMM d YYYY"
+        return formatter.string(from: expectedDate())
     }
 }
 

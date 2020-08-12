@@ -32,6 +32,7 @@
 		FF1E161424D3A8FA0043E244 /* PieChartDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E161324D3A8FA0043E244 /* PieChartDataItem.swift */; };
 		FF1E161624D3AA6E0043E244 /* MealSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E161524D3AA6E0043E244 /* MealSummaryView.swift */; };
 		FF1E161824D3AADA0043E244 /* MealSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1E161724D3AADA0043E244 /* MealSummary.swift */; };
+		FF2DA6BB24E28BE100D588E3 /* CircularProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF2DA6BA24E28BE100D588E3 /* CircularProgressBar.swift */; };
 		FF379B1624D4F94100B441E1 /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF379B1524D4F94100B441E1 /* Workout.swift */; };
 		FF379B1824D4FA2A00B441E1 /* ExerciseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF379B1724D4FA2A00B441E1 /* ExerciseTests.swift */; };
 		FF379B1A24D4FB4800B441E1 /* workoutData.json in Resources */ = {isa = PBXBuildFile; fileRef = FF379B1924D4FB4000B441E1 /* workoutData.json */; };
@@ -142,6 +143,7 @@
 		FF1E161324D3A8FA0043E244 /* PieChartDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartDataItem.swift; sourceTree = "<group>"; };
 		FF1E161524D3AA6E0043E244 /* MealSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummaryView.swift; sourceTree = "<group>"; };
 		FF1E161724D3AADA0043E244 /* MealSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealSummary.swift; sourceTree = "<group>"; };
+		FF2DA6BA24E28BE100D588E3 /* CircularProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressBar.swift; sourceTree = "<group>"; };
 		FF379B1524D4F94100B441E1 /* Workout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
 		FF379B1724D4FA2A00B441E1 /* ExerciseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseTests.swift; sourceTree = "<group>"; };
 		FF379B1924D4FB4000B441E1 /* workoutData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = workoutData.json; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				FF8C284F24D644350056E61E /* MultiProgressBarView.swift */,
 				FF8C285124D645480056E61E /* MultiProgressBar.swift */,
 				FFEBF2FA24DBB1E700DD89DB /* BarChartView.swift */,
+				FF2DA6BA24E28BE100D588E3 /* CircularProgressBar.swift */,
 			);
 			path = "Supporting Views";
 			sourceTree = "<group>";
@@ -634,6 +637,7 @@
 				FF56EE1C24D537EB00A80948 /* Exercise.swift in Sources */,
 				FF6854B424E24AAC007067E5 /* WeightUpdateView.swift in Sources */,
 				FF1E161424D3A8FA0043E244 /* PieChartDataItem.swift in Sources */,
+				FF2DA6BB24E28BE100D588E3 /* CircularProgressBar.swift in Sources */,
 				FF3AAE0124D3FB11001E0D92 /* DayLog.swift in Sources */,
 				FF1E161224D3A8CD0043E244 /* PieChartSlideData.swift in Sources */,
 				FF965F3E24D2709F006A1AF6 /* Meal.swift in Sources */,

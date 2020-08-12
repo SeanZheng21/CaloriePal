@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let dinner = Meal(id: 1, type: .dinner, foods: [foodData[3]])
         let snacks = Meal(id: 1, type: .snacks, foods: [foodData[2]])
         let exercise = Exercise(id: 1, workouts: [workoutData[0]])
-        let day1 = Day(date: Date(), breakfast: breakfast, lunch: lunch, dinner: dinner, snacks: snacks, exercise: exercise, weight: 157)
+        let day1 = Day(date: Date(), breakfast: breakfast, lunch: lunch, dinner: dinner, snacks: snacks, exercise: exercise, weight: 155)
         
         let breakfast1 = Meal(id: 1, type: .breakfast, foods: [foodData[1]])
         let lunch1 = Meal(id: 1, type: .lunch, foods: [])
@@ -39,12 +39,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let exercise1 = Exercise(id: 1, workouts: [workoutData[1]])
         let day2 = Day(date: Date(timeIntervalSinceNow: -60*60*24), breakfast: breakfast1, lunch: lunch1, dinner: dinner1, snacks: snacks1,
                       exercise: exercise1)
-        let day3 = Day(date: Date(timeIntervalSinceNow: -60*60*24*2), breakfast: breakfast, weight: 155)
+        let day3 = Day(date: Date(timeIntervalSinceNow: -60*60*24*2), breakfast: breakfast, weight: 157)
 
-        var plan = Plan(from: Date(), startWeight: 157, goalWeight: 155, rate: 1.0)
-        plan.addDay(newDay: day1)
-        plan.addDay(newDay: day2)
+        var plan = Plan(from: Date(), startWeight: 157, goalWeight: 150, rate: 1.0)
         plan.addDay(newDay: day3)
+        plan.addDay(newDay: day2)
+        plan.addDay(newDay: day1)
         
         let contentView = RootTabView(rootStore: RootStore(plan: plan))
             .environment(\.managedObjectContext, context)

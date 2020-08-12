@@ -67,7 +67,9 @@ struct StatisticsCalorieDetailView: View {
                         .fontWeight(.bold)
                 }
                 Spacer(minLength: 0)
-                PieChartView(pieChartData: PieChartData(data: self.pieChartPercentages, colors: (self.isUnderBudget ? [.green, .white] : [.orange, .green])))
+                CircularProgressBar(
+                    progress: self.pieChartPercentages,
+                    color: self.isUnderBudget ? .green : .orange)
                     .frame(width: 200, height: 200)
             }
             .padding(.horizontal)
@@ -122,12 +124,12 @@ struct StatisticsCalorieDetailView: View {
         .navigationBarTitle("Daily Calorie Detail")
     }
     
-    var pieChartPercentages: [Double] {
-        let percentage = Double(self.day.totalCalories())/Double(self.rootStore.plan.caloriesPerDay)
+    var pieChartPercentages: Float {
+        let percentage = Float(self.rootStore.getToday().totalCalories())/Float(self.rootStore.plan.caloriesPerDay)
         if percentage < 1 {
-            return [percentage, 1 - percentage]
+            return percentage
         } else {
-            return [percentage - Double(Int(percentage)), 1 - percentage + Double(Int(percentage))]
+            return percentage - Float(Int(percentage))
         }
     }
     
