@@ -18,6 +18,7 @@ struct GoalEditorView: View {
     @State var weightUpdatePresented: Bool = false
     @State var activityLevel: Double
     @State var rate: Float
+    @State var goalWeight: String
 
     init(goalEditor: GoalEditor) {
         self.goalEditor = goalEditor
@@ -27,6 +28,7 @@ struct GoalEditorView: View {
         self._heightInch = State(initialValue: String(Int(goalEditor.plan.height) % 12))
         self._activityLevel = State(initialValue: Double(goalEditor.plan.activityLevel))
         self._rate = State(initialValue: goalEditor.plan.rate)
+        self._goalWeight = State(initialValue: String(goalEditor.plan.goal))
     }
     
     var body: some View {
@@ -114,16 +116,43 @@ struct GoalEditorView: View {
                     Slider(value: self.$rate, in: 0...2, step: 0.5)
                     HStack(alignment: .bottom) {
                         Text(String(Int(
-                            Plan.caloriesPerDay(gender: self.gender, activityLevel: Int(self.activityLevel), age: Int(self.age)!, startWeight: self.rootStore.plan.startWeight!, height: Float(self.heightFeet)! * Float(12) + Float(self.heightInch)!, rate: self.rate)
+                            Plan.caloriesPerDay(gender: self.gender, activityLevel: Int(self.activityLevel), age: (Int(self.age) ?? 0), startWeight: self.rootStore.plan.startWeight!, height: (Float(self.heightFeet) ?? Float(0)) * Float(12) + (Float(self.heightInch) ?? Float(0)), rate: self.rate)
                         )))
+                            .font(.largeTitle)
+                            .fontWeight(.semibold)
                         Text("calories per day")
                             .fontWeight(.semibold)
                     }
                 }
+                
+                Section(header: Text("WEIGHT LOSS GOAL"), footer: Text("Based on your budget and current weight, you are projected to reach your goal weight on \(self.rootStore.plan.expectedDateString())")) {
+                    ZStack(alignment: .trailing) {
+                        Picker(selection: .constant("Goal Weight"), label: Text("Goal Weight")) {
+                            TextField("Goal Weight", text: self.$goalWeight)
+                                .keyboardType(.numberPad)
+                        }
+                        Text("\(String(Float(self.goalWeight)!)) lbs")
+                            .foregroundColor(Color.gray)
+                            .padding(.trailing)
+                    }
+                }
             }
         .navigationBarTitle("Weight Loss Plan", displayMode: .inline)
-
-        
+    .onDisappear(perform: {
+        self.goalEditor.savePlan(to: self.rootStore,
+                                 gender: self.gender,
+                                 height: self.height,
+                                 age: Int(self.age)!,
+                                 activityLevel: Int(self.activityLevel),
+                                 from: self.rootStore.plan.startDate,
+                                 startWeight: self.rootStore.plan.startWeight!,
+                                 goalWeight: Float(self.goalWeight)!,
+                                 rate: self.rate)
+    })
+    }
+    
+    var height: Float {
+        Float(self.heightFeet)! * Float(12) + Float(self.heightInch)!
     }
 }
 

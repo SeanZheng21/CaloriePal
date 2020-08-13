@@ -42,6 +42,38 @@ struct Plan: Hashable, Codable, Identifiable {
                             age: self.age, startWeight: self.startWeight!, height: self.height, rate: self.rate)
     }
     
+    mutating func setGender(to newGender: Bool) -> Void {
+        self.gender = newGender
+    }
+    
+    mutating func setHeight(to newHeight: Float) -> Void {
+        self.height = newHeight
+    }
+    
+    mutating func setAge(to newAge: Int) -> Void {
+        self.age = newAge
+    }
+    
+    mutating func setActivityLevel(to newLevel: Int) -> Void {
+        self.activityLevel = newLevel
+    }
+    
+    mutating func setStartDate(to newStartDate: Date) -> Void {
+        self.startDate = newStartDate
+    }
+    
+    mutating func setStartWeight(to newStartWeight: Float) -> Void {
+        self.startWeight = newStartWeight
+    }
+    
+    mutating func setGoalWeight(to newGoalWeight: Float) -> Void {
+        self.goal = newGoalWeight
+    }
+    
+    mutating func setRate(to newRate: Float) -> Void {
+        self.rate = newRate
+    }
+    
     static func caloriesPerDay(gender: Bool, activityLevel: Int, age: Int, startWeight: Float, height: Float, rate: Float) -> Float {
         // Total Energy Expenditure
         var bmr: Float
@@ -255,7 +287,9 @@ struct Plan: Hashable, Codable, Identifiable {
     }
     
     func expectedDaysLeft() -> Int {
-        if latestWeight() <= goal {
+        if rate == 0 {
+            return 0
+        } else if latestWeight() <= goal {
             return 0
         } else {
             let weightLeft = latestWeight() - goal
