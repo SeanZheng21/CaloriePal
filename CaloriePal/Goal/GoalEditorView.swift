@@ -16,6 +16,8 @@ struct GoalEditorView: View {
     @State var heightFeet: String
     @State var heightInch: String
     @State var weightUpdatePresented: Bool = false
+    @State var activityLevel: Double
+    @State var rate: Float
 
     init(goalEditor: GoalEditor) {
         self.goalEditor = goalEditor
@@ -23,6 +25,8 @@ struct GoalEditorView: View {
         self._age = State(initialValue: String(goalEditor.plan.age))
         self._heightFeet = State(initialValue: String(Int(goalEditor.plan.height) / 12))
         self._heightInch = State(initialValue: String(Int(goalEditor.plan.height) % 12))
+        self._activityLevel = State(initialValue: Double(goalEditor.plan.activityLevel))
+        self._rate = State(initialValue: goalEditor.plan.rate)
     }
     
     var body: some View {
@@ -68,7 +72,13 @@ struct GoalEditorView: View {
                     }
                 }
                 
-                Section(header: Text("HEALTH PROFILE")) {
+                Section(header: Text("HEALTH PROFILE"), footer:
+                    HStack(alignment: .top) {
+                        Image(systemName: "questionmark.circle")
+                            .imageScale(.large)
+                        Text(Plan.activityLevelLongDescription(activityLevel: Int(self.activityLevel)))
+                    }
+                ) {
                     HStack {
                         Text("Current Weight")
                         Spacer()
@@ -85,7 +95,30 @@ struct GoalEditorView: View {
                         .environmentObject(self.rootStore)
                     }
                     
-                    
+                    VStack {
+                        HStack {
+                            Text("Activity Level")
+                            Spacer()
+                            Text("\(Plan.activityLevelDescription(activityLevel: Int(self.activityLevel)))")
+                        }
+                        Slider(value: self.$activityLevel, in: 0...3, step: 1)
+                    }
+                }
+                
+                Section(header: Text("MY CALORIE BUDGET"), footer: Text("Your daily calorie budget is calculated based on your age, gender, height, current weight, and physical activity level. It is intended to produce the energy deficit required to meet your weight loss rate and will change as your weight changes.")) {
+                    HStack {
+                        Text("Weight Loss Rate")
+                        Spacer()
+                        Text("\(Plan.rateDescription(rate: self.rate))")
+                    }
+                    Slider(value: self.$rate, in: 0...2, step: 0.5)
+                    HStack(alignment: .bottom) {
+                        Text(String(Int(
+                            Plan.caloriesPerDay(gender: self.gender, activityLevel: Int(self.activityLevel), age: Int(self.age)!, startWeight: self.rootStore.plan.startWeight!, height: Float(self.heightFeet)! * Float(12) + Float(self.heightInch)!, rate: self.rate)
+                        )))
+                        Text("calories per day")
+                            .fontWeight(.semibold)
+                    }
                 }
             }
         .navigationBarTitle("Weight Loss Plan", displayMode: .inline)
@@ -120,5 +153,6 @@ struct GoalEditorView_Previews: PreviewProvider {
         plan.addDay(newDay: day1)
         
         return GoalEditorView(goalEditor: GoalEditor(plan: plan))
+            .environmentObject(RootStore(plan: plan))
     }
 }

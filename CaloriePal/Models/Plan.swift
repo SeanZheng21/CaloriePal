@@ -21,7 +21,6 @@ struct Plan: Hashable, Codable, Identifiable {
     private(set) var activityLevel: Int
     private(set) var goal: Float
     private(set) var rate: Float
-    private(set) var caloriesPerDay: Float
     private(set) var startWeight: Float?
 
     init(gender: Bool, height: Float, age: Int, activityLevel: Int, from startDate: Date, startWeight: Float, goalWeight: Float, rate: Float) {
@@ -36,7 +35,30 @@ struct Plan: Hashable, Codable, Identifiable {
         self.height = height
         self.age = age
         self.activityLevel = activityLevel
-        self.caloriesPerDay = 1500
+    }
+    
+    var caloriesPerDay : Float {
+        Plan.caloriesPerDay(gender: self.gender, activityLevel: self.activityLevel,
+                            age: self.age, startWeight: self.startWeight!, height: self.height, rate: self.rate)
+    }
+    
+    static func caloriesPerDay(gender: Bool, activityLevel: Int, age: Int, startWeight: Float, height: Float, rate: Float) -> Float {
+        // Total Energy Expenditure
+        var bmr: Float
+        if gender {
+            // Male
+            bmr = 66 + 6.2 * Float(startWeight) + 12.7 * Float(height)
+                - 6.76 * Float(age)
+        } else {
+            // Female
+            bmr = 655.1 + 4.35 * Float(startWeight) + 4.7 * Float(height)
+                - 4.7 * Float(age)
+        }
+        let activityLevelMultipliers: [Float] = [1.2, 1.375, 1.55, 1.725]
+        // Total Daily Energy Expenditure
+        let tdee = bmr * activityLevelMultipliers[activityLevel]
+        let extraCalorie = rate * 500
+        return tdee - extraCalorie
     }
     
     mutating func getOrCreateCurrentDay() -> Day {
@@ -50,12 +72,14 @@ struct Plan: Hashable, Codable, Identifiable {
     }
     
     mutating func addDay(newDay: Day) -> Void {
-        if hasRecord(on: newDay.date) {
-            removeDay(on: newDay.date)
+        var day = newDay
+        day.setBudgetCalories(to: self.caloriesPerDay)
+        if hasRecord(on: day.date) {
+            removeDay(on: day.date)
         }
-        days.append(newDay)
+        days.append(day)
         if days.count == 1 {
-            startWeight = newDay.weight ?? nil
+            startWeight = day.weight ?? nil
         }
     }
     
@@ -194,7 +218,7 @@ struct Plan: Hashable, Codable, Identifiable {
         }
     }
     
-    func rateDescription() -> String {
+    static func rateDescription(rate: Float) -> String {
         if rate == 0 {
             return "Maintain current weight"
         } else if rate == 0.5 || rate == 1.5 {
@@ -251,15 +275,26 @@ struct Plan: Hashable, Codable, Identifiable {
         return formatter.string(from: expectedDate())
     }
     
-    func activityLevelDescription() -> String {
+    static func activityLevelDescription(activityLevel: Int) -> String {
         if activityLevel == 0 {
             return "Not Active"
         } else if activityLevel == 1 {
-            return "Somewhat Active"
+            return "Lightly Active"
         } else if activityLevel == 2 {
-            return "Active"
+            return "Moderately Active"
         } else {
-            return "Extremely Active"
+            return "Very Active"
+        }
+    }
+    static func activityLevelLongDescription(activityLevel: Int) -> String {
+        if activityLevel == 0 {
+            return "Never or rarely include phsical activity in your day"
+        } else if activityLevel == 1 {
+            return "Include light activity or moderate activity about two to three times a week"
+        } else if activityLevel == 2 {
+            return "Include at least 30 minutes of moderate activity most days of the week, or 20 minutes of vigorous activity at least three days a week"
+        } else {
+            return "Include large amounts of moderate or vigorous activity in your day"
         }
     }
 }

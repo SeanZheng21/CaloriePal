@@ -121,4 +121,8 @@ struct Day: Hashable, Codable, Identifiable {
     mutating func setWeight(to newWeight: Float) -> Void {
         weight = newWeight
     }
+    
+    mutating func setBudgetCalories(to calorie: Float) -> Void {
+        self.budgetCalories = Int(calorie)
+    }
 }

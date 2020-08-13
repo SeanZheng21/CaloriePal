@@ -18,7 +18,7 @@ struct GoalView: View {
             NavigationView {
                 ScrollView() {
                     HStack {
-                        Text(self.rootStore.plan.rateDescription())
+                        Text(Plan.rateDescription(rate: self.rootStore.plan.rate))
                             .font(.title)
                             .fontWeight(.semibold)
                         Spacer()
