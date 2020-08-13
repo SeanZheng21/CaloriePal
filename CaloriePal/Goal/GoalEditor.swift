@@ -15,7 +15,8 @@ class GoalEditor: ObservableObject {
         self.plan = plan
     }
     
-    func savePlan(to rootStore: RootStore, gender: Bool, height: Float, age: Int, activityLevel: Int, from startDate: Date, startWeight: Float, goalWeight: Float, rate: Float) -> Void {
+    func savePlan(to rootStore: RootStore, gender: Bool, height: Float, age: Int, activityLevel: Int,
+                  from startDate: Date, startWeight: Float, goalWeight: Float, rate: Float) -> Void {
         rootStore.plan.setGender(to: gender)
         rootStore.plan.setHeight(to: height)
         rootStore.plan.setAge(to: age)

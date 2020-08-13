@@ -64,7 +64,8 @@ struct GoalView: View {
                             .stroke(Color.blue, lineWidth: 5))
                     }
                         .sheet(isPresented: self.$showWeightUpdate) {
-                            WeightUpdateView(goalViewModel: self.goalViewModel, isPresented: self.$showWeightUpdate, weightNumber: self.rootStore.getToday().weight ?? 0)
+                            WeightUpdateView(goalViewModel: self.goalViewModel, isPresented: self.$showWeightUpdate,
+                                             weightNumber: self.rootStore.getToday().weight ?? 0)
                                 .environmentObject(self.rootStore)
                         }
                         .padding()
@@ -91,7 +92,8 @@ struct GoalView: View {
                         
                         Spacer(minLength: 0)
                         VStack(alignment: .center) {
-                            CircularProgressBar(progress: Float(self.rootStore.plan.weightDifferencePercenage())/100, color: self.rootStore.plan.isWeightDecreasing() ? .green : .orange)
+                            CircularProgressBar(progress: Float(self.rootStore.plan.weightDifferencePercenage())/100,
+                                                color: self.rootStore.plan.isWeightDecreasing() ? .green : .orange)
                                 .frame(width: GoalView.progressBarHeight, height: GoalView.progressBarHeight)
                             Text("completed")
                             .fontWeight(.semibold)

@@ -43,7 +43,17 @@ struct RootTabView: View {
                         .imageScale(.large)
                     Text("Goal")
                 }
-                .tag(1)
+                .tag(4)
+            NavigationView {
+                GoalEditorView(goalEditor: GoalEditor(plan: self.rootStore.plan))
+                    .environmentObject(self.rootStore)
+            }
+                .tabItem {
+                    Image(systemName: "gear")
+                        .imageScale(.large)
+                    Text("Settings")
+                }
+                .tag(5)
         }
     }
 }
