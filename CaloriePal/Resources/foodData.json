@@ -78,5 +78,685 @@
             "amount":1.5,
             "unit":"cup"
         }
+    },
+    {
+        "id":5,
+        "caloriePerUnit":250,
+        "name":"Alcohol",
+        "type": "drink",
+        "nutrient":{
+            "sodium":40,
+            "sugars":21.5,
+            "satFat":0,
+            "carbs":22.5,
+            "fat":0,
+            "protein":0,
+            "cholesterol":0,
+            "fiber":0
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":6,
+        "caloriePerUnit":203,
+        "name":"Almond Butter",
+        "type": "drink",
+        "nutrient":{
+            "sodium":144,
+            "sugars":1.6,
+            "satFat":1.8,
+            "carbs":6.8,
+            "fat":19,
+            "protein":4.8,
+            "cholesterol":0,
+            "fiber":1.2
+        },
+        "amount": {
+            "amount":2,
+            "unit":"tablespoon"
+        }
+    },
+    {
+        "id":7,
+        "caloriePerUnit":95,
+        "name":"Apple",
+        "type": "each",
+        "nutrient":{
+            "sodium":2,
+            "sugars":19,
+            "satFat":0.1,
+            "carbs":25,
+            "fat":0.3,
+            "protein":0.5,
+            "cholesterol":0,
+            "fiber":4.4
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":8,
+        "caloriePerUnit":360,
+        "name":"Bagel",
+        "type": "each",
+        "nutrient":{
+            "fat":2.1,
+            "satFat":0.3,
+            "cholesterol":0,
+            "sodium":700,
+            "carbs":70,
+            "fiber":3,
+            "sugars":0,
+            "protein":13.8
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":9,
+        "caloriePerUnit":105,
+        "name":"Banana",
+        "type": "each",
+        "nutrient":{
+            "fat":0.4,
+            "satFat":0.1,
+            "cholesterol":0,
+            "sodium":1.2,
+            "carbs":27,
+            "fiber":3.1,
+            "sugars":14.4,
+            "protein":1.3
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":10,
+        "caloriePerUnit":20,
+        "name":"Bean",
+        "type": "each",
+        "nutrient":{
+            "fat":0,
+            "satFat":0,
+            "cholesterol":0,
+            "sodium":390,
+            "carbs":4,
+            "fiber":2,
+            "sugars":2,
+            "protein":1
+        },
+        "amount": {
+            "amount":0.5,
+            "unit":"cup"
+        }
+    },
+    {
+        "id":11,
+        "caloriePerUnit":153,
+        "name":"Beer",
+        "type": "drink",
+        "nutrient":{
+            "fat":0,
+            "satFat":0,
+            "cholesterol":0,
+            "sodium":14.2,
+            "carbs":12.6,
+            "fiber":0,
+            "sugars":0,
+            "protein":1.6
+        },
+        "amount": {
+            "amount":12,
+            "unit":"fluid ounce"
+        }
+    },
+    {
+        "id":12,
+        "caloriePerUnit":91,
+        "name":"Bell Pepper",
+        "type": "weight",
+        "nutrient":{
+            "fat":0.8,
+            "satFat":0.2,
+            "cholesterol":0,
+            "sodium":13.6,
+            "carbs":21,
+            "fiber":7.7,
+            "sugars":10.9,
+            "protein":3.9
+        },
+        "amount": {
+            "amount":1,
+            "unit":"pound"
+        }
+    },
+    {
+        "id":13,
+        "caloriePerUnit":186,
+        "name":"Biscuit",
+        "type": "each",
+        "nutrient":{
+            "fat":8.4,
+            "satFat":1.3,
+            "cholesterol":0.5,
+            "sodium":537,
+            "carbs":24.7,
+            "fiber":0.7,
+            "sugars":1.8,
+            "protein":3.2
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":14,
+        "caloriePerUnit":84,
+        "name":"Blueberry",
+        "type": "drink",
+        "nutrient":{
+            "fat":0.5,
+            "satFat":0,
+            "cholesterol":0,
+            "sodium":1,
+            "carbs":21.1,
+            "fiber":3.6,
+            "sugars":15,
+            "protein":1.1
+        },
+        "amount": {
+            "amount":1,
+            "unit":"cup"
+        }
+    },
+    {
+        "id":15,
+        "caloriePerUnit":55,
+        "name":"Broccoli",
+        "type": "weight",
+        "nutrient":{
+            "fat":0.6,
+            "satFat":0.1,
+            "cholesterol":0,
+            "sodium":64,
+            "carbs":11.2,
+            "fiber":5.1,
+            "sugars":2.2,
+            "protein":3.7
+        },
+        "amount": {
+            "amount":1,
+            "unit":"cup"
+        }
+    },
+    {
+        "id":15,
+        "caloriePerUnit":103,
+        "name":"Butter",
+        "type": "weight",
+        "nutrient":{
+            "fat":12.1,
+            "satFat":7,
+            "cholesterol":31.2,
+            "sodium":2,
+            "carbs":0,
+            "fiber":0,
+            "sugars":0,
+            "protein":0.1
+        },
+        "amount": {
+            "amount":1,
+            "unit":"tablespoon"
+        }
+    },
+    {
+        "id":16,
+        "caloriePerUnit":133,
+        "name":"Cabbage",
+        "type": "weight",
+        "nutrient":{
+            "fat":0.5,
+            "satFat":0.1,
+            "cholesterol":0,
+            "sodium":81.6,
+            "carbs":26.3,
+            "fiber":11.3,
+            "sugars":14.5,
+            "protein":5.8
+        },
+        "amount": {
+            "amount":1,
+            "unit":"pound"
+        }
+    },
+    {
+        "id":17,
+        "caloriePerUnit":537,
+        "name":"Cake",
+        "type": "weight",
+        "nutrient":{
+            "fat":27.7,
+            "satFat":8.2,
+            "cholesterol":30.4,
+            "sodium":480,
+            "carbs":73,
+            "fiber":3,
+            "sugars":55.1,
+            "protein":4.8
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":18,
+        "caloriePerUnit":240,
+        "name":"Canned Tuna",
+        "type": "weight",
+        "nutrient":{
+            "fat":0,
+            "satFat":0,
+            "cholesterol":120,
+            "sodium":720,
+            "carbs":0,
+            "fiber":0,
+            "sugars":0,
+            "protein":52
+        },
+        "amount": {
+            "amount":1,
+            "unit":"cup"
+        }
+    },
+    {
+        "id":19,
+        "caloriePerUnit":36,
+        "name":"Candy",
+        "type": "each",
+        "nutrient":{
+            "fat":1.5,
+            "satFat":0.9,
+            "cholesterol":0.8,
+            "sodium":4.5,
+            "carbs":5.1,
+            "fiber":0.2,
+            "sugars":4.5,
+            "protein":0.3
+        },
+        "amount": {
+            "amount":10,
+            "unit":"each"
+        }
+    },
+    {
+        "id":20,
+        "caloriePerUnit":11,
+        "name":"Carrot",
+        "type": "each",
+        "nutrient":{
+            "fat":0,
+            "satFat":0,
+            "cholesterol":0,
+            "sodium":23.4,
+            "carbs":2.5,
+            "fiber":0.9,
+            "sugars":1.4,
+            "protein":0.2
+        },
+        "amount": {
+            "amount":3,
+            "unit":"each"
+        }
+    },
+    {
+        "id":21,
+        "caloriePerUnit":73,
+        "name":"Celery",
+        "type": "weight",
+        "nutrient":{
+            "fat":0.8,
+            "satFat":0.2,
+            "cholesterol":0,
+            "sodium":363,
+            "carbs":13.5,
+            "fiber":7.3,
+            "sugars":8.3,
+            "protein":3.2
+        },
+        "amount": {
+            "amount":1,
+            "unit":"pound"
+        }
+    },
+    {
+        "id":22,
+        "caloriePerUnit":11,
+        "name":"Cereal",
+        "type": "drink",
+        "nutrient":{
+            "fat":2,
+            "satFat":0,
+            "cholesterol":0,
+            "sodium":213.4,
+            "carbs":29.5,
+            "fiber":2.9,
+            "sugars":12,
+            "protein":2.7
+        },
+        "amount": {
+            "amount":1,
+            "unit":"cup"
+        }
+    },
+    {
+        "id":23,
+        "caloriePerUnit":228,
+        "name":"Cheese",
+        "type": "weight",
+        "nutrient":{
+            "fat":18.7,
+            "satFat":11.9,
+            "cholesterol":60,
+            "sodium":351,
+            "carbs":0.7,
+            "fiber":0,
+            "sugars":0.4,
+            "protein":14.2
+        },
+        "amount": {
+            "amount":0.25,
+            "unit":"pint"
+        }
+    },
+    {
+        "id":24,
+        "caloriePerUnit":300,
+        "name":"Cheese Burger",
+        "type": "each",
+        "nutrient":{
+            "fat":12,
+            "satFat":6,
+            "cholesterol":40,
+            "sodium":680,
+            "carbs":33,
+            "fiber":2,
+            "sugars":7,
+            "protein":15
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":25,
+        "caloriePerUnit":80,
+        "name":"Cherry",
+        "type": "weight",
+        "nutrient":{
+            "fat":0,
+            "satFat":0,
+            "cholesterol":10,
+            "sodium":45,
+            "carbs":9,
+            "fiber":0,
+            "sugars":8,
+            "protein":12
+        },
+        "amount": {
+            "amount":1,
+            "unit":"ounce"
+        }
+    },
+    {
+        "id":26,
+        "caloriePerUnit":50,
+        "name":"Chicken",
+        "type": "weight",
+        "nutrient":{
+            "fat":1,
+            "satFat":0.3,
+            "cholesterol":24.1,
+            "sodium":21,
+            "carbs":0,
+            "fiber":0,
+            "sugars":0,
+            "protein":8.8
+        },
+        "amount": {
+            "amount":1,
+            "unit":"ounce"
+        }
+    },
+    {
+        "id":27,
+        "caloriePerUnit":155,
+        "name":"Chocolate",
+        "type": "weight",
+        "nutrient":{
+            "fat":9.6,
+            "satFat":6,
+            "cholesterol":4,
+            "sodium":0,
+            "carbs":17,
+            "fiber":2.2,
+            "sugars":14,
+            "protein":2.2
+        },
+        "amount": {
+            "amount":1,
+            "unit":"ounce"
+        }
+    },
+    {
+        "id":28,
+        "caloriePerUnit":19,
+        "name":"Coffee",
+        "type": "drink",
+        "nutrient":{
+            "fat":0.4,
+            "satFat":0,
+            "cholesterol":0,
+            "sodium":38,
+            "carbs":0,
+            "fiber":0,
+            "sugars":0,
+            "protein":2.3
+        },
+        "amount": {
+            "amount":1,
+            "unit":"cup"
+        }
+    },
+    {
+        "id":29,
+        "caloriePerUnit":68,
+        "name":"Cookie",
+        "type": "each",
+        "nutrient":{
+            "fat":3.1,
+            "satFat":1.6,
+            "cholesterol":0,
+            "sodium":41,
+            "carbs":10,
+            "fiber":0.4,
+            "sugars":6,
+            "protein":0.7
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":30,
+        "caloriePerUnit":24,
+        "name":"Corn",
+        "type": "weight",
+        "nutrient":{
+            "fat":0.4,
+            "satFat":0.1,
+            "cholesterol":0,
+            "sodium":4.3,
+            "carbs":5.3,
+            "fiber":0.6,
+            "sugars":1.8,
+            "protein":0.9
+        },
+        "amount": {
+            "amount":1,
+            "unit":"ounce"
+        }
+    },
+    {
+        "id":31,
+        "caloriePerUnit":20,
+        "name":"Cream",
+        "type": "drink",
+        "nutrient":{
+            "fat":1.7,
+            "satFat":1.1,
+            "cholesterol":5.6,
+            "sodium":6.3,
+            "carbs":0.6,
+            "fiber":0,
+            "sugars":0,
+            "protein":0.4
+        },
+        "amount": {
+            "amount":1,
+            "unit":"tablespoon"
+        }
+    },
+    {
+        "id":32,
+        "caloriePerUnit":42,
+        "name":"Cucumber",
+        "type": "each",
+        "nutrient":{
+            "fat":0.3,
+            "satFat":0.1,
+            "cholesterol":0,
+            "sodium":5.6,
+            "carbs":10,
+            "fiber":1.4,
+            "sugars":4.7,
+            "protein":1.8
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":33,
+        "caloriePerUnit":210,
+        "name":"Cupcake",
+        "type": "each",
+        "nutrient":{
+            "fat":10,
+            "satFat":3.1,
+            "cholesterol":5,
+            "sodium":230,
+            "carbs":31,
+            "fiber":0,
+            "sugars":24,
+            "protein":1
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":34,
+        "caloriePerUnit":1,
+        "name":"Deli Meat",
+        "type": "weight",
+        "nutrient":{
+            "fat":1.3,
+            "satFat":0.8,
+            "cholesterol":15,
+            "sodium":253,
+            "carbs":0.5,
+            "fiber":0,
+            "sugars":0,
+            "protein":5.1
+        },
+        "amount": {
+            "amount":1,
+            "unit":"ounce"
+        }
+    },
+    {
+        "id":35,
+        "caloriePerUnit":190,
+        "name":"Doughnut",
+        "type": "each",
+        "nutrient":{
+            "fat":11,
+            "satFat":5,
+            "cholesterol":0,
+            "sodium":75,
+            "carbs":21,
+            "fiber":1,
+            "sugars":10,
+            "protein":2
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":36,
+        "caloriePerUnit":72,
+        "name":"Egg",
+        "type": "each",
+        "nutrient":{
+            "fat":4.8,
+            "satFat":1.6,
+            "cholesterol":186,
+            "sodium":71,
+            "carbs":0.1,
+            "fiber":0,
+            "sugars":0,
+            "protein":6.3
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
+    },
+    {
+        "id":37,
+        "caloriePerUnit":110,
+        "name":"Eggplant",
+        "type": "each",
+        "nutrient":{
+            "fat":1,
+            "satFat":0,
+            "cholesterol":0,
+            "sodium":9,
+            "carbs":26,
+            "fiber":15,
+            "sugars":11,
+            "protein":4.6
+        },
+        "amount": {
+            "amount":1,
+            "unit":"each"
+        }
     }
 ]
