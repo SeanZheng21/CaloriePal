@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let snacks1 = Meal(id: 1, type: .snacks, foods: [])
         let exercise1 = Exercise(id: 1, workouts: [workoutData[1]])
         let day2 = Day(date: Date(timeIntervalSinceNow: -60*60*24), breakfast: breakfast1, lunch: lunch1, dinner: dinner1, snacks: snacks1,
-                      exercise: exercise1)
+                      exercise: exercise1, weight: 154)
         let day3 = Day(date: Date(timeIntervalSinceNow: -60*60*24*2), breakfast: breakfast, weight: 157)
 
         var plan = Plan(gender: true, height: 73, age: 23, activityLevel: 1, from: Date(), startWeight: 157, goalWeight: 150, rate: 1.0)

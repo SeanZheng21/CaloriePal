@@ -31,9 +31,8 @@ struct GoalView: View {
                     }
                         .padding(.all)
                     
-                    WeightChartView(rootStore: self.rootStore)
-                        .frame(width: geometry.size.width, height: GoalView.chartHeight)
-                        .border(Color.black)
+                    WeightChartView(rootStore: self.rootStore, weightChart: WeightChart())
+                        .frame(width: geometry.size.width)
                     
                     HStack(alignment: .center) {
                         Text("LAST RECORDED WEIGHT:")

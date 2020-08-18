@@ -10,12 +10,23 @@ import SwiftUI
 
 struct WeightChartView: View {
     @ObservedObject var rootStore: RootStore
+    @ObservedObject var weightChart: WeightChart
     
     var body: some View {
         VStack {
-            ForEach(self.rootStore.plan.days, id: \.self) { day in
-                Text("\(day.dateString()) - \( day.hasWeight() ? String(Int(day.weight!)) : "No Record")")
-            }
+//            VStack {
+//                ForEach(self.rootStore.plan.days, id: \.self) { day in
+//                    Text("\(day.dateString()) - \( day.hasWeight() ? String(Int(day.weight!)) : "No Record")")
+//                }
+//            }
+//
+//            VStack {
+//                ForEach(0..<self.weightChart.chartData(from: self.rootStore.plan.days).count, id: \.self) { idx in
+////                    Text("\(idx)")
+//                    Text("\(self.weightChart.chartData(from: self.rootStore.plan.days)[idx].0) - \(Int(self.weightChart.chartData(from: self.rootStore.plan.days)[idx].1))")
+//                }
+//            }
+            LineGraphView(data: self.weightChart.chartData(from: self.rootStore.plan.days))
         }
     }
 }
@@ -37,13 +48,13 @@ struct WeightChartView_Previews: PreviewProvider {
         let snacks1 = Meal(id: 1, type: .snacks, foods: [])
         let exercise1 = Exercise(id: 1, workouts: [workoutData[1]])
         let day2 = Day(date: Date(timeIntervalSinceNow: -60*60*24), breakfast: breakfast1, lunch: lunch1, dinner: dinner1, snacks: snacks1,
-                      exercise: exercise1)
+                      exercise: exercise1, weight: 153)
         let day3 = Day(date: Date(timeIntervalSinceNow: -60*60*24*2), breakfast: breakfast, weight: 155)
 
         var plan = Plan(gender: true, height: 73, age: 23, activityLevel: 1, from: Date(), startWeight: 157, goalWeight: 155, rate: 1.0)
         plan.addDay(newDay: day1)
         plan.addDay(newDay: day2)
         plan.addDay(newDay: day3)
-        return WeightChartView(rootStore: RootStore(plan: plan))
+        return WeightChartView(rootStore: RootStore(plan: plan), weightChart: WeightChart())
     }
 }
