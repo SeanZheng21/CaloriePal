@@ -11,12 +11,12 @@ import Foundation
 struct Workout: Hashable, Codable, Identifiable {
     var id: Int
     private(set) var name: String
-    private(set) var caloriePerMinute: Int
+    private(set) var caloriePerMinute: Float
     private(set) var duration: Int
     private(set) var excluded: Bool
     
     var calories: Int {
-        caloriePerMinute * duration
+        Int(caloriePerMinute) * duration
     }
     
     mutating func setDuration(to newDuration: Int) -> Void {

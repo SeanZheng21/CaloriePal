@@ -7,17 +7,276 @@
         "excluded": false
     },
     {
-        "id":2,
-        "caloriePerMinute":6,
-        "name":"Basketball",
-        "duration":40,
-        "excluded": true
-    },
-    {
         "id":3,
         "caloriePerMinute":9,
         "name":"Running",
         "duration":20,
+        "excluded": false
+    },
+    {
+        "id":4,
+        "caloriePerMinute":4,
+        "name":"Archery",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":5,
+        "caloriePerMinute":5,
+        "name":"Badminton",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":5,
+        "caloriePerMinute":5,
+        "name":"Baseball",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":2,
+        "caloriePerMinute":6,
+        "name":"Basketball",
+        "duration":40,
+        "excluded": false
+    },
+    {
+        "id":6,
+        "caloriePerMinute":1.9,
+        "name":"Billiards",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":7,
+        "caloriePerMinute":3.7,
+        "name":"Bicycling",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":8,
+        "caloriePerMinute":2,
+        "name":"Dancing",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":9,
+        "caloriePerMinute":2.4,
+        "name":"Diving",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":10,
+        "caloriePerMinute":8.6,
+        "name":"Elliptical",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":11,
+        "caloriePerMinute":3,
+        "name":"Fishing",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":12,
+        "caloriePerMinute":8.5,
+        "name":"Football",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":13,
+        "caloriePerMinute":3.4,
+        "name":"Frisbee",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":14,
+        "caloriePerMinute":4.6,
+        "name":"Golf",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":15,
+        "caloriePerMinute":3.4,
+        "name":"Gymnastics",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":16,
+        "caloriePerMinute":11,
+        "name":"HIIT",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":17,
+        "caloriePerMinute":13,
+        "name":"Handball",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":18,
+        "caloriePerMinute":6,
+        "name":"Hiking",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":19,
+        "caloriePerMinute":8.6,
+        "name":"Hockey",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":20,
+        "caloriePerMinute":5.5,
+        "name":"Horseback Riding",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":21,
+        "caloriePerMinute":7,
+        "name":"Ice Skating",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":22,
+        "caloriePerMinute":7.5,
+        "name":"Jumping Rope",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":24,
+        "caloriePerMinute":4.9,
+        "name":"Kayaking",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":26,
+        "caloriePerMinute":2.4,
+        "name":"Pilates",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":27,
+        "caloriePerMinute":3.2,
+        "name":"Pushups",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":28,
+        "caloriePerMinute":7.1,
+        "name":"Roller Skating",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":29,
+        "caloriePerMinute":9,
+        "name":"Rugby",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":30,
+        "caloriePerMinute":4.3,
+        "name":"Sailing",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":31,
+        "caloriePerMinute":7,
+        "name":"Skiing",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":32,
+        "caloriePerMinute":4,
+        "name":"Snowboarding",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":33,
+        "caloriePerMinute":7.3,
+        "name":"Soccer",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":34,
+        "caloriePerMinute":5,
+        "name":"Softball",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":35,
+        "caloriePerMinute":2.4,
+        "name":"Surfing",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":36,
+        "caloriePerMinute":11,
+        "name":"Swimming",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":37,
+        "caloriePerMinute":3.7,
+        "name":"Table Tennis",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":38,
+        "caloriePerMinute":8.6,
+        "name":"Tennis",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":39,
+        "caloriePerMinute":2.2,
+        "name":"Treadmill",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":40,
+        "caloriePerMinute":3,
+        "name":"Walking",
+        "duration":30,
+        "excluded": false
+    },
+    {
+        "id":41,
+        "caloriePerMinute":1.8,
+        "name":"Yoga",
+        "duration":30,
         "excluded": false
     }
 ]

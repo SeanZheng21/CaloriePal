@@ -74,6 +74,43 @@
 		FF7B26DE24D0FD3A007167C5 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B26DD24D0FD3A007167C5 /* Data.swift */; };
 		FF7B26E124D0FEBF007167C5 /* FoodTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF7B26E024D0FEBF007167C5 /* FoodTests.swift */; };
 		FF7B26E424D10889007167C5 /* Chicken Noodle.png in Resources */ = {isa = PBXBuildFile; fileRef = FF7B26E324D10889007167C5 /* Chicken Noodle.png */; };
+		FF8127ED24ECAC8400518D03 /* Badminton.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127E924ECAC8300518D03 /* Badminton.png */; };
+		FF8127EE24ECAC8400518D03 /* Archery.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127EA24ECAC8300518D03 /* Archery.png */; };
+		FF8127EF24ECAC8400518D03 /* Billiards.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127EB24ECAC8400518D03 /* Billiards.png */; };
+		FF8127F524ECAF7D00518D03 /* Bicycling.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127F024ECAF7D00518D03 /* Bicycling.png */; };
+		FF8127F624ECAF7D00518D03 /* Diving.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127F124ECAF7D00518D03 /* Diving.png */; };
+		FF8127F724ECAF7D00518D03 /* Elliptical.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127F224ECAF7D00518D03 /* Elliptical.png */; };
+		FF8127F824ECAF7D00518D03 /* Dancing.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127F324ECAF7D00518D03 /* Dancing.png */; };
+		FF8127F924ECAF7D00518D03 /* Fishing.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127F424ECAF7D00518D03 /* Fishing.png */; };
+		FF8127FF24ECB09E00518D03 /* Football.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127FA24ECB09E00518D03 /* Football.png */; };
+		FF81280024ECB09E00518D03 /* Frisbee.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127FB24ECB09E00518D03 /* Frisbee.png */; };
+		FF81280124ECB09E00518D03 /* HIIT.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127FC24ECB09E00518D03 /* HIIT.png */; };
+		FF81280224ECB09E00518D03 /* Gymnastics.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127FD24ECB09E00518D03 /* Gymnastics.png */; };
+		FF81280324ECB09E00518D03 /* Golf.png in Resources */ = {isa = PBXBuildFile; fileRef = FF8127FE24ECB09E00518D03 /* Golf.png */; };
+		FF81280924ECB22800518D03 /* Hiking.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81280424ECB22800518D03 /* Hiking.png */; };
+		FF81280A24ECB22800518D03 /* Handball.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81280524ECB22800518D03 /* Handball.png */; };
+		FF81280B24ECB22800518D03 /* Horseback Riding.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81280624ECB22800518D03 /* Horseback Riding.png */; };
+		FF81280C24ECB22800518D03 /* Hockey.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81280724ECB22800518D03 /* Hockey.png */; };
+		FF81280D24ECB22800518D03 /* Ice Skating.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81280824ECB22800518D03 /* Ice Skating.png */; };
+		FF81281324ECB40500518D03 /* Pushups.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81280E24ECB40500518D03 /* Pushups.png */; };
+		FF81281424ECB40500518D03 /* Jumping Rope.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81280F24ECB40500518D03 /* Jumping Rope.png */; };
+		FF81281524ECB40500518D03 /* Roller Skating.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81281024ECB40500518D03 /* Roller Skating.png */; };
+		FF81281624ECB40500518D03 /* Pilates.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81281124ECB40500518D03 /* Pilates.png */; };
+		FF81281724ECB40500518D03 /* Kayaking.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81281224ECB40500518D03 /* Kayaking.png */; };
+		FF81281C24ECB4F800518D03 /* Skiing.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81281824ECB4F700518D03 /* Skiing.png */; };
+		FF81281D24ECB4F800518D03 /* Sailing.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81281924ECB4F700518D03 /* Sailing.png */; };
+		FF81281E24ECB4F800518D03 /* Snowboarding.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81281A24ECB4F700518D03 /* Snowboarding.png */; };
+		FF81281F24ECB4F800518D03 /* Rugby.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81281B24ECB4F700518D03 /* Rugby.png */; };
+		FF81282524ECB60E00518D03 /* Surfing.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81282024ECB60E00518D03 /* Surfing.png */; };
+		FF81282624ECB60E00518D03 /* Soccer.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81282124ECB60E00518D03 /* Soccer.png */; };
+		FF81282724ECB60E00518D03 /* Softball.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81282224ECB60E00518D03 /* Softball.png */; };
+		FF81282824ECB60E00518D03 /* Swimming.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81282324ECB60E00518D03 /* Swimming.png */; };
+		FF81282924ECB60E00518D03 /* Table Tennis.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81282424ECB60E00518D03 /* Table Tennis.png */; };
+		FF81282B24ECB65300518D03 /* Baseball.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81282A24ECB65300518D03 /* Baseball.png */; };
+		FF81283024ECB78C00518D03 /* Tennis.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81282C24ECB78B00518D03 /* Tennis.png */; };
+		FF81283124ECB78C00518D03 /* Yoga.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81282D24ECB78B00518D03 /* Yoga.png */; };
+		FF81283224ECB78C00518D03 /* Walking.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81282E24ECB78B00518D03 /* Walking.png */; };
+		FF81283324ECB78C00518D03 /* Treadmill.png in Resources */ = {isa = PBXBuildFile; fileRef = FF81282F24ECB78B00518D03 /* Treadmill.png */; };
 		FF85CE9524D0131A00E21F0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CE9424D0131A00E21F0C /* AppDelegate.swift */; };
 		FF85CE9724D0131A00E21F0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF85CE9624D0131A00E21F0C /* SceneDelegate.swift */; };
 		FF85CE9A24D0131A00E21F0C /* CaloriePal.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FF85CE9824D0131A00E21F0C /* CaloriePal.xcdatamodeld */; };
@@ -265,6 +302,43 @@
 		FF7B26DD24D0FD3A007167C5 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		FF7B26E024D0FEBF007167C5 /* FoodTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTests.swift; sourceTree = "<group>"; };
 		FF7B26E324D10889007167C5 /* Chicken Noodle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Chicken Noodle.png"; sourceTree = "<group>"; };
+		FF8127E924ECAC8300518D03 /* Badminton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Badminton.png; sourceTree = "<group>"; };
+		FF8127EA24ECAC8300518D03 /* Archery.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Archery.png; sourceTree = "<group>"; };
+		FF8127EB24ECAC8400518D03 /* Billiards.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Billiards.png; sourceTree = "<group>"; };
+		FF8127F024ECAF7D00518D03 /* Bicycling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Bicycling.png; sourceTree = "<group>"; };
+		FF8127F124ECAF7D00518D03 /* Diving.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Diving.png; sourceTree = "<group>"; };
+		FF8127F224ECAF7D00518D03 /* Elliptical.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Elliptical.png; sourceTree = "<group>"; };
+		FF8127F324ECAF7D00518D03 /* Dancing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dancing.png; sourceTree = "<group>"; };
+		FF8127F424ECAF7D00518D03 /* Fishing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Fishing.png; sourceTree = "<group>"; };
+		FF8127FA24ECB09E00518D03 /* Football.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Football.png; sourceTree = "<group>"; };
+		FF8127FB24ECB09E00518D03 /* Frisbee.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Frisbee.png; sourceTree = "<group>"; };
+		FF8127FC24ECB09E00518D03 /* HIIT.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = HIIT.png; sourceTree = "<group>"; };
+		FF8127FD24ECB09E00518D03 /* Gymnastics.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Gymnastics.png; sourceTree = "<group>"; };
+		FF8127FE24ECB09E00518D03 /* Golf.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Golf.png; sourceTree = "<group>"; };
+		FF81280424ECB22800518D03 /* Hiking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hiking.png; sourceTree = "<group>"; };
+		FF81280524ECB22800518D03 /* Handball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Handball.png; sourceTree = "<group>"; };
+		FF81280624ECB22800518D03 /* Horseback Riding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Horseback Riding.png"; sourceTree = "<group>"; };
+		FF81280724ECB22800518D03 /* Hockey.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Hockey.png; sourceTree = "<group>"; };
+		FF81280824ECB22800518D03 /* Ice Skating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ice Skating.png"; sourceTree = "<group>"; };
+		FF81280E24ECB40500518D03 /* Pushups.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pushups.png; sourceTree = "<group>"; };
+		FF81280F24ECB40500518D03 /* Jumping Rope.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Jumping Rope.png"; sourceTree = "<group>"; };
+		FF81281024ECB40500518D03 /* Roller Skating.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Roller Skating.png"; sourceTree = "<group>"; };
+		FF81281124ECB40500518D03 /* Pilates.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pilates.png; sourceTree = "<group>"; };
+		FF81281224ECB40500518D03 /* Kayaking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kayaking.png; sourceTree = "<group>"; };
+		FF81281824ECB4F700518D03 /* Skiing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Skiing.png; sourceTree = "<group>"; };
+		FF81281924ECB4F700518D03 /* Sailing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sailing.png; sourceTree = "<group>"; };
+		FF81281A24ECB4F700518D03 /* Snowboarding.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Snowboarding.png; sourceTree = "<group>"; };
+		FF81281B24ECB4F700518D03 /* Rugby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rugby.png; sourceTree = "<group>"; };
+		FF81282024ECB60E00518D03 /* Surfing.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Surfing.png; sourceTree = "<group>"; };
+		FF81282124ECB60E00518D03 /* Soccer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Soccer.png; sourceTree = "<group>"; };
+		FF81282224ECB60E00518D03 /* Softball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Softball.png; sourceTree = "<group>"; };
+		FF81282324ECB60E00518D03 /* Swimming.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Swimming.png; sourceTree = "<group>"; };
+		FF81282424ECB60E00518D03 /* Table Tennis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Table Tennis.png"; sourceTree = "<group>"; };
+		FF81282A24ECB65300518D03 /* Baseball.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Baseball.png; sourceTree = "<group>"; };
+		FF81282C24ECB78B00518D03 /* Tennis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tennis.png; sourceTree = "<group>"; };
+		FF81282D24ECB78B00518D03 /* Yoga.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Yoga.png; sourceTree = "<group>"; };
+		FF81282E24ECB78B00518D03 /* Walking.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Walking.png; sourceTree = "<group>"; };
+		FF81282F24ECB78B00518D03 /* Treadmill.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Treadmill.png; sourceTree = "<group>"; };
 		FF85CE9124D0131A00E21F0C /* CaloriePal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CaloriePal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF85CE9424D0131A00E21F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FF85CE9624D0131A00E21F0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -452,6 +526,43 @@
 			children = (
 				FFD29A5F24D55F28007B586D /* Workout.png */,
 				FF379B2024D5050600B441E1 /* Basketball.png */,
+				FF8127EA24ECAC8300518D03 /* Archery.png */,
+				FF8127E924ECAC8300518D03 /* Badminton.png */,
+				FF8127EB24ECAC8400518D03 /* Billiards.png */,
+				FF8127F024ECAF7D00518D03 /* Bicycling.png */,
+				FF8127F324ECAF7D00518D03 /* Dancing.png */,
+				FF8127F124ECAF7D00518D03 /* Diving.png */,
+				FF8127F224ECAF7D00518D03 /* Elliptical.png */,
+				FF8127F424ECAF7D00518D03 /* Fishing.png */,
+				FF8127FA24ECB09E00518D03 /* Football.png */,
+				FF8127FB24ECB09E00518D03 /* Frisbee.png */,
+				FF8127FE24ECB09E00518D03 /* Golf.png */,
+				FF8127FD24ECB09E00518D03 /* Gymnastics.png */,
+				FF8127FC24ECB09E00518D03 /* HIIT.png */,
+				FF81280524ECB22800518D03 /* Handball.png */,
+				FF81280424ECB22800518D03 /* Hiking.png */,
+				FF81280724ECB22800518D03 /* Hockey.png */,
+				FF81280624ECB22800518D03 /* Horseback Riding.png */,
+				FF81280824ECB22800518D03 /* Ice Skating.png */,
+				FF81280F24ECB40500518D03 /* Jumping Rope.png */,
+				FF81281224ECB40500518D03 /* Kayaking.png */,
+				FF81281124ECB40500518D03 /* Pilates.png */,
+				FF81280E24ECB40500518D03 /* Pushups.png */,
+				FF81281024ECB40500518D03 /* Roller Skating.png */,
+				FF81281B24ECB4F700518D03 /* Rugby.png */,
+				FF81281924ECB4F700518D03 /* Sailing.png */,
+				FF81281824ECB4F700518D03 /* Skiing.png */,
+				FF81281A24ECB4F700518D03 /* Snowboarding.png */,
+				FF81282A24ECB65300518D03 /* Baseball.png */,
+				FF81282224ECB60E00518D03 /* Softball.png */,
+				FF81282124ECB60E00518D03 /* Soccer.png */,
+				FF81282024ECB60E00518D03 /* Surfing.png */,
+				FF81282324ECB60E00518D03 /* Swimming.png */,
+				FF81282424ECB60E00518D03 /* Table Tennis.png */,
+				FF81282C24ECB78B00518D03 /* Tennis.png */,
+				FF81282F24ECB78B00518D03 /* Treadmill.png */,
+				FF81282E24ECB78B00518D03 /* Walking.png */,
+				FF81282D24ECB78B00518D03 /* Yoga.png */,
 				FF379B2224D5050600B441E1 /* Running.png */,
 				FF379B2124D5050600B441E1 /* Skateboarding.png */,
 			);
@@ -825,22 +936,32 @@
 				FFC6BF0824E683CE007779BF /* Egg.png in Resources */,
 				FFD2BF3D24EBC763005253A1 /* Orange.png in Resources */,
 				FFC6BF0124E6809D007779BF /* Celery.png in Resources */,
+				FF81281C24ECB4F800518D03 /* Skiing.png in Resources */,
+				FF81281624ECB40500518D03 /* Pilates.png in Resources */,
+				FF8127ED24ECAC8400518D03 /* Badminton.png in Resources */,
 				FFD2BF1E24EBC019005253A1 /* Grapes.png in Resources */,
+				FF81283024ECB78C00518D03 /* Tennis.png in Resources */,
 				FFC6BEE624E67C12007779BF /* Cheese Burger.png in Resources */,
 				FFC6BEB424E66F26007779BF /* Bagel.png in Resources */,
 				FFD2BF5D24EBCD5E005253A1 /* Sausage.png in Resources */,
+				FF81280124ECB09E00518D03 /* HIIT.png in Resources */,
 				FFC6BEC424E674F5007779BF /* Butter.png in Resources */,
 				FF0777A324D25F97002D68A7 /* Serving Size 2.png in Resources */,
 				FF379B2524D5050600B441E1 /* Running.png in Resources */,
 				FFC6BEC524E674F5007779BF /* Cabbage.png in Resources */,
 				FFC6BF0024E6809D007779BF /* Cheese.png in Resources */,
+				FF81280324ECB09E00518D03 /* Golf.png in Resources */,
 				FF5FA4B224D7E2690059A28C /* Breakfast.png in Resources */,
 				FFC6BEEF24E67DC8007779BF /* Coffee.png in Resources */,
+				FF81282724ECB60E00518D03 /* Softball.png in Resources */,
+				FF81280C24ECB22800518D03 /* Hockey.png in Resources */,
 				FFD2BF2824EBC24C005253A1 /* Hot Dog.png in Resources */,
 				FFD2BF3F24EBC763005253A1 /* Peanut Butter.png in Resources */,
+				FF81283124ECB78C00518D03 /* Yoga.png in Resources */,
 				FFC6BECE24E6770F007779BF /* Candy.png in Resources */,
 				FFD2BF4424EBC8B9005253A1 /* Peach.png in Resources */,
 				FFD2BF5A24EBCD5E005253A1 /* Strawberry.png in Resources */,
+				FF81280024ECB09E00518D03 /* Frisbee.png in Resources */,
 				FFD2BF5524EBCBFE005253A1 /* Rice.png in Resources */,
 				FFD2BF6424EBCEB4005253A1 /* Tea.png in Resources */,
 				FF0777A624D25F97002D68A7 /* Serving Size 4.png in Resources */,
@@ -856,38 +977,57 @@
 				FF0777A424D25F97002D68A7 /* Serving Size 3.png in Resources */,
 				FF379B2424D5050600B441E1 /* Skateboarding.png in Resources */,
 				FFC6BEE724E67C12007779BF /* Chicken.png in Resources */,
+				FF81281524ECB40500518D03 /* Roller Skating.png in Resources */,
 				FF5FA4AA24D7DCD90059A28C /* AppIcon.png in Resources */,
+				FF81282924ECB60E00518D03 /* Table Tennis.png in Resources */,
 				FFD2BF4E24EBCA70005253A1 /* Popcorn.png in Resources */,
 				FFC6BF0724E683CE007779BF /* Deli Meat.png in Resources */,
 				FFD2BF4C24EBCA70005253A1 /* Potato.png in Resources */,
+				FF81281724ECB40500518D03 /* Kayaking.png in Resources */,
 				FF7B26E424D10889007167C5 /* Chicken Noodle.png in Resources */,
+				FF81281F24ECB4F800518D03 /* Rugby.png in Resources */,
 				FFC6BEAD24E66CDF007779BF /* Apple.png in Resources */,
 				FFD2BF5324EBCBFE005253A1 /* Salad Greens.png in Resources */,
+				FF81280D24ECB22800518D03 /* Ice Skating.png in Resources */,
+				FF8127F924ECAF7D00518D03 /* Fishing.png in Resources */,
 				FFD2BF2724EBC24C005253A1 /* Jam.png in Resources */,
 				FFC6BF0924E683CE007779BF /* Doughnut.png in Resources */,
 				FFD2BF6324EBCEB4005253A1 /* Toast.png in Resources */,
 				FFD29A6224D56308007B586D /* Meal.png in Resources */,
+				FF81283324ECB78C00518D03 /* Treadmill.png in Resources */,
 				FFD2BF4524EBC8B9005253A1 /* Pie.png in Resources */,
 				FFC6BEE824E67C12007779BF /* Chocolate.png in Resources */,
+				FF81280A24ECB22800518D03 /* Handball.png in Resources */,
 				FFD2BF2124EBC019005253A1 /* Fish.png in Resources */,
 				FF0777AB24D25F97002D68A7 /* Serving Size 5.png in Resources */,
 				FF5FA4B124D7E2690059A28C /* Dinner.png in Resources */,
 				FFD2BF6224EBCEB4005253A1 /* Taco.png in Resources */,
 				FFD2BF3524EBC5E6005253A1 /* Muffin.png in Resources */,
 				FFD2BF3C24EBC763005253A1 /* Pasta.png in Resources */,
+				FF81281324ECB40500518D03 /* Pushups.png in Resources */,
 				FFC6BEEE24E67DC8007779BF /* Corn.png in Resources */,
+				FF81280B24ECB22800518D03 /* Horseback Riding.png in Resources */,
 				FFD2BF2624EBC24C005253A1 /* Hamburger.png in Resources */,
+				FF81282B24ECB65300518D03 /* Baseball.png in Resources */,
+				FF8127EE24ECAC8400518D03 /* Archery.png in Resources */,
 				FFC6BEBD24E67297007779BF /* Blueberry.png in Resources */,
+				FF81282824ECB60E00518D03 /* Swimming.png in Resources */,
 				FF85CEA424D0131B00E21F0C /* LaunchScreen.storyboard in Resources */,
 				FFD2BF4724EBC8B9005253A1 /* Pepper.png in Resources */,
 				FFC6BEBB24E67216007779BF /* Biscuit.png in Resources */,
+				FF8127F524ECAF7D00518D03 /* Bicycling.png in Resources */,
 				FFD2BF4F24EBCA70005253A1 /* Chips.png in Resources */,
 				FF07779624D25C6F002D68A7 /* Omlette Egg.png in Resources */,
 				FFC6BEB324E66F26007779BF /* Bean.png in Resources */,
+				FF8127F824ECAF7D00518D03 /* Dancing.png in Resources */,
 				FFC6BEAF24E66CDF007779BF /* Alcohol.png in Resources */,
 				FF5FA4B024D7E2690059A28C /* Lunch.png in Resources */,
+				FF8127F724ECAF7D00518D03 /* Elliptical.png in Resources */,
 				FF0777A924D25F97002D68A7 /* Serving Size 7.png in Resources */,
 				FFD2BF4624EBC8B9005253A1 /* Pizza.png in Resources */,
+				FF8127F624ECAF7D00518D03 /* Diving.png in Resources */,
+				FF8127FF24ECB09E00518D03 /* Football.png in Resources */,
+				FF81282624ECB60E00518D03 /* Soccer.png in Resources */,
 				FFD2BF4D24EBCA70005253A1 /* Pork.png in Resources */,
 				FFD2BF2024EBC019005253A1 /* French Fries.png in Resources */,
 				FFC6BEF424E67F3C007779BF /* Cream.png in Resources */,
@@ -896,11 +1036,14 @@
 				FFD2BF5B24EBCD5E005253A1 /* Spinach.png in Resources */,
 				FFD2BF3124EBC4AD005253A1 /* Juice, Orange.png in Resources */,
 				FF0777A724D25F97002D68A7 /* Serving Size 1.png in Resources */,
+				FF81281424ECB40500518D03 /* Jumping Rope.png in Resources */,
+				FF81282524ECB60E00518D03 /* Surfing.png in Resources */,
 				FFD2BF6524EBCEB4005253A1 /* Tomato.png in Resources */,
 				FFD2BF5C24EBCD5E005253A1 /* Smoothie.png in Resources */,
 				FFD2BF1F24EBC019005253A1 /* Garlic Clove.png in Resources */,
 				FF5FA4AF24D7E2690059A28C /* Snacks.png in Resources */,
 				FFD2BF2F24EBC4AD005253A1 /* Lemon Juice.png in Resources */,
+				FF8127EF24ECAC8400518D03 /* Billiards.png in Resources */,
 				FFC6BEFF24E6809D007779BF /* Cereal.png in Resources */,
 				FFC6BECA24E676CD007779BF /* Carrot.png in Resources */,
 				FFD2BF3724EBC5E6005253A1 /* Oatmeal.png in Resources */,
@@ -917,12 +1060,17 @@
 				FF0777A824D25F97002D68A7 /* Serving Size 6.png in Resources */,
 				FF0777AA24D25F97002D68A7 /* Serving Size 0.png in Resources */,
 				FFC6BEAE24E66CDF007779BF /* Almond Butter.png in Resources */,
+				FF81283224ECB78C00518D03 /* Walking.png in Resources */,
+				FF81280224ECB09E00518D03 /* Gymnastics.png in Resources */,
 				FFD2BF2E24EBC4AD005253A1 /* Pumpkin Latte.png in Resources */,
 				FFD2BF2924EBC24C005253A1 /* Ice Cream.png in Resources */,
 				FF7B26DC24D0FC6D007167C5 /* foodData.json in Resources */,
+				FF81281E24ECB4F800518D03 /* Snowboarding.png in Resources */,
 				FFC6BEF324E67F3C007779BF /* Cucumber.png in Resources */,
 				FFC6BEE924E67C12007779BF /* Cherry.png in Resources */,
+				FF81281D24ECB4F800518D03 /* Sailing.png in Resources */,
 				FF379B1A24D4FB4800B441E1 /* workoutData.json in Resources */,
+				FF81280924ECB22800518D03 /* Hiking.png in Resources */,
 				FFD2BF3E24EBC763005253A1 /* Onion.png in Resources */,
 				FFD2BF6B24EBD01C005253A1 /* Watermelon.png in Resources */,
 			);

@@ -35,7 +35,7 @@ struct WorkoutSelectorView: View {
                         Text(workout.name.capitalized + " ")
                             .fontWeight(.semibold)
                         Spacer()
-                        Text("\(workout.caloriePerMinute) cals per min")
+                        Text("\(Int(workout.caloriePerMinute)) cals per min")
                             .font(.callout)
                             .fontWeight(.light)
                             .foregroundColor(Color.gray)
