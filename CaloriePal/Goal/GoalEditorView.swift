@@ -20,6 +20,8 @@ struct GoalEditorView: View {
     @State var rate: Float
     @State var goalWeight: String
 
+    @State private var showingAlert = false
+    
     init(goalEditor: GoalEditor) {
         self.goalEditor = goalEditor
         self._gender = State(initialValue: goalEditor.plan.gender)
@@ -136,6 +138,27 @@ struct GoalEditorView: View {
                             .padding(.trailing)
                     }
                 }
+                
+                Section(header: Text("RESET"), footer: Text("This action can't be undone.")) {
+                    Button(action: {
+                        self.showingAlert = true
+                    }) {
+                        Text("Start Fresh & Reset Plan")
+                    }
+                    .alert(isPresented: $showingAlert) {
+                        let primaryButton = Alert.Button.default(Text("Reset").fontWeight(.bold).foregroundColor(.red)) {
+                            self.goalEditor.resetPlan(rootStore: self.rootStore)
+                            self.gender = true
+                            self.age = "18"
+                            self.heightFeet = "5"
+                            self.heightInch = "0"
+                            self.activityLevel = Double(1)
+                            self.rate = 1.0
+                            self.goalWeight = "120"
+                        }
+                        return Alert(title: Text("Reset Plan"), message: Text("We will get you going with a new plan. We will clear your food records and weight history. This can't be undone."), primaryButton: primaryButton, secondaryButton: .default(Text("Cancel")))
+                    }
+                }
             }
         .navigationBarTitle("Weight Loss Plan", displayMode: .inline)
     .onDisappear(perform: {
@@ -153,6 +176,16 @@ struct GoalEditorView: View {
     
     var height: Float {
         Float(self.heightFeet)! * Float(12) + Float(self.heightInch)!
+    }
+    
+    mutating func updateFields() -> Void {
+        self._gender = State(initialValue: goalEditor.plan.gender)
+        self._age = State(initialValue: String(goalEditor.plan.age))
+        self._heightFeet = State(initialValue: String(Int(goalEditor.plan.height) / 12))
+        self._heightInch = State(initialValue: String(Int(goalEditor.plan.height) % 12))
+        self._activityLevel = State(initialValue: Double(goalEditor.plan.activityLevel))
+        self._rate = State(initialValue: goalEditor.plan.rate)
+        self._goalWeight = State(initialValue: String(goalEditor.plan.goal))
     }
 }
 

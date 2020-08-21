@@ -239,7 +239,11 @@ struct Plan: Hashable, Codable, Identifiable {
     func latestWeight() -> Float {
         let weights = self.weights()
         let sortedDates = weights.keys.sorted()
-        return weights[sortedDates.last!]!
+        if let lastDate = sortedDates.last {
+            return weights[lastDate] ?? 0
+        } else {
+            return 0
+        }
     }
     
     mutating func updateWeight(date: Date, weight: Float) -> Void {

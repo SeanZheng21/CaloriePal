@@ -26,4 +26,10 @@ class GoalEditor: ObservableObject {
         rootStore.plan.setGoalWeight(to: goalWeight)
         rootStore.plan.setRate(to: rate)
     }
+        
+    func resetPlan(rootStore: RootStore) -> Void {
+        let newPlan = Plan(gender: true, height: 60, age: 18, activityLevel: 1, from: Date(), startWeight: 130, goalWeight: 120, rate: 1.0)
+        rootStore.setPlan(plan: newPlan)
+        self.plan = newPlan
+    }
 }
