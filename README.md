@@ -101,8 +101,34 @@ iOS 12 - SwiftUI
 - Reset plan option
 - Warning pop-up before reset or start a new plan
 
+# Demo
+![rec2](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/rec2.gif)
+![rec3](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/rec3.gif)
+![rec4](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/rec4.gif)
+![rec5](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/rec5.gif)
+![rec6](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/rec6.gif)
+![rec7](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/rec7.gif)
+![rec8](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/rec8.gif)
 
-
-
-
+## Screenshots
+![1](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/1.png)
+![2](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/2.png)
+![3](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/3.png)
+![4](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/4.png)
+![5](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/5.png)
+![6](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/6.png)
+![7](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/7.png)
+![8](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/8.png)
+![9](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/9.png)
+![10](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/10.png)
+![11](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/11.png)
+![12](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/12.png)
+![13](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/13.png)
+![14](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/14.png)
+![15](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/15.png)
+![16](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/16.png)
+![17](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/17.png)
+![18](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/18.png)
+![19](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/19.png)
+![20](https://github.com/SeanZheng21/CaloriePal/blob/master/Screenshots/20.png)
 
